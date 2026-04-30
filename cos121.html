@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Student CBT — LASUED COS 121</title>
+    <title>Student CBT - LASUED COS 121</title>
     <link rel="icon" type="image/png" href="lasued.png">
 
     <meta property="og:title" content="Student CBT | LASUED COS 121">
     <meta property="og:description" content="Practice CBT exams on Problem Solving and Algorithmic Thinking.">
     <meta property="og:image" content="https://student-cbt.vercel.app/student.png">
-    <meta property="og:url" content="https://student-cbt.vercel.app">
+    <meta property="og:url" content="https://student-cbt.vercel.app/COS121.html">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
@@ -24,15 +24,18 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: { 50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd', 400: '#a78bfa',
-                            500: '#8b5cf6', 600: '#6E5AE6', 700: '#5b3fd4', 800: '#4c2fb5', 900: '#3b1f94' },
-                        gold: { 400: '#F4C95D', 500: '#f0c040', 600: '#d4a830' },
+                        brand: { 
+                            50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd', 
+                            400: '#a78bfa', 500: '#8b5cf6', 600: '#6E5AE6', 700: '#5b3fd4', 
+                            800: '#4c2fb5', 900: '#3b1f94' 
+                        },
+                        gold: { 400: '#F4C95D', 500: '#f0c040', 600: '#d4a830' }
                     },
                     fontFamily: {
                         display: ['"Playfair Display"', 'Georgia', 'serif'],
                         body: ['"Inter"', 'system-ui', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    },
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
                 }
             }
         }
@@ -81,6 +84,7 @@
         .revise-card { transition: all 0.25s; cursor: pointer; }
         .revise-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); }
         .dark .revise-card:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.35); }
+        .dark-icon { width: 18px; height: 18px; }
     </style>
 </head>
 <body class="bg-[#FAF9F6] dark:bg-[#1a1a2e] text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen">
@@ -94,28 +98,28 @@
                 <span class="text-xs font-bold">LASUED</span>
             </div>
             <div class="hidden sm:block">
-                <span class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide">COS 121 · Computer Science Dept.</span>
-                <h1 class="text-sm font-bold text-gray-800 dark:text-white leading-tight">Problem Solving & Algorithmic Thinking</h1>
+                <span class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide">COS 121 . Computer Science Dept.</span>
+                <h1 class="text-sm font-bold text-gray-800 dark:text-white leading-tight">Problem Solving &amp; Algorithmic Thinking</h1>
             </div>
         </div>
         <div class="flex items-center gap-1.5 flex-wrap">
-            <!-- Home button -->
+            <!-- Home button - Fixed: Points to current page -->
             <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors flex items-center gap-1.5" title="Go to Home">
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 <span class="hidden sm:inline">Home</span>
             </a>
             <button onclick="switchTab('notes',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors active bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 whitespace-nowrap" data-tab="notes">
-                <svg class="w-4 h-4 inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Notes
+                <svg class="dark-icon inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Notes
             </button>
             <button onclick="switchTab('practice',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap" data-tab="practice">
-                <svg class="w-4 h-4 inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Practice
+                <svg class="dark-icon inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Practice
             </button>
             <button onclick="switchTab('revise',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap" data-tab="revise">
-                <svg class="w-4 h-4 inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Revise
+                <svg class="dark-icon inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Revise
             </button>
             <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ml-1" aria-label="Toggle dark mode">
-                <svg id="dark-icon-sun" class="w-4.5 h-4.5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg id="dark-icon-moon" class="w-4.5 h-4.5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                <svg id="dark-icon-sun" class="dark-icon hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg id="dark-icon-moon" class="dark-icon block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
             </button>
         </div>
     </nav>
@@ -124,38 +128,108 @@
         <!-- NOTES PANEL -->
         <div id="panel-notes" class="panel-visible space-y-6">
             <div class="text-center py-8">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">COS 121 <span class="text-brand-600 dark:text-brand-400">—</span> Complete Lecture Notes</h2>
-                <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">Problem Solving & Algorithmic Thinking — process, types, patterns, and theories.</p>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">COS 121 <span class="text-brand-600 dark:text-brand-400">-</span> Complete Lecture Notes</h2>
+                <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">Problem Solving &amp; Algorithmic Thinking - process, types, patterns, and theories.</p>
                 <p class="mt-2 text-xs text-gray-400 dark:text-gray-500">Learning Architect: <span class="font-semibold text-brand-600">Archangelstr</span></p>
             </div>
             <div class="flex gap-2 flex-wrap bg-white dark:bg-gray-800 rounded-2xl p-2 shadow-sm border">
                 <button onclick="switchNotesSubtab('fundamentals')" id="notes-sub-fundamentals" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 transition-colors">Fundamentals</button>
                 <button onclick="switchNotesSubtab('types')" id="notes-sub-types" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Problem Types</button>
-                <button onclick="switchNotesSubtab('theories')" id="notes-sub-theories" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Theories & Patterns</button>
+                <button onclick="switchNotesSubtab('theories')" id="notes-sub-theories" class="px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Theories &amp; Patterns</button>
             </div>
 
-            <!-- Notes: Fundamentals -->
+            <!-- Notes Content -->
             <div id="notes-fundamentals" class="notes-content space-y-4">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">1 — What is Problem Solving?</h2><p>A <strong>problem</strong> is a situation requiring a solution without an immediate answer. <strong>Problem solving</strong> is the process of identifying, analyzing, and solving a problem using logical and systematic steps. It often involves a series of simple steps rather than one giant leap.</p>
-                <div class="keybox"><strong>Key Idea:</strong> Problem solving = Identify → Analyze → Solve with logical steps.</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">2 — The Four Steps of Problem Solving</h2>
-                <table><tr><th>Step</th><th>Description</th></tr><tr><td>1. Analyze the problem</td><td>Understand the problem’s nature, requirements, and constraints.</td></tr><tr><td>2. Design the solution</td><td>Plan a step‑by‑step method (algorithm) before coding.</td></tr><tr><td>3. Implement the solution</td><td>Execute the plan (write code, build system, perform actions).</td></tr><tr><td>4. Test and Evaluate</td><td>Check if the solution works correctly and meets requirements.</td></tr></table></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">3 — Problem Identification</h2><p>Before solving, you must recognise the problem:</p><ol class="list-decimal pl-5 space-y-1 text-sm"><li><strong>Recognize the need</strong> – realise a problem exists.</li><li><strong>Define the problem clearly</strong> – state it precisely.</li><li><strong>Identify the inputs and outputs</strong> – what goes in and what comes out.</li><li><strong>Identify constraints/limitations</strong> – note restrictions.</li></ol></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">4 — Key Elements of Compiling (Problem Solving Context)</h2><table><tr><th>Element</th><th>Role</th></tr><tr><td>Input</td><td>Data entered into the system</td></tr><tr><td>Processing</td><td>Operations performed on the data</td></tr><tr><td>Output</td><td>Result of the processing</td></tr><tr><td>Storage</td><td>Holds data or results during/after processing</td></tr></table><p><strong>Data processing</strong> = transforming raw data into human‑readable form. <strong>Automation</strong> = using technology to perform a task with little or no human intervention. <strong>Algorithm</strong> = step‑by‑step method to solve a problem.</p></div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">1 - What is Problem Solving?</h2>
+                    <p>A <strong>problem</strong> is a situation requiring a solution without an immediate answer. <strong>Problem solving</strong> is the process of identifying, analyzing, and solving a problem using logical and systematic steps. It often involves a series of simple steps rather than one giant leap.</p>
+                    <div class="keybox"><strong>Key Idea:</strong> Problem solving = Identify, Analyze, Solve with logical steps.</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">2 - The Four Steps of Problem Solving</h2>
+                    <table>
+                        <tr><th>Step</th><th>Description</th></tr>
+                        <tr><td>1. Analyze the problem</td><td>Understand the problem's nature, requirements, and constraints.</td></tr>
+                        <tr><td>2. Design the solution</td><td>Plan a step-by-step method (algorithm) before coding.</td></tr>
+                        <tr><td>3. Implement the solution</td><td>Execute the plan (write code, build system, perform actions).</td></tr>
+                        <tr><td>4. Test and Evaluate</td><td>Check if the solution works correctly and meets requirements.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">3 - Problem Identification</h2>
+                    <p>Before solving, you must recognise the problem:</p>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li><strong>Recognize the need</strong> - realise a problem exists.</li>
+                        <li><strong>Define the problem clearly</strong> - state it precisely.</li>
+                        <li><strong>Identify the inputs and outputs</strong> - what goes in and what comes out.</li>
+                        <li><strong>Identify constraints/limitations</strong> - note restrictions.</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">4 - Key Elements of Compiling</h2>
+                    <table>
+                        <tr><th>Element</th><th>Role</th></tr>
+                        <tr><td>Input</td><td>Data entered into the system</td></tr>
+                        <tr><td>Processing</td><td>Operations performed on the data</td></tr>
+                        <tr><td>Output</td><td>Result of the processing</td></tr>
+                        <tr><td>Storage</td><td>Holds data or results during/after processing</td></tr>
+                    </table>
+                    <p><strong>Data processing</strong> = transforming raw data into human-readable form. <strong>Automation</strong> = using technology to perform a task with little or no human intervention. <strong>Algorithm</strong> = step-by-step method to solve a problem.</p>
+                </div>
             </div>
 
-            <!-- Notes: Problem Types -->
             <div id="notes-types" class="notes-content space-y-4 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">5 — Non‑Linear (Routine) Problems</h2><p>These problems follow a known formula or procedure. They are <strong>predictable, easy to solve, require little creativity, and have a known method with low complexity</strong>.</p><p><strong>Examples:</strong> Calculate area of a rectangle, convert Celsius to Fahrenheit, find average of three numbers.</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">6 — None Routine (Non‑Routine) Problems</h2><p>These problems have <strong>no direct solution</strong>. They require <strong>creativity and deep thinking</strong>. Characteristics: always complex, require reasoning, multiple possible solutions, no fixed procedures.</p><p><strong>Examples:</strong> Build an AI system, design a new encryption protocol, create a business plan.</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">7 — Comparison Table</h2><table><tr><th>Feature</th><th>Routine (Non‑linear)</th><th>Non‑Routine</th></tr><tr><td>Method</td><td>Known</td><td>Unknown</td></tr><tr><td>Complexity</td><td>Low</td><td>High</td></tr><tr><td>Creativity</td><td>Low</td><td>High</td></tr><tr><td>Solution path</td><td>Fixed</td><td>Multiple possibilities</td></tr></table></div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">5 - Non-Linear (Routine) Problems</h2>
+                    <p>These problems follow a known formula or procedure. They are <strong>predictable, easy to solve, require little creativity, and have a known method with low complexity</strong>.</p>
+                    <p><strong>Examples:</strong> Calculate area of a rectangle, convert Celsius to Fahrenheit, find average of three numbers.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">6 - Non-Routine Problems</h2>
+                    <p>These problems have <strong>no direct solution</strong>. They require <strong>creativity and deep thinking</strong>. Characteristics: always complex, require reasoning, multiple possible solutions, no fixed procedures.</p>
+                    <p><strong>Examples:</strong> Build an AI system, design a new encryption protocol, create a business plan.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">7 - Comparison Table</h2>
+                    <table>
+                        <tr><th>Feature</th><th>Routine (Non-linear)</th><th>Non-Routine</th></tr>
+                        <tr><td>Method</td><td>Known</td><td>Unknown</td></tr>
+                        <tr><td>Complexity</td><td>Low</td><td>High</td></tr>
+                        <tr><td>Creativity</td><td>Low</td><td>High</td></tr>
+                        <tr><td>Solution path</td><td>Fixed</td><td>Multiple possibilities</td></tr>
+                    </table>
+                </div>
             </div>
 
-            <!-- Notes: Theories & Patterns -->
             <div id="notes-theories" class="notes-content space-y-4 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">8 — Pattern Recognition</h2><p>Identify similarities within a problem and reuse known solutions. Patterns must be <strong>well defined, structured, easy to analyze</strong> – no ambiguity.</p><div class="infobox"><strong>Habit to develop:</strong> Break down problems into small parts and solve them logically (decomposition).</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">9 — Five Pattern Steps</h2><ol class="list-decimal pl-5 space-y-1 text-sm"><li>Break down the problem</li><li>Identify the pattern</li><li>Identify the relationship</li><li>Formulate the solution</li><li>Evaluate the result</li></ol></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">10 — Problem Solving Theories</h2><table><tr><th>Theory</th><th>Key Idea</th></tr><tr><td>Algorithmic</td><td>Step‑by‑step finite procedure</td></tr><tr><td>Decomposition</td><td>Break into smaller parts</td></tr><tr><td>Pattern Recognition</td><td>Reuse known patterns</td></tr><tr><td>Abstraction</td><td>Ignore irrelevant details</td></tr><tr><td>Evaluation</td><td>Test and iterate</td></tr><tr><td>Polya’s (1945)</td><td>Understand → Plan → Do → Check</td></tr><tr><td>Means‑Ends</td><td>Reduce gap between current and goal</td></tr></table></div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">8 - Pattern Recognition</h2>
+                    <p>Identify similarities within a problem and reuse known solutions. Patterns must be <strong>well defined, structured, easy to analyze</strong> - no ambiguity.</p>
+                    <div class="infobox"><strong>Habit to develop:</strong> Break down problems into small parts and solve them logically (decomposition).</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">9 - Five Pattern Steps</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li>Break down the problem</li>
+                        <li>Identify the pattern</li>
+                        <li>Identify the relationship</li>
+                        <li>Formulate the solution</li>
+                        <li>Evaluate the result</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">10 - Problem Solving Theories</h2>
+                    <table>
+                        <tr><th>Theory</th><th>Key Idea</th></tr>
+                        <tr><td>Algorithmic</td><td>Step-by-step finite procedure</td></tr>
+                        <tr><td>Decomposition</td><td>Break into smaller parts</td></tr>
+                        <tr><td>Pattern Recognition</td><td>Reuse known patterns</td></tr>
+                        <tr><td>Abstraction</td><td>Ignore irrelevant details</td></tr>
+                        <tr><td>Evaluation</td><td>Test and iterate</td></tr>
+                        <tr><td>Polya's (1945)</td><td>Understand, Plan, Do, Check</td></tr>
+                        <tr><td>Means-Ends</td><td>Reduce gap between current and goal</td></tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -172,20 +246,22 @@
                 <div class="grid grid-cols-4 gap-2">
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="total-q-display">70</div><div class="text-xs text-gray-500">Total</div></div>
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="answered-q-display">0</div><div class="text-xs text-gray-500">Answered</div></div>
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold text-brand-600" id="score-display-mini">—</div><div class="text-xs text-gray-500">Score</div></div>
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="percent-display-mini">—</div><div class="text-xs text-gray-500">%</div></div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold text-brand-600" id="score-display-mini">--</div><div class="text-xs text-gray-500">Score</div></div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="percent-display-mini">--</div><div class="text-xs text-gray-500">%</div></div>
                 </div>
                 <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full"><div id="progress-bar-fill" class="h-full bg-brand-600 rounded-full transition-all" style="width:0%"></div></div>
                 <div id="question-view" class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border min-h-[300px] transition-all"></div>
                 <div class="flex flex-wrap gap-2 justify-center">
                     <button onclick="submitAllAnswers()" class="px-6 py-3 bg-brand-600 text-white rounded-xl text-sm font-semibold shadow-md">Submit &amp; Grade All</button>
                     <button onclick="resetAllAnswers()" class="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm">Reset</button>
-                    <button onclick="showHistoryModal()" class="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm flex items-center gap-1.5"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> History</button>
+                    <button onclick="showHistoryModal()" class="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm flex items-center gap-1.5">
+                        <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> History
+                    </button>
                 </div>
                 <div class="flex items-center justify-between gap-2">
-                    <button id="prev-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(-1)">← Prev</button>
+                    <button id="prev-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(-1)">Prev</button>
                     <div class="flex gap-1 overflow-x-auto nav-scroll py-1" id="number-navigator"></div>
-                    <button id="next-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(1)">Next →</button>
+                    <button id="next-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(1)">Next</button>
                 </div>
             </div>
         </div>
@@ -200,109 +276,253 @@
     </main>
 
     <!-- MODALS -->
-    <div id="timer-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal-overlay"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4"><h3 class="text-lg font-bold mb-3">Exam Timer</h3><select id="exam-duration-select" class="w-full rounded-lg border px-3 py-2 text-sm mb-4 dark:bg-gray-700 dark:border-gray-600"><option value="10">10 min</option><option value="20" selected>20 min</option><option value="30">30 min</option><option value="45">45 min</option><option value="60">60 min</option></select><div class="flex gap-2"><button onclick="startExamFromModal()" class="flex-1 bg-brand-600 text-white py-2 rounded-lg font-semibold">Start</button><button onclick="closeTimerModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">Cancel</button></div></div></div>
+    <div id="timer-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal-overlay">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4">
+            <h3 class="text-lg font-bold mb-3">Exam Timer</h3>
+            <select id="exam-duration-select" class="w-full rounded-lg border px-3 py-2 text-sm mb-4 dark:bg-gray-700 dark:border-gray-600">
+                <option value="10">10 min</option>
+                <option value="20" selected>20 min</option>
+                <option value="30">30 min</option>
+                <option value="45">45 min</option>
+                <option value="60">60 min</option>
+            </select>
+            <div class="flex gap-2">
+                <button onclick="startExamFromModal()" class="flex-1 bg-brand-600 text-white py-2 rounded-lg font-semibold">Start</button>
+                <button onclick="closeTimerModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">Cancel</button>
+            </div>
+        </div>
+    </div>
 
-    <div id="congrats-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4 text-center"><div id="congrats-icon" class="mb-3"></div><h2 class="text-xl font-bold mb-2" id="congrats-title">Result</h2><p class="text-sm text-gray-600 dark:text-gray-300 mb-1" id="congrats-message"></p><p class="text-3xl font-bold text-brand-600 mb-4" id="congrats-score"></p><button onclick="closeCongratsModal()" class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors">Continue</button></div></div>
+    <div id="congrats-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4 text-center">
+            <div id="congrats-icon" class="mb-3"></div>
+            <h2 class="text-xl font-bold mb-2" id="congrats-title">Result</h2>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1" id="congrats-message"></p>
+            <p class="text-3xl font-bold text-brand-600 mb-4" id="congrats-score"></p>
+            <button onclick="closeCongratsModal()" class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors">Continue</button>
+        </div>
+    </div>
 
-    <div id="history-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto"><div class="flex justify-between items-center mb-4"><h3 class="text-lg font-bold text-gray-800 dark:text-white">Score History</h3><button onclick="closeHistoryModal()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div id="history-list" class="space-y-2"></div><button onclick="clearHistory()" class="mt-4 px-4 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg text-sm font-semibold w-full hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">Clear History</button></div></div>
+    <div id="history-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-white">Score History</h3>
+                <button onclick="closeHistoryModal()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                    <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div id="history-list" class="space-y-2"></div>
+            <button onclick="clearHistory()" class="mt-4 px-4 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg text-sm font-semibold w-full hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">Clear History</button>
+        </div>
+    </div>
 
     <footer class="text-center py-6 text-xs text-gray-400 dark:text-gray-500 border-t mt-8 space-y-1">
-        <p>&copy; <span id="current-year"></span> <span class="font-semibold text-brand-600">Archangelstr</span>. All rights reserved. · LASUED COS 121</p>
-        <p>Course: <span class="font-semibold">Problem Solving & Algorithmic Thinking</span></p>
+        <p>&copy; <span id="current-year"></span> <span class="font-semibold text-brand-600">Archangelstr</span>. All rights reserved. . LASUED COS 121</p>
+        <p>Course: <span class="font-semibold">Problem Solving &amp; Algorithmic Thinking</span></p>
     </footer>
 
     <script>
-        // IndexedDB
-        const DB_NAME = 'CBT_DB', DB_VERSION = 1;
-        let db = null;
-        async function openDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, DB_VERSION);
-                request.onupgradeneeded = e => { const db = e.target.result; if (!db.objectStoreNames.contains('results')) db.createObjectStore('results', { keyPath: 'id' }); };
-                request.onsuccess = e => { db = e.target.result; resolve(db); };
-                request.onerror = e => reject(e.target.error);
+        // ============================================
+        // ALL FUNCTIONS IN GLOBAL SCOPE (window object)
+        // ============================================
+        
+        // IndexedDB with localStorage fallback
+        var DB_NAME = 'CBT_DB';
+        var DB_VERSION = 1;
+        var db = null;
+        
+        function openDB() {
+            return new Promise(function(resolve, reject) {
+                try {
+                    var request = indexedDB.open(DB_NAME, DB_VERSION);
+                    request.onupgradeneeded = function(e) {
+                        var database = e.target.result;
+                        if (!database.objectStoreNames.contains('results')) {
+                            database.createObjectStore('results', { keyPath: 'id' });
+                        }
+                    };
+                    request.onsuccess = function(e) {
+                        db = e.target.result;
+                        resolve(db);
+                    };
+                    request.onerror = function(e) {
+                        console.warn('IndexedDB not available, using localStorage fallback');
+                        reject(e.target.error);
+                    };
+                } catch(e) {
+                    console.warn('IndexedDB failed, using localStorage');
+                    reject(e);
+                }
             });
         }
-        async function saveResult(score, total, percentage) {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('results', 'readwrite');
-                const store = tx.objectStore('results');
-                const record = { id: Date.now(), score, total, percentage, date: new Date().toISOString() };
-                const req = store.put(record);
-                req.onsuccess = () => resolve(record);
-                req.onerror = () => reject(req.error);
+        
+        function saveResult(score, total, percentage) {
+            try {
+                if (!db) {
+                    return openDB().then(function() {
+                        return saveToDB(score, total, percentage);
+                    }).catch(function() {
+                        return saveToLocalStorage(score, total, percentage);
+                    });
+                }
+                return saveToDB(score, total, percentage).catch(function() {
+                    return saveToLocalStorage(score, total, percentage);
+                });
+            } catch(e) {
+                return saveToLocalStorage(score, total, percentage);
+            }
+        }
+        
+        function saveToDB(score, total, percentage) {
+            return new Promise(function(resolve, reject) {
+                var tx = db.transaction('results', 'readwrite');
+                var store = tx.objectStore('results');
+                var record = { id: Date.now(), score: score, total: total, percentage: percentage, date: new Date().toISOString() };
+                var req = store.put(record);
+                req.onsuccess = function() { resolve(record); };
+                req.onerror = function() { reject(req.error); };
             });
         }
-        async function getResults(limit=20) {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('results', 'readonly');
-                const store = tx.objectStore('results');
-                const getAll = store.getAll();
-                getAll.onsuccess = () => { let r = getAll.result || []; r.sort((a,b) => b.id - a.id); resolve(r.slice(0, limit)); };
-                getAll.onerror = () => reject(getAll.error);
+        
+        function saveToLocalStorage(score, total, percentage) {
+            try {
+                var results = JSON.parse(localStorage.getItem('cbt_results') || '[]');
+                results.push({ id: Date.now(), score: score, total: total, percentage: percentage, date: new Date().toISOString() });
+                localStorage.setItem('cbt_results', JSON.stringify(results.slice(-20)));
+                return Promise.resolve();
+            } catch(e) {
+                return Promise.resolve();
+            }
+        }
+        
+        function getResults(limit) {
+            limit = limit || 20;
+            try {
+                if (!db) {
+                    return openDB().then(function() {
+                        return getFromDB(limit);
+                    }).catch(function() {
+                        return getFromLocalStorage(limit);
+                    });
+                }
+                return getFromDB(limit).catch(function() {
+                    return getFromLocalStorage(limit);
+                });
+            } catch(e) {
+                return getFromLocalStorage(limit);
+            }
+        }
+        
+        function getFromDB(limit) {
+            return new Promise(function(resolve, reject) {
+                var tx = db.transaction('results', 'readonly');
+                var store = tx.objectStore('results');
+                var getAll = store.getAll();
+                getAll.onsuccess = function() {
+                    var r = getAll.result || [];
+                    r.sort(function(a, b) { return b.id - a.id; });
+                    resolve(r.slice(0, limit));
+                };
+                getAll.onerror = function() { reject(getAll.error); };
             });
         }
-        async function clearResults() {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('results', 'readwrite');
-                const store = tx.objectStore('results');
-                const req = store.clear();
-                req.onsuccess = () => resolve();
-                req.onerror = () => reject(req.error);
+        
+        function getFromLocalStorage(limit) {
+            try {
+                var results = JSON.parse(localStorage.getItem('cbt_results') || '[]');
+                results.sort(function(a, b) { return b.id - a.id; });
+                return Promise.resolve(results.slice(0, limit));
+            } catch(e) {
+                return Promise.resolve([]);
+            }
+        }
+        
+        function clearResults() {
+            try {
+                if (!db) {
+                    return openDB().then(function() {
+                        return clearDB();
+                    }).catch(function() {
+                        return clearLocalStorage();
+                    });
+                }
+                return clearDB().catch(function() {
+                    return clearLocalStorage();
+                });
+            } catch(e) {
+                return clearLocalStorage();
+            }
+        }
+        
+        function clearDB() {
+            return new Promise(function(resolve, reject) {
+                var tx = db.transaction('results', 'readwrite');
+                var store = tx.objectStore('results');
+                var req = store.clear();
+                req.onsuccess = function() { resolve(); };
+                req.onerror = function() { reject(req.error); };
             });
         }
-        openDB().then(() => console.log('IndexedDB ready')).catch(e => console.error('DB init failed:', e));
+        
+        function clearLocalStorage() {
+            try {
+                localStorage.removeItem('cbt_results');
+            } catch(e) {}
+            return Promise.resolve();
+        }
+        
+        // Initialize DB
+        openDB().catch(function() {
+            console.log('Using localStorage fallback for scores');
+        });
 
-        // ========== 70 QUESTIONS ==========
-        const allQuestions = [
+        // ========== 70 QUESTIONS (All smart quotes fixed) ==========
+        var allQuestions = [
             { q: "What does compiling refer to?", opts: ["Storing data permanently", "Using a compilation system to process data, perform calculations, and solve problems", "Writing computer code manually", "Testing software for bugs"], ans: 1, exp: "Compiling = using a system to process data, perform calculations, and solve problems (context of problem solving)." },
             { q: "Which of the following is NOT one of the four key elements of compiling?", opts: ["Input", "Processing", "Debugging", "Storage"], ans: 2, exp: "The four elements are Input, Processing, Output, Storage. Debugging is not a key element." },
-            { q: "What is the role of “Processing” in compiling?", opts: ["The result of the processing", "The operation performed on the data", "The data entered into the system", "The place where data is held"], ans: 1, exp: "Processing = the operation performed on the data." },
-            { q: "What does “Output” refer to in the context of compiling?", opts: ["The data before processing", "The operation performed on data", "The result of the processing", "The storage location"], ans: 2, exp: "Output = the result of the processing." },
-            { q: "What does “Storage” refer to in compiling?", opts: ["Deleting unnecessary data", "The operation performed on data", "Holding data or results during/after compiling", "The final output of the system"], ans: 2, exp: "Storage = holding data or results during/after processing." },
-            { q: "How is data processing defined in your notes?", opts: ["The transformation of data into human form", "The deletion of raw data", "The storage of backup files", "The automation of manual tasks"], ans: 0, exp: "Data processing = transforming data into human‑readable form." },
+            { q: "What is the role of Processing in compiling?", opts: ["The result of the processing", "The operation performed on the data", "The data entered into the system", "The place where data is held"], ans: 1, exp: "Processing = the operation performed on the data." },
+            { q: "What does Output refer to in the context of compiling?", opts: ["The data before processing", "The operation performed on data", "The result of the processing", "The storage location"], ans: 2, exp: "Output = the result of the processing." },
+            { q: "What does Storage refer to in compiling?", opts: ["Deleting unnecessary data", "The operation performed on data", "Holding data or results during/after compiling", "The final output of the system"], ans: 2, exp: "Storage = holding data or results during/after processing." },
+            { q: "How is data processing defined in your notes?", opts: ["The transformation of data into human form", "The deletion of raw data", "The storage of backup files", "The automation of manual tasks"], ans: 0, exp: "Data processing = transforming data into human-readable form." },
             { q: "What is automation?", opts: ["Using technology to perform a task without manual effort and with little or no human intervention", "A step-by-step problem-solving method", "The transformation of data into machine code", "A type of non-routine problem"], ans: 0, exp: "Automation = technology performing a task with little or no human intervention." },
-            { q: "What is an algorithm?", opts: ["A hardware component", "The final output of a computer system", "The step-by-step method of solving a problem to complete a computer system", "A type of storage device"], ans: 2, exp: "Algorithm = step‑by‑step problem‑solving method." },
-            { q: "Which three components are listed under “Hardware, Software, Data”?", opts: ["Input, Output, Storage", "Hardware, Software, Data", "Processing, Automation, Algorithm", "Routine, Non-routine, Pattern"], ans: 1, exp: "The foundational concepts include Hardware, Software, Data." },
+            { q: "What is an algorithm?", opts: ["A hardware component", "The final output of a computer system", "The step-by-step method of solving a problem to complete a computer system", "A type of storage device"], ans: 2, exp: "Algorithm = step-by-step problem-solving method." },
+            { q: "Which three components are listed under Hardware, Software, Data?", opts: ["Input, Output, Storage", "Hardware, Software, Data", "Processing, Automation, Algorithm", "Routine, Non-routine, Pattern"], ans: 1, exp: "The foundational concepts include Hardware, Software, Data." },
             { q: "What transformation does data processing achieve?", opts: ["Data into machine language", "Data into human-readable form", "Data into encrypted code", "Data into deleted files"], ans: 1, exp: "Data processing transforms data into a usable (human) form." },
             { q: "What is a problem?", opts: ["A solution that is always easy to find", "A situation requiring a solution or tasks needing completion without an immediate answer", "A type of computer algorithm", "A step in the compilation process"], ans: 1, exp: "A problem is a situation without an immediate answer." },
             { q: "What does problem solving often imply according to the notes?", opts: ["One very complex step", "A series of always very simple steps", "Skipping the testing phase", "Using only hardware solutions"], ans: 1, exp: "Problem solving often involves a series of simple steps." },
-            { q: "What process does problem solving follow?", opts: ["Coding, compiling, running, debugging", "Identifying, analyzing, and then solving the problem with logical and systematic steps", "Input, processing, output, storage", "Recognizing, storing, deleting, outputting"], ans: 1, exp: "Problem solving = identify → analyze → solve (logical/systematic)." },
-            { q: "List the four steps of problem solving in order as given in the notes. Which is correct?", opts: ["Implement, Test, Design, Analyze", "Analyze, Design, Implement, Test and Evaluate", "Test, Analyze, Implement, Design", "Design, Implement, Evaluate, Analyze"], ans: 1, exp: "Correct order: Analyze → Design → Implement → Test & Evaluate." },
-            { q: "What happens during “Analyze the problem”?", opts: ["Carrying out the designed plan", "Understanding the problem’s nature and requirements", "Checking if the solution works correctly", "Writing the final report"], ans: 1, exp: "Analyze = understand the problem’s nature and requirements." },
-            { q: "What is involved in “Design the solution”?", opts: ["Testing the software", "Deleting incorrect data", "Planning how to solve it before coding or acting", "Compiling the code"], ans: 2, exp: "Design = plan the solution before acting." },
-            { q: "What does “Implement the solution” mean?", opts: ["Recognizing there is a problem", "Carrying out the designed plan", "Evaluating the results", "Defining inputs and outputs"], ans: 1, exp: "Implement = carry out the designed plan." },
-            { q: "What is the purpose of “Test and Evaluate the solution”?", opts: ["To delete the old solution", "To check if the solution works correctly", "To write more algorithms", "To store data permanently"], ans: 1, exp: "Test & evaluate = verify correctness and effectiveness." },
-            { q: "Why is problem solving described as “logical and systematic”?", opts: ["Because it uses random guessing", "Because it follows clear, reasoned steps toward a solution", "Because it avoids all testing", "Because it only works for routine problems"], ans: 1, exp: "It follows clear, reasoned steps, not random guessing." },
+            { q: "What process does problem solving follow?", opts: ["Coding, compiling, running, debugging", "Identifying, analyzing, and then solving the problem with logical and systematic steps", "Input, processing, output, storage", "Recognizing, storing, deleting, outputting"], ans: 1, exp: "Problem solving = identify -> analyze -> solve (logical/systematic)." },
+            { q: "List the four steps of problem solving in order as given in the notes. Which is correct?", opts: ["Implement, Test, Design, Analyze", "Analyze, Design, Implement, Test and Evaluate", "Test, Analyze, Implement, Design", "Design, Implement, Evaluate, Analyze"], ans: 1, exp: "Correct order: Analyze -> Design -> Implement -> Test & Evaluate." },
+            { q: "What happens during Analyze the problem?", opts: ["Carrying out the designed plan", "Understanding the problem's nature and requirements", "Checking if the solution works correctly", "Writing the final report"], ans: 1, exp: "Analyze = understand the problem's nature and requirements." },
+            { q: "What is involved in Design the solution?", opts: ["Testing the software", "Deleting incorrect data", "Planning how to solve it before coding or acting", "Compiling the code"], ans: 2, exp: "Design = plan the solution before acting." },
+            { q: "What does Implement the solution mean?", opts: ["Recognizing there is a problem", "Carrying out the designed plan", "Evaluating the results", "Defining inputs and outputs"], ans: 1, exp: "Implement = carry out the designed plan." },
+            { q: "What is the purpose of Test and Evaluate the solution?", opts: ["To delete the old solution", "To check if the solution works correctly", "To write more algorithms", "To store data permanently"], ans: 1, exp: "Test & evaluate = verify correctness and effectiveness." },
+            { q: "Why is problem solving described as logical and systematic?", opts: ["Because it uses random guessing", "Because it follows clear, reasoned steps toward a solution", "Because it avoids all testing", "Because it only works for routine problems"], ans: 1, exp: "It follows clear, reasoned steps, not random guessing." },
             { q: "What is the final step after testing a solution according to the four-step process?", opts: ["Analysis", "Design", "Implementation", "Evaluation (Test and Evaluate is the last step)"], ans: 3, exp: "The last step is Test and Evaluate." },
             { q: "What is problem identification?", opts: ["Ignoring the problem", "Recognizing and clearly defining a problem that needs a solution", "Implementing a random solution", "Storing the problem in memory"], ans: 1, exp: "Problem identification = recognising and defining the problem." },
             { q: "What is the first step in identifying a problem?", opts: ["Define the problem clearly", "Identify inputs and outputs", "Recognize the need", "Identify constraints"], ans: 2, exp: "First: Recognize the need." },
-            { q: "What does “Define the problem clearly” involve?", opts: ["Stating the problem precisely", "Skipping to the solution", "Listing hardware components", "Testing the output"], ans: 0, exp: "Define = state the problem precisely without ambiguity." },
+            { q: "What does Define the problem clearly involve?", opts: ["Stating the problem precisely", "Skipping to the solution", "Listing hardware components", "Testing the output"], ans: 0, exp: "Define = state the problem precisely without ambiguity." },
             { q: "Why identify inputs and outputs during problem identification?", opts: ["To make the problem more complex", "To know what goes in and what should come out", "To avoid using algorithms", "To delete unnecessary data"], ans: 1, exp: "Inputs/outputs clarify what data enters and results expected." },
-            { q: "What is meant by “Identify the constraints/limitations”?", opts: ["Finding the easiest solution", "Identifying limits or restrictions on the solution", "Removing all steps", "Adding more features"], ans: 1, exp: "Constraints = limits (time, resources, rules)." },
-            { q: "What are the two types of problems mentioned?", opts: ["Easy and hard", "Linear and circular", "Non-linear problems and none routine problems", "Mathematical and verbal"], ans: 2, exp: "Two types: Non‑linear (routine) and none routine (non‑routine)." },
-            { q: "What are non-linear problems?", opts: ["Problems that have no solution", "Problems that follow some formula and may or may not have a measure to solve", "Problems that require deep creativity", "Problems with multiple possible solutions"], ans: 1, exp: "Non‑linear problems follow a known formula; may or may not have a measurable solution." },
-            { q: "Which of the following is a characteristic of non-linear problems?", opts: ["They require high creativity", "They are unpredictable", "They are easy to solve", "They have no fixed procedures"], ans: 2, exp: "Non‑linear problems are easy to solve, predictable, low creativity." },
+            { q: "What is meant by Identify the constraints/limitations?", opts: ["Finding the easiest solution", "Identifying limits or restrictions on the solution", "Removing all steps", "Adding more features"], ans: 1, exp: "Constraints = limits (time, resources, rules)." },
+            { q: "What are the two types of problems mentioned?", opts: ["Easy and hard", "Linear and circular", "Non-linear problems and none routine problems", "Mathematical and verbal"], ans: 2, exp: "Two types: Non-linear (routine) and none routine (non-routine)." },
+            { q: "What are non-linear problems?", opts: ["Problems that have no solution", "Problems that follow some formula and may or may not have a measure to solve", "Problems that require deep creativity", "Problems with multiple possible solutions"], ans: 1, exp: "Non-linear problems follow a known formula; may or may not have a measurable solution." },
+            { q: "Which of the following is a characteristic of non-linear problems?", opts: ["They require high creativity", "They are unpredictable", "They are easy to solve", "They have no fixed procedures"], ans: 2, exp: "Non-linear problems are easy to solve, predictable, low creativity." },
             { q: "What are none routine problems?", opts: ["Problems with a known method", "Problems without a direct solution that require creativity and deep thinking", "Problems that are always easy", "Problems that follow a strict formula"], ans: 1, exp: "None routine problems have no direct solution; need creativity." },
-            { q: "Which is NOT a characteristic of none routine problems?", opts: ["Always complex", "Require reasoning", "Have a single fixed solution", "Have multiple possible solutions"], ans: 2, exp: "Non‑routine problems have multiple possible solutions, not a single fixed one." },
-            { q: "According to the table, what is the difference in “Method” between routine and non-routine problems?", opts: ["Routine: unknown, Non-routine: known", "Routine: known, Non-routine: unknown", "Both have known methods", "Both have unknown methods"], ans: 1, exp: "Routine = known method; Non‑routine = unknown method." },
-            { q: "How does “Complexity” differ?", opts: ["Routine: high, Non-routine: low", "Both are low", "Routine: low, Non-routine: high", "Both are high"], ans: 2, exp: "Routine has low complexity; non‑routine has high complexity." },
-            { q: "How does “Creativity” differ?", opts: ["Routine: high, Non-routine: low", "Routine: low, Non-routine: high", "Both require high creativity", "Both require no creativity"], ans: 1, exp: "Routine needs low creativity; non‑routine needs high creativity." },
+            { q: "Which is NOT a characteristic of none routine problems?", opts: ["Always complex", "Require reasoning", "Have a single fixed solution", "Have multiple possible solutions"], ans: 2, exp: "Non-routine problems have multiple possible solutions, not a single fixed one." },
+            { q: "According to the table, what is the difference in Method between routine and non-routine problems?", opts: ["Routine: unknown, Non-routine: known", "Routine: known, Non-routine: unknown", "Both have known methods", "Both have unknown methods"], ans: 1, exp: "Routine = known method; Non-routine = unknown method." },
+            { q: "How does Complexity differ?", opts: ["Routine: high, Non-routine: low", "Both are low", "Routine: low, Non-routine: high", "Both are high"], ans: 2, exp: "Routine has low complexity; non-routine has high complexity." },
+            { q: "How does Creativity differ?", opts: ["Routine: high, Non-routine: low", "Routine: low, Non-routine: high", "Both require high creativity", "Both require no creativity"], ans: 1, exp: "Routine needs low creativity; non-routine needs high creativity." },
             { q: "What is an example of a routine problem given in the notes?", opts: ["Build an AI system", "Create a new programming language", "Calculate the area of a rectangle", "Design a spaceship"], ans: 2, exp: "Calculate area of a rectangle is a routine problem." },
-            { q: "What is an example of a non-routine problem given in the notes?", opts: ["Add two numbers", "Build an AI system", "Find the average of three numbers", "Convert meters to centimeters"], ans: 1, exp: "Build an AI system is a non‑routine problem." },
-            { q: "Are non-linear problems predictable or unpredictable?", opts: ["Unpredictable", "Predictable", "Sometimes predictable", "Never predictable"], ans: 1, exp: "Non‑linear (routine) problems are predictable." },
-            { q: "Are non-linear problems easy or hard to solve?", opts: ["Hard", "Very hard", "Easy", "Impossible"], ans: 2, exp: "Non‑linear problems are easy to solve." },
-            { q: "Do non-linear problems require high or low creativity?", opts: ["High creativity", "Low creativity", "No creativity", "Maximum creativity"], ans: 1, exp: "Non‑linear problems require low creativity." },
-            { q: "Do none routine problems require reasoning?", opts: ["No", "Yes", "Only sometimes", "Never"], ans: 1, exp: "Yes, non‑routine problems require reasoning." },
-            { q: "Do none routine problems have one fixed solution or multiple possible solutions?", opts: ["One fixed solution", "No solution", "Multiple possible solutions", "Exactly two solutions"], ans: 2, exp: "Non‑routine problems have multiple possible solutions." },
-            { q: "What does “no fixed procedures” mean for none routine problems?", opts: ["There is a single step-by-step procedure to follow", "There is no single step-by-step procedure to follow", "The procedure is always the same", "The procedure is written in hardware"], ans: 1, exp: "No fixed procedure = no single step‑by‑step method." },
-            { q: "Which type of problem is always complex?", opts: ["Routine problems", "Non-linear problems", "None routine problems", "Simple arithmetic problems"], ans: 2, exp: "Non‑routine problems are always complex." },
+            { q: "What is an example of a non-routine problem given in the notes?", opts: ["Add two numbers", "Build an AI system", "Find the average of three numbers", "Convert meters to centimeters"], ans: 1, exp: "Build an AI system is a non-routine problem." },
+            { q: "Are non-linear problems predictable or unpredictable?", opts: ["Unpredictable", "Predictable", "Sometimes predictable", "Never predictable"], ans: 1, exp: "Non-linear (routine) problems are predictable." },
+            { q: "Are non-linear problems easy or hard to solve?", opts: ["Hard", "Very hard", "Easy", "Impossible"], ans: 2, exp: "Non-linear problems are easy to solve." },
+            { q: "Do non-linear problems require high or low creativity?", opts: ["High creativity", "Low creativity", "No creativity", "Maximum creativity"], ans: 1, exp: "Non-linear problems require low creativity." },
+            { q: "Do none routine problems require reasoning?", opts: ["No", "Yes", "Only sometimes", "Never"], ans: 1, exp: "Yes, non-routine problems require reasoning." },
+            { q: "Do none routine problems have one fixed solution or multiple possible solutions?", opts: ["One fixed solution", "No solution", "Multiple possible solutions", "Exactly two solutions"], ans: 2, exp: "Non-routine problems have multiple possible solutions." },
+            { q: "What does 'no fixed procedures' mean for none routine problems?", opts: ["There is a single step-by-step procedure to follow", "There is no single step-by-step procedure to follow", "The procedure is always the same", "The procedure is written in hardware"], ans: 1, exp: "No fixed procedure = no single step-by-step method." },
+            { q: "Which type of problem is always complex?", opts: ["Routine problems", "Non-linear problems", "None routine problems", "Simple arithmetic problems"], ans: 2, exp: "Non-routine problems are always complex." },
             { q: "Which type of problem has a known method?", opts: ["None routine problems", "Routine problems", "Both", "Neither"], ans: 1, exp: "Routine problems have a known method." },
-            { q: "Which type of problem requires deep thinking?", opts: ["Routine problems", "Non-linear problems", "None routine problems", "Simple calculations"], ans: 2, exp: "Non‑routine problems require deep thinking." },
-            { q: "Which type of problem is described as “easy to solve”?", opts: ["None routine", "Non-linear (routine)", "Both", "Neither"], ans: 1, exp: "Non‑linear (routine) problems are easy to solve." },
+            { q: "Which type of problem requires deep thinking?", opts: ["Routine problems", "Non-linear problems", "None routine problems", "Simple calculations"], ans: 2, exp: "Non-routine problems require deep thinking." },
+            { q: "Which type of problem is described as easy to solve?", opts: ["None routine", "Non-linear (routine)", "Both", "Neither"], ans: 1, exp: "Non-linear (routine) problems are easy to solve." },
             { q: "Which of the following is NOT a characteristic of patterns according to the notes?", opts: ["Must be well defined", "Must be structured & easy to analyze", "Must be random and unpredictable", "Develop logical thinking"], ans: 2, exp: "Patterns must be well defined, structured, not random." },
             { q: "Why must a pattern be well defined?", opts: ["To make it harder to understand", "So there is no ambiguity", "To increase complexity", "To avoid solving the problem"], ans: 1, exp: "Well defined = no ambiguity." },
             { q: "Why must a pattern be structured and easy to analyze?", opts: ["To make analysis difficult", "To confuse the programmer", "To make analysis easier", "To avoid using algorithms"], ans: 2, exp: "Structured patterns make analysis easier." },
@@ -312,89 +532,142 @@
             { q: "What is the third step?", opts: ["Break down the problem", "Formulate the solution", "Identify the pattern", "Identify the relationship"], ans: 3, exp: "Third: Identify the relationship." },
             { q: "What is the fourth step?", opts: ["Evaluate the result", "Formulate the solution", "Identify the pattern", "Break down the problem"], ans: 1, exp: "Fourth: Formulate the solution." },
             { q: "What is the fifth and final step?", opts: ["Identify the relationship", "Formulate the solution", "Break down the problem", "Evaluate the result"], ans: 3, exp: "Final: Evaluate the result." },
-            { q: "Why break down a problem into small parts?", opts: ["To make it harder", "To solve them logically, one part at a time", "To avoid finding patterns", "To skip evaluation"], ans: 1, exp: "Breaking down allows logical step‑by‑step solving." },
-            { q: "Which definition best matches “data processing”?", opts: ["Deleting raw data", "Transforming raw data into a human-readable form", "Storing data without changes", "Encrypting data for security"], ans: 1, exp: "Data processing = transforming data into human‑readable form." },
+            { q: "Why break down a problem into small parts?", opts: ["To make it harder", "To solve them logically, one part at a time", "To avoid finding patterns", "To skip evaluation"], ans: 1, exp: "Breaking down allows logical step-by-step solving." },
+            { q: "Which definition best matches data processing?", opts: ["Deleting raw data", "Transforming raw data into a human-readable form", "Storing data without changes", "Encrypting data for security"], ans: 1, exp: "Data processing = transforming data into human-readable form." },
             { q: "What is automation?", opts: ["Manual data entry", "Using technology to do a task with little or no human help", "A type of algorithm", "A routine problem"], ans: 1, exp: "Automation = technology performing a task with little/no human intervention." },
-            { q: "What is an algorithm?", opts: ["A hardware component", "A step-by-step procedure to solve a problem in a computer system", "The output of a program", "A type of storage"], ans: 1, exp: "Algorithm = step‑by‑step procedure to solve a problem." },
+            { q: "What is an algorithm?", opts: ["A hardware component", "A step-by-step procedure to solve a problem in a computer system", "The output of a program", "A type of storage"], ans: 1, exp: "Algorithm = step-by-step procedure to solve a problem." },
             { q: "What is the difference between hardware and software?", opts: ["Hardware is instructions; software is physical", "Hardware is physical; software is instructions/programs", "Both are physical", "Both are non-physical"], ans: 1, exp: "Hardware = physical; Software = instructions/programs." },
-            { q: "What does “input” refer to in compiling?", opts: ["The result after processing", "Data entered into the system for processing", "The operation performed on data", "The storage location"], ans: 1, exp: "Input = data entered into the system." },
+            { q: "What does input refer to in compiling?", opts: ["The result after processing", "Data entered into the system for processing", "The operation performed on data", "The storage location"], ans: 1, exp: "Input = data entered into the system." },
             { q: "What is the goal of testing and evaluating a solution?", opts: ["To make the problem harder", "To verify correctness and effectiveness", "To delete the solution", "To avoid using patterns"], ans: 1, exp: "Testing evaluates correctness and effectiveness." },
-            { q: "What does “recognize the need” mean in problem identification?", opts: ["Ignoring the problem", "Realizing a problem exists that needs solving", "Immediately implementing a solution", "Storing the problem in memory"], ans: 1, exp: "Recognize the need = realise a problem exists." },
-            { q: "Why might a none routine problem require creativity?", opts: ["Because it has a known method", "Because there is no direct/known solution", "Because it is very easy", "Because it requires no thinking"], ans: 1, exp: "Non‑routine problems have no direct solution, so creativity is needed." },
-            { q: "What does “formulate the solution” mean in pattern steps?", opts: ["Breaking down the problem", "Creating a solution based on identified patterns and relationships", "Evaluating the result", "Identifying the pattern"], ans: 1, exp: "Formulate = create solution using patterns and relationships." },
-            { q: "What does “evaluate the result” help you do?", opts: ["Check if the formulated solution works correctly", "Delete the problem", "Make the problem more complex", "Avoid logical thinking"], ans: 0, exp: "Evaluate = check if the solution works correctly." },
-            { q: "Is “calculating the area of a rectangle” a routine or non-routine problem? Why?", opts: ["Non-routine – because it requires high creativity", "Routine – because it has a known method, low complexity, low creativity", "Non-routine – because there is no direct solution", "Routine – because it requires deep thinking"], ans: 1, exp: "Routine: known method, low complexity, low creativity." },
-            { q: "Is “building an AI system” routine or non-routine? Why?", opts: ["Routine – because it has a known method", "Routine – because it is easy to solve", "Non-routine – because it has unknown method, high complexity, high creativity", "Non-routine – because it requires no reasoning"], ans: 2, exp: "Non‑routine: unknown method, high complexity, high creativity." },
+            { q: "What does 'recognize the need' mean in problem identification?", opts: ["Ignoring the problem", "Realizing a problem exists that needs solving", "Immediately implementing a solution", "Storing the problem in memory"], ans: 1, exp: "Recognize the need = realise a problem exists." },
+            { q: "Why might a none routine problem require creativity?", opts: ["Because it has a known method", "Because there is no direct/known solution", "Because it is very easy", "Because it requires no thinking"], ans: 1, exp: "Non-routine problems have no direct solution, so creativity is needed." },
+            { q: "What does 'formulate the solution' mean in pattern steps?", opts: ["Breaking down the problem", "Creating a solution based on identified patterns and relationships", "Evaluating the result", "Identifying the pattern"], ans: 1, exp: "Formulate = create solution using patterns and relationships." },
+            { q: "What does 'evaluate the result' help you do?", opts: ["Check if the formulated solution works correctly", "Delete the problem", "Make the problem more complex", "Avoid logical thinking"], ans: 0, exp: "Evaluate = check if the solution works correctly." },
+            { q: "Is 'calculating the area of a rectangle' a routine or non-routine problem? Why?", opts: ["Non-routine - because it requires high creativity", "Routine - because it has a known method, low complexity, low creativity", "Non-routine - because there is no direct solution", "Routine - because it requires deep thinking"], ans: 1, exp: "Routine: known method, low complexity, low creativity." },
+            { q: "Is 'building an AI system' routine or non-routine? Why?", opts: ["Routine - because it has a known method", "Routine - because it is easy to solve", "Non-routine - because it has unknown method, high complexity, high creativity", "Non-routine - because it requires no reasoning"], ans: 2, exp: "Non-routine: unknown method, high complexity, high creativity." },
             { q: "If a problem has no immediate answer, what is it called?", opts: ["A solution", "An algorithm", "A problem", "A pattern"], ans: 2, exp: "A problem is a situation without an immediate answer." },
-            { q: "True or False: Non-linear problems require high creativity. (From notes)", opts: ["True – they require deep thinking", "False – non-linear problems require little creativity", "True – they are always complex", "False – they have no solution"], ans: 1, exp: "False – non‑linear (routine) problems require low creativity." },
-            { q: "List the four problem identification steps in order. Which option shows the correct order?", opts: ["Define the problem → Recognize the need → Identify constraints → Identify inputs/outputs", "Recognize the need → Define the problem clearly → Identify inputs and outputs → Identify constraints/limitations", "Identify inputs/outputs → Define the problem → Recognize the need → Identify constraints", "Identify constraints → Recognize the need → Define the problem → Identify inputs/outputs"], ans: 1, exp: "Correct order: Recognize need → Define clearly → Identify inputs/outputs → Identify constraints." }
+            { q: "True or False: Non-linear problems require high creativity. (From notes)", opts: ["True - they require deep thinking", "False - non-linear problems require little creativity", "True - they are always complex", "False - they have no solution"], ans: 1, exp: "False - non-linear (routine) problems require low creativity." },
+            { q: "List the four problem identification steps in order. Which option shows the correct order?", opts: ["Define the problem -> Recognize the need -> Identify constraints -> Identify inputs/outputs", "Recognize the need -> Define the problem clearly -> Identify inputs and outputs -> Identify constraints/limitations", "Identify inputs/outputs -> Define the problem -> Recognize the need -> Identify constraints", "Identify constraints -> Recognize the need -> Define the problem -> Identify inputs/outputs"], ans: 1, exp: "Correct order: Recognize need -> Define clearly -> Identify inputs/outputs -> Identify constraints." }
         ];
 
         // ========== REVISION CARDS ==========
-        const reviseData = [
+        var reviseData = [
             { title: "Problem Definition", content: "A situation requiring a solution; no immediate answer.", cat: "Fundamentals" },
-            { title: "Problem Solving", content: "Identify → Analyze → Solve using logical and systematic steps.", cat: "Fundamentals" },
+            { title: "Problem Solving", content: "Identify -> Analyze -> Solve using logical and systematic steps.", cat: "Fundamentals" },
             { title: "Four Steps", content: "1. Analyze 2. Design 3. Implement 4. Test & Evaluate", cat: "Fundamentals" },
             { title: "Problem Identification", content: "1. Recognize need 2. Define clearly 3. Identify inputs/outputs 4. Identify constraints", cat: "Fundamentals" },
             { title: "Compiling Elements", content: "Input, Processing, Output, Storage (IPOS). Data processing transforms data into human form.", cat: "Fundamentals" },
-            { title: "Algorithm", content: "Step‑by‑step procedure to solve a problem in a computer system.", cat: "Fundamentals" },
+            { title: "Algorithm", content: "Step-by-step procedure to solve a problem in a computer system.", cat: "Fundamentals" },
             { title: "Automation", content: "Technology performing a task with little or no human intervention.", cat: "Fundamentals" },
             { title: "Routine Problems", content: "Known method, low complexity, low creativity, predictable, easy. E.g., calculate area.", cat: "Problem Types" },
-            { title: "Non‑Routine Problems", content: "Unknown method, high complexity, high creativity, multiple solutions. E.g., build AI.", cat: "Problem Types" },
-            { title: "Method Comparison", content: "Routine = known method; Non‑routine = unknown method.", cat: "Problem Types" },
-            { title: "Complexity & Creativity", content: "Routine: low complexity, low creativity. Non‑routine: high complexity, high creativity.", cat: "Problem Types" },
+            { title: "Non-Routine Problems", content: "Unknown method, high complexity, high creativity, multiple solutions. E.g., build AI.", cat: "Problem Types" },
+            { title: "Method Comparison", content: "Routine = known method; Non-routine = unknown method.", cat: "Problem Types" },
+            { title: "Complexity & Creativity", content: "Routine: low complexity, low creativity. Non-routine: high complexity, high creativity.", cat: "Problem Types" },
             { title: "Pattern Characteristics", content: "Well defined, structured, easy to analyze, develop logical thinking.", cat: "Patterns & Theories" },
             { title: "Pattern Steps", content: "1. Break down 2. Identify pattern 3. Identify relationship 4. Formulate solution 5. Evaluate", cat: "Patterns & Theories" },
-            { title: "Decomposition", content: "Break large problems into smaller, manageable sub‑problems.", cat: "Theories" },
+            { title: "Decomposition", content: "Break large problems into smaller, manageable sub-problems.", cat: "Theories" },
             { title: "Abstraction", content: "Focus on essential info; ignore irrelevant details.", cat: "Theories" },
-            { title: "Polya’s Theory", content: "1. Understand problem 2. Devise plan 3. Carry out plan 4. Look back", cat: "Theories" },
+            { title: "Polya's Theory", content: "1. Understand problem 2. Devise plan 3. Carry out plan 4. Look back", cat: "Theories" },
             { title: "Evaluation Theory", content: "Solution not complete until tested and evaluated; iterate if needed.", cat: "Theories" },
-            { title: "Means‑Ends Analysis", content: "Compare current state with goal; reduce the difference.", cat: "Theories" }
+            { title: "Means-Ends Analysis", content: "Compare current state with goal; reduce the difference.", cat: "Theories" }
         ];
 
-        // ========== STATE ==========
-        let answeredQuestions = {};
-        let submittedQuestions = false;
-        let practiceMode = 'practice';
-        let examActive = false, examTimer = null, examSeconds = 0;
-        let currentQuestionIndex = 0;
+        // ========== APPLICATION STATE ==========
+        var answeredQuestions = {};
+        var submittedQuestions = false;
+        var practiceMode = 'practice';
+        var examActive = false;
+        var examTimer = null;
+        var examSeconds = 0;
+        var currentQuestionIndex = 0;
 
-        // Tabs & Subtab switching
-        function switchTab(tab, btn) {
-            document.querySelectorAll('[id^="panel-"]').forEach(p => { p.classList.add('panel-hidden'); p.classList.remove('panel-visible'); });
-            const panel = document.getElementById('panel-' + tab);
-            if (panel) panel.classList.replace('panel-hidden', 'panel-visible');
-            document.querySelectorAll('.nav-tab').forEach(b => { b.classList.remove('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300', 'active'); });
-            if (btn) btn.classList.add('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300', 'active');
-            if (tab === 'practice') { buildQuestionView(); updateStatsDisplay(); }
-            if (tab === 'revise') buildReviseGrid();
+        // ========== SVG ICONS ==========
+        var svgTrophy = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F4C95D" stroke-width="1.5"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v4"/><path d="M8 21h8"/></svg>';
+        var svgStar = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+        var svgBook = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#6E5AE6" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>';
+
+        // ========== CORE FUNCTIONS (Global Scope) ==========
+        
+        window.switchTab = function(tab, btn) {
+            var panels = document.querySelectorAll('[id^="panel-"]');
+            for (var i = 0; i < panels.length; i++) {
+                panels[i].classList.add('panel-hidden');
+                panels[i].classList.remove('panel-visible');
+            }
+            var panel = document.getElementById('panel-' + tab);
+            if (panel) {
+                panel.classList.replace('panel-hidden', 'panel-visible');
+            }
+            var tabs = document.querySelectorAll('.nav-tab');
+            for (var j = 0; j < tabs.length; j++) {
+                tabs[j].classList.remove('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300', 'active');
+            }
+            if (btn) {
+                btn.classList.add('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300', 'active');
+            }
+            if (tab === 'practice') {
+                buildQuestionView();
+                updateStatsDisplay();
+            }
+            if (tab === 'revise') {
+                buildReviseGrid();
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        function switchNotesSubtab(sub) {
-            document.querySelectorAll('[id^="notes-"]').forEach(el => { if (el.id.startsWith('notes-') && !el.id.startsWith('notes-sub')) el.classList.add('hidden'); });
-            const target = document.getElementById('notes-' + sub);
-            if (target) target.classList.remove('hidden');
-            document.querySelectorAll('[id^="notes-sub-"]').forEach(btn => {
-                const isActive = btn.id === 'notes-sub-' + sub;
-                btn.classList.toggle('bg-brand-100', isActive);
-                btn.classList.toggle('dark:bg-brand-900/40', isActive);
-                btn.classList.toggle('text-brand-700', isActive);
-                btn.classList.toggle('dark:text-brand-300', isActive);
-                btn.classList.toggle('bg-gray-100', !isActive);
-                btn.classList.toggle('dark:bg-gray-700', !isActive);
-                btn.classList.toggle('text-gray-600', !isActive);
-                btn.classList.toggle('dark:text-gray-300', !isActive);
-            });
-        }
+        };
 
-        function toggleDarkMode() { document.documentElement.classList.toggle('dark'); localStorage.setItem('darkMode', document.documentElement.classList.contains('dark') ? '1' : '0'); }
-        if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark');
+        window.switchNotesSubtab = function(sub) {
+            var notesDivs = document.querySelectorAll('[id^="notes-"]');
+            for (var i = 0; i < notesDivs.length; i++) {
+                if (notesDivs[i].id.startsWith('notes-') && !notesDivs[i].id.startsWith('notes-sub')) {
+                    notesDivs[i].classList.add('hidden');
+                }
+            }
+            var target = document.getElementById('notes-' + sub);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+            var buttons = document.querySelectorAll('[id^="notes-sub-"]');
+            for (var j = 0; j < buttons.length; j++) {
+                var isActive = buttons[j].id === 'notes-sub-' + sub;
+                if (isActive) {
+                    buttons[j].classList.add('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300');
+                    buttons[j].classList.remove('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300');
+                } else {
+                    buttons[j].classList.remove('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300');
+                    buttons[j].classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600', 'dark:text-gray-300');
+                }
+            }
+        };
 
-        // Practice/Exam mode
-        function setPracticeMode(mode) {
+        window.toggleDarkMode = function() {
+            document.documentElement.classList.toggle('dark');
+            try {
+                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark') ? '1' : '0');
+            } catch(e) {}
+        };
+
+        // Dark mode initialization
+        try {
+            if (localStorage.getItem('darkMode') === '1') {
+                document.documentElement.classList.add('dark');
+            }
+        } catch(e) {}
+
+        window.setPracticeMode = function(mode) {
             practiceMode = mode;
-            document.getElementById('mode-practice-btn').classList.toggle('bg-brand-100', mode === 'practice');
-            document.getElementById('mode-exam-btn').classList.toggle('bg-brand-100', mode === 'exam');
+            var practiceBtn = document.getElementById('mode-practice-btn');
+            var examBtn = document.getElementById('mode-exam-btn');
+            
+            if (mode === 'practice') {
+                practiceBtn.classList.add('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700');
+                examBtn.classList.remove('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700');
+                examBtn.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600');
+            } else {
+                examBtn.classList.add('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700');
+                practiceBtn.classList.remove('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700');
+                practiceBtn.classList.add('bg-gray-100', 'dark:bg-gray-700', 'text-gray-600');
+            }
+            
             if (mode === 'exam') {
                 document.getElementById('start-exam-btn').classList.remove('hidden');
                 document.getElementById('timer-pill').classList.add('hidden');
@@ -405,12 +678,19 @@
                 stopExamTimer();
             }
             resetAllAnswers();
-        }
+        };
 
-        function openTimerModal() { document.getElementById('timer-modal').classList.remove('hidden'); }
-        function closeTimerModal() { document.getElementById('timer-modal').classList.add('hidden'); }
-        function startExamFromModal() {
-            const d = parseInt(document.getElementById('exam-duration-select').value);
+        window.openTimerModal = function() {
+            document.getElementById('timer-modal').classList.remove('hidden');
+        };
+
+        window.closeTimerModal = function() {
+            document.getElementById('timer-modal').classList.add('hidden');
+        };
+
+        window.startExamFromModal = function() {
+            var select = document.getElementById('exam-duration-select');
+            var d = parseInt(select.value);
             examSeconds = d * 60;
             examActive = true;
             closeTimerModal();
@@ -418,118 +698,304 @@
             document.getElementById('timer-pill').classList.remove('hidden');
             document.getElementById('stop-exam-btn').classList.remove('hidden');
             updateTimerPill();
-            examTimer = setInterval(() => { examSeconds--; updateTimerPill(); if (examSeconds <= 0) { stopExamTimer(); submitAllAnswers(); } }, 1000);
-        }
-        function stopExam() { if (confirm('End exam and submit?')) { stopExamTimer(); submitAllAnswers(); } }
-        function stopExamTimer() { if (examTimer) clearInterval(examTimer); examTimer = null; examActive = false; document.getElementById('timer-pill').classList.add('hidden'); document.getElementById('stop-exam-btn').classList.add('hidden'); document.getElementById('timer-pill').classList.remove('timer-warning', 'timer-danger'); }
-        function updateTimerPill() { const m = Math.floor(Math.max(0, examSeconds) / 60), s = Math.max(0, examSeconds) % 60; document.getElementById('timer-pill-display').textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); const pill = document.getElementById('timer-pill'); pill.classList.remove('timer-warning', 'timer-danger'); if (examSeconds <= 60) pill.classList.add('timer-danger'); else if (examSeconds <= 180) pill.classList.add('timer-warning'); }
+            examTimer = setInterval(function() {
+                examSeconds--;
+                updateTimerPill();
+                if (examSeconds <= 0) {
+                    stopExamTimer();
+                    submitAllAnswers();
+                }
+            }, 1000);
+        };
 
-        // Question view
+        window.stopExam = function() {
+            if (confirm('End exam and submit?')) {
+                stopExamTimer();
+                submitAllAnswers();
+            }
+        };
+
+        function stopExamTimer() {
+            if (examTimer) {
+                clearInterval(examTimer);
+            }
+            examTimer = null;
+            examActive = false;
+            document.getElementById('timer-pill').classList.add('hidden');
+            document.getElementById('stop-exam-btn').classList.add('hidden');
+            var pill = document.getElementById('timer-pill');
+            pill.classList.remove('timer-warning', 'timer-danger');
+        }
+
+        function updateTimerPill() {
+            var m = Math.floor(Math.max(0, examSeconds) / 60);
+            var s = Math.max(0, examSeconds) % 60;
+            document.getElementById('timer-pill-display').textContent = 
+                String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+            var pill = document.getElementById('timer-pill');
+            pill.classList.remove('timer-warning', 'timer-danger');
+            if (examSeconds <= 60) {
+                pill.classList.add('timer-danger');
+            } else if (examSeconds <= 180) {
+                pill.classList.add('timer-warning');
+            }
+        }
+
         function buildQuestionView() {
-            const q = allQuestions[currentQuestionIndex];
-            if (!q) { document.getElementById('question-view').innerHTML = '<p class="text-center text-gray-500 py-10">No questions loaded.</p>'; return; }
-            const sel = answeredQuestions[currentQuestionIndex];
-            const html = `
-            <div class="flex items-start gap-3 mb-4">
-                <span class="w-8 h-8 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">${currentQuestionIndex + 1}</span>
-                <p class="text-base font-semibold">${q.q}</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ml-11">
-                ${q.opts.map((o, j) => {
-                    let cls = 'option-card rounded-xl px-4 py-3 text-sm flex items-center gap-3 bg-gray-50 dark:bg-gray-800/60';
-                    if (submittedQuestions) { if (j === q.ans) cls += ' correct'; else if (sel === j && sel !== q.ans) cls += ' wrong'; }
-                    else if (sel === j) cls += ' selected';
-                    const clickHandler = submittedQuestions ? '' : `onclick="selectAnswer(${currentQuestionIndex}, ${j})"`;
-                    return `<div class="${cls}" ${clickHandler}><span class="w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-bold flex-shrink-0">${String.fromCharCode(65 + j)}</span><span>${o}</span></div>`;
-                }).join('')}
-            </div>
-            ${submittedQuestions ? `<div class="ml-11 mt-3 bg-brand-50 dark:bg-brand-900/20 p-3 rounded-xl text-sm border border-brand-200 dark:border-brand-800">💡 ${q.exp}</div>` : ''}`;
+            var q = allQuestions[currentQuestionIndex];
+            if (!q) {
+                document.getElementById('question-view').innerHTML = 
+                    '<p class="text-center text-gray-500 py-10">No questions loaded.</p>';
+                return;
+            }
+            var sel = answeredQuestions[currentQuestionIndex];
+            var html = '<div class="flex items-start gap-3 mb-4">' +
+                '<span class="w-8 h-8 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">' + 
+                (currentQuestionIndex + 1) + '</span>' +
+                '<p class="text-base font-semibold">' + q.q + '</p></div>' +
+                '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ml-11">';
+            
+            for (var j = 0; j < q.opts.length; j++) {
+                var cls = 'option-card rounded-xl px-4 py-3 text-sm flex items-center gap-3 bg-gray-50 dark:bg-gray-800/60';
+                if (submittedQuestions) {
+                    if (j === q.ans) {
+                        cls += ' correct';
+                    } else if (sel === j && sel !== q.ans) {
+                        cls += ' wrong';
+                    }
+                } else if (sel === j) {
+                    cls += ' selected';
+                }
+                var clickHandler = '';
+                if (!submittedQuestions) {
+                    clickHandler = 'onclick="window.selectAnswer(' + currentQuestionIndex + ', ' + j + ')"';
+                }
+                html += '<div class="' + cls + '" ' + clickHandler + '>' +
+                    '<span class="w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-bold flex-shrink-0">' + 
+                    String.fromCharCode(65 + j) + '</span><span>' + q.opts[j] + '</span></div>';
+            }
+            html += '</div>';
+            if (submittedQuestions) {
+                html += '<div class="ml-11 mt-3 bg-brand-50 dark:bg-brand-900/20 p-3 rounded-xl text-sm border border-brand-200 dark:border-brand-800">' +
+                    String.fromCodePoint(0x1F4A1) + ' ' + q.exp + '</div>';
+            }
             document.getElementById('question-view').innerHTML = html;
             buildNumberNavigator();
-            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
-            document.getElementById('next-btn').disabled = currentQuestionIndex === allQuestions.length - 1;
+            document.getElementById('prev-btn').disabled = (currentQuestionIndex === 0);
+            document.getElementById('next-btn').disabled = (currentQuestionIndex === allQuestions.length - 1);
         }
 
         function buildNumberNavigator() {
-            document.getElementById('number-navigator').innerHTML = allQuestions.map((_, i) => {
-                let cls = 'number-nav';
-                if (i === currentQuestionIndex) cls += ' active';
-                else if (answeredQuestions[i] !== undefined) cls += ' answered';
-                return `<span class="${cls}" onclick="jumpToQuestion(${i})">${i + 1}</span>`;
-            }).join('');
+            var html = '';
+            for (var i = 0; i < allQuestions.length; i++) {
+                var cls = 'number-nav';
+                if (i === currentQuestionIndex) {
+                    cls += ' active';
+                } else if (answeredQuestions[i] !== undefined) {
+                    cls += ' answered';
+                }
+                html += '<span class="' + cls + '" onclick="window.jumpToQuestion(' + i + ')">' + (i + 1) + '</span>';
+            }
+            document.getElementById('number-navigator').innerHTML = html;
         }
-        function navigateQuestion(d) { const n = currentQuestionIndex + d; if (n >= 0 && n < allQuestions.length) { currentQuestionIndex = n; buildQuestionView(); } }
-        function jumpToQuestion(i) { currentQuestionIndex = i; buildQuestionView(); }
-        function selectAnswer(qi, oi) { if (submittedQuestions || (examActive && examSeconds <= 0)) return; if (answeredQuestions[qi] === oi) delete answeredQuestions[qi]; else answeredQuestions[qi] = oi; buildQuestionView(); updateStatsDisplay(); }
+
+        window.navigateQuestion = function(d) {
+            var n = currentQuestionIndex + d;
+            if (n >= 0 && n < allQuestions.length) {
+                currentQuestionIndex = n;
+                buildQuestionView();
+            }
+        };
+
+        window.jumpToQuestion = function(i) {
+            currentQuestionIndex = i;
+            buildQuestionView();
+        };
+
+        window.selectAnswer = function(qi, oi) {
+            if (submittedQuestions || (examActive && examSeconds <= 0)) {
+                return;
+            }
+            if (answeredQuestions[qi] === oi) {
+                delete answeredQuestions[qi];
+            } else {
+                answeredQuestions[qi] = oi;
+            }
+            buildQuestionView();
+            updateStatsDisplay();
+        };
+
         function updateStatsDisplay() {
-            const c = Object.keys(answeredQuestions).length;
+            var c = Object.keys(answeredQuestions).length;
             document.getElementById('answered-q-display').textContent = c;
             document.getElementById('total-q-display').textContent = allQuestions.length;
-            document.getElementById('progress-bar-fill').style.width = (c / allQuestions.length * 100) + '%';
-            if (!submittedQuestions) { document.getElementById('score-display-mini').textContent = '—'; document.getElementById('percent-display-mini').textContent = '—'; }
+            document.getElementById('progress-bar-fill').style.width = 
+                (c / allQuestions.length * 100) + '%';
+            if (!submittedQuestions) {
+                document.getElementById('score-display-mini').textContent = '--';
+                document.getElementById('percent-display-mini').textContent = '--';
+            }
         }
-        async function submitAllAnswers() {
-            submittedQuestions = true; if (examActive) stopExamTimer();
-            let score = 0; allQuestions.forEach((q, i) => { if (answeredQuestions[i] === q.ans) score++; });
-            const total = allQuestions.length, percentage = total > 0 ? Math.round(score / total * 100) : 0;
+
+        window.submitAllAnswers = function() {
+            submittedQuestions = true;
+            if (examActive) {
+                stopExamTimer();
+            }
+            var score = 0;
+            for (var i = 0; i < allQuestions.length; i++) {
+                if (answeredQuestions[i] === allQuestions[i].ans) {
+                    score++;
+                }
+            }
+            var total = allQuestions.length;
+            var percentage = total > 0 ? Math.round(score / total * 100) : 0;
             document.getElementById('score-display-mini').textContent = score + '/' + total;
             document.getElementById('percent-display-mini').textContent = percentage + '%';
             buildQuestionView();
             showCongratsModal(score, percentage);
-            try { await saveResult(score, total, percentage); } catch (e) { console.error('Save failed:', e); }
-        }
-        function resetAllAnswers() { answeredQuestions = {}; submittedQuestions = false; currentQuestionIndex = 0; document.getElementById('score-display-mini').textContent = '—'; document.getElementById('percent-display-mini').textContent = '—'; buildQuestionView(); updateStatsDisplay(); }
+            saveResult(score, total, percentage).catch(function(e) {
+                console.error('Save failed:', e);
+            });
+        };
 
-        // Congrats modal
-        const svgTrophy = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F4C95D" stroke-width="1.5"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v4"/><path d="M8 21h8"/></svg>';
-        const svgStar = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-        const svgBook = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#6E5AE6" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>';
+        window.resetAllAnswers = function() {
+            answeredQuestions = {};
+            submittedQuestions = false;
+            currentQuestionIndex = 0;
+            document.getElementById('score-display-mini').textContent = '--';
+            document.getElementById('percent-display-mini').textContent = '--';
+            buildQuestionView();
+            updateStatsDisplay();
+        };
+
         function showCongratsModal(score, percentage) {
-            const iconDiv = document.getElementById('congrats-icon');
-            const titleEl = document.getElementById('congrats-title');
-            const msgEl = document.getElementById('congrats-message');
-            const scoreEl = document.getElementById('congrats-score');
+            var iconDiv = document.getElementById('congrats-icon');
+            var titleEl = document.getElementById('congrats-title');
+            var msgEl = document.getElementById('congrats-message');
+            var scoreEl = document.getElementById('congrats-score');
+            
             scoreEl.textContent = score + ' / ' + allQuestions.length + ' (' + percentage + '%)';
-            if (percentage >= 80) { iconDiv.innerHTML = svgTrophy; titleEl.textContent = 'Excellent!'; msgEl.textContent = 'Outstanding performance.'; }
-            else if (percentage >= 60) { iconDiv.innerHTML = svgStar; titleEl.textContent = 'Good Effort!'; msgEl.textContent = 'Solid result. Review the notes and try again.'; }
-            else if (percentage >= 40) { iconDiv.innerHTML = svgBook; titleEl.textContent = 'Keep Studying'; msgEl.textContent = 'You\'re making progress.'; }
-            else { iconDiv.innerHTML = svgBook; titleEl.textContent = 'Don\'t Give Up'; msgEl.textContent = 'Review the lecture notes and attempt again.'; }
+            
+            if (percentage >= 80) {
+                iconDiv.innerHTML = svgTrophy;
+                titleEl.textContent = 'Excellent!';
+                msgEl.textContent = 'Outstanding performance.';
+            } else if (percentage >= 60) {
+                iconDiv.innerHTML = svgStar;
+                titleEl.textContent = 'Good Effort!';
+                msgEl.textContent = 'Solid result. Review the notes and try again.';
+            } else if (percentage >= 40) {
+                iconDiv.innerHTML = svgBook;
+                titleEl.textContent = 'Keep Studying';
+                msgEl.textContent = "You're making progress.";
+            } else {
+                iconDiv.innerHTML = svgBook;
+                titleEl.textContent = "Don't Give Up";
+                msgEl.textContent = 'Review the lecture notes and attempt again.';
+            }
+            
             document.getElementById('congrats-modal').classList.remove('hidden');
         }
-        function closeCongratsModal() { document.getElementById('congrats-modal').classList.add('hidden'); }
 
-        // Revise
-        function buildReviseGrid(q) { q = q || ''; document.getElementById('revise-grid').innerHTML = reviseData.filter(r => !q || r.title.toLowerCase().includes(q.toLowerCase())).map(r => `<div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border revise-card"><span class="text-xs font-bold uppercase text-brand-500">${r.cat}</span><h4 class="font-semibold mt-1">${r.title}</h4><p class="text-sm text-gray-600 dark:text-gray-300 mt-2">${r.content}</p></div>`).join('') || '<p class="text-gray-500 col-span-full text-center py-8">No revision cards to display.</p>'; }
-        function filterReviseCards() { buildReviseGrid(document.getElementById('revise-search').value); }
+        window.closeCongratsModal = function() {
+            document.getElementById('congrats-modal').classList.add('hidden');
+        };
 
-        // History
-        async function showHistoryModal() {
-            const modal = document.getElementById('history-modal'), list = document.getElementById('history-list');
-            try {
-                const results = await getResults();
-                if (results.length === 0) { list.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm text-center py-4">No scores recorded yet.</p>'; }
-                else {
-                    list.innerHTML = results.map(r => {
-                        const d = new Date(r.date), pct = r.percentage || Math.round((r.score / r.total) * 100);
-                        let color = 'text-green-600 dark:text-green-400'; if (pct < 40) color = 'text-red-600 dark:text-red-400'; else if (pct < 60) color = 'text-yellow-600 dark:text-yellow-400';
-                        return `<div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg flex justify-between items-center"><div><span class="font-mono font-bold ${color}">${r.score}/${r.total} (${pct}%)</span><span class="text-xs text-gray-500 dark:text-gray-400 block">${d.toLocaleDateString()} ${d.toLocaleTimeString()}</span></div></div>`;
-                    }).join('');
+        window.filterReviseCards = function() {
+            var q = document.getElementById('revise-search').value;
+            buildReviseGrid(q);
+        };
+
+        function buildReviseGrid(q) {
+            q = q || '';
+            var grid = document.getElementById('revise-grid');
+            var filtered = reviseData.filter(function(r) {
+                return !q || r.title.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+            });
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<p class="text-gray-500 col-span-full text-center py-8">No revision cards to display.</p>';
+                return;
+            }
+            
+            var html = '';
+            for (var i = 0; i < filtered.length; i++) {
+                var r = filtered[i];
+                html += '<div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border revise-card">' +
+                    '<span class="text-xs font-bold uppercase text-brand-500">' + r.cat + '</span>' +
+                    '<h4 class="font-semibold mt-1">' + r.title + '</h4>' +
+                    '<p class="text-sm text-gray-600 dark:text-gray-300 mt-2">' + r.content + '</p></div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        window.showHistoryModal = function() {
+            var modal = document.getElementById('history-modal');
+            var list = document.getElementById('history-list');
+            
+            getResults().then(function(results) {
+                if (results.length === 0) {
+                    list.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm text-center py-4">No scores recorded yet.</p>';
+                } else {
+                    var html = '';
+                    for (var i = 0; i < results.length; i++) {
+                        var r = results[i];
+                        var d = new Date(r.date);
+                        var pct = r.percentage || Math.round((r.score / r.total) * 100);
+                        var color = 'text-green-600 dark:text-green-400';
+                        if (pct < 40) {
+                            color = 'text-red-600 dark:text-red-400';
+                        } else if (pct < 60) {
+                            color = 'text-yellow-600 dark:text-yellow-400';
+                        }
+                        html += '<div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg flex justify-between items-center">' +
+                            '<div><span class="font-mono font-bold ' + color + '">' + r.score + '/' + r.total + 
+                            ' (' + pct + '%)</span><span class="text-xs text-gray-500 dark:text-gray-400 block">' + 
+                            d.toLocaleDateString() + ' ' + d.toLocaleTimeString() + '</span></div></div>';
+                    }
+                    list.innerHTML = html;
                 }
                 modal.classList.remove('hidden');
-            } catch (e) { alert('Could not load history.'); }
-        }
-        function closeHistoryModal() { document.getElementById('history-modal').classList.add('hidden'); }
-        async function clearHistory() { if (confirm('Delete all score history?')) { await clearResults(); showHistoryModal(); } }
+            }).catch(function(e) {
+                console.error('Error loading history:', e);
+                list.innerHTML = '<p class="text-red-500 text-sm text-center py-4">Could not load history.</p>';
+                modal.classList.remove('hidden');
+            });
+        };
 
-        // Init
+        window.closeHistoryModal = function() {
+            document.getElementById('history-modal').classList.add('hidden');
+        };
+
+        window.clearHistory = function() {
+            if (confirm('Delete all score history?')) {
+                clearResults().then(function() {
+                    showHistoryModal();
+                });
+            }
+        };
+
+        // ========== INITIALIZATION ==========
         function init() {
             document.getElementById('current-year').textContent = new Date().getFullYear();
             buildQuestionView();
             updateStatsDisplay();
             buildReviseGrid();
-            switchNotesSubtab('fundamentals');
+            window.switchNotesSubtab('fundamentals');
+            console.log('CBT Application initialized successfully');
         }
-        init();
+
+        // Run init when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        // Also expose stopExamTimer globally (needed by exam functions)
+        window.stopExamTimer = stopExamTimer;
+        window.updateTimerPill = updateTimerPill;
     </script>
 </body>
 </html>
