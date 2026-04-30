@@ -8,10 +8,10 @@
   <!-- 🔗 WhatsApp / Facebook / Instagram / TikTok / Telegram -->
   <meta property="og:title" content="LASUED Student Portal">
   <meta property="og:description" content="Welcome Esteemed Scholars — Select a course and access your learning materials.">
-  <meta property="og:image" content="https://student-cbt.vercel.app/student.png">
+  <meta property="og:image" content="https://student-cbt.vercel.app/student.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:url" content="https://student-cbt.vercel.app/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="LASUED Student Portal">
@@ -20,10 +20,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LASUED Student Portal">
   <meta name="twitter:description" content="Welcome Esteemed Scholars — Select a course and access your learning materials.">
-  <meta name="twitter:image" content="https://student-cbt.vercel.app/student.png">
+  <meta name="twitter:image" content="https://student-cbt.vercel.app/student.jpg">
 
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -48,6 +52,7 @@
       border: 1px solid rgba(255,255,255,0.3);
       border-radius: 16px;
       transition: all 0.2s ease;
+      cursor: pointer;
     }
     .course-card:active {
       transform: scale(0.97);
@@ -85,9 +90,10 @@
 </head>
 <body class="min-h-screen">
 
-  <!-- SPLASH SCREEN -->
+  <!-- ⏳ SPLASH SCREEN (2 seconds) -->
   <div id="splash" class="splash-screen">
     <div class="glass-card w-[80%] max-w-[320px] py-12 px-6 flex flex-col items-center justify-center text-center animate-fade-in">
+      <!-- Graduation cap icon -->
       <svg class="w-16 h-16 text-white/40 mb-4" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 3L1 9l4 2.18v4.64L12 21l7-5.18v-4.64L23 9l-11-6zm0 2.18l7.68 4.18L12 13.54l-7.68-4.18L12 5.18zM5 12.47l7 3.79 7-3.79v4.22l-7 5.18-7-5.18v-4.22z"/>
       </svg>
@@ -95,18 +101,22 @@
     </div>
   </div>
 
-  <!-- MAIN COURSE SELECTION -->
+  <!-- 📚 MAIN COURSE SELECTION SCREEN -->
   <div id="app" class="app-content flex flex-col min-h-screen bg-gradient-to-b from-[#F8F7FC] to-white">
+    
+    <!-- Header with LASUED Logo -->
     <div class="flex flex-col items-center pt-10 pb-6 px-4">
       <img src="lasued.png" alt="LASUED logo" class="h-20 w-auto object-contain mb-4">
       <h2 class="text-3xl font-heading font-bold text-[#5A2D82]">Select a Course</h2>
       <p class="text-sm text-[#9B7BCE] mt-1">Tap to open course materials</p>
     </div>
 
+    <!-- Course Cards Container -->
     <div class="flex-1 px-4 pb-6 space-y-3 max-w-md mx-auto w-full">
       <div id="courseList" class="space-y-3"></div>
     </div>
 
+    <!-- Footer -->
     <div class="text-center py-6 text-xs text-[#9B7BCE] flex items-center justify-center gap-1">
       <span>Credited by LASUED COMMUNITY</span>
       <svg class="w-4 h-4 text-red-400 fill-current" viewBox="0 0 20 20">
@@ -116,50 +126,67 @@
   </div>
 
   <script>
+    // 📋 Course Data
     const courses = [
       { code: "COS121", title: "Problem Solving" },
       { code: "LASUED-CSC125", title: "Application of Information Systems in Education" }
     ];
 
+    // 🏗 Generate Course Cards
     const container = document.getElementById('courseList');
+    
     courses.forEach(course => {
       const card = document.createElement('div');
-      card.className = "course-card px-4 py-4 flex items-center gap-3 cursor-pointer shadow-sm";
+      card.className = "course-card px-4 py-4 flex items-center gap-3 shadow-sm";
       card.setAttribute('data-href', `${course.code}.html`);
+      
       card.innerHTML = `
+        <!-- Left Icon -->
         <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-[#5A2D82] flex-shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </div>
+        
+        <!-- Course Info -->
         <div class="flex-1 min-w-0">
           <p class="font-semibold text-[#5A2D82] text-sm">${course.code}</p>
           <p class="text-xs text-gray-600 truncate">${course.title}</p>
         </div>
+        
+        <!-- Right Arrow -->
         <svg class="w-5 h-5 text-[#9B7BCE] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       `;
+      
+      // 👆 Click Handler — Navigate to Course Page
       card.addEventListener('click', () => {
         const href = card.getAttribute('data-href');
         if (href) window.location.href = href;
       });
+      
       container.appendChild(card);
     });
 
+    // ⏱ Splash Screen Timer (2 seconds)
     const splash = document.getElementById('splash');
     const app = document.getElementById('app');
 
     window.addEventListener('load', () => {
+      // Slight scale-up animation
       setTimeout(() => {
         splash.querySelector('.glass-card').style.transform = 'scale(1.03)';
         splash.querySelector('.glass-card').style.transition = 'transform 1.0s ease-out';
       }, 100);
 
+      // Fade out splash and show main app after 2 seconds
       setTimeout(() => {
         splash.classList.add('fade-out');
         app.style.display = 'flex';
         app.style.flexDirection = 'column';
+        
+        // Remove splash from DOM after transition
         setTimeout(() => {
           splash.style.display = 'none';
         }, 800);
