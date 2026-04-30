@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>LASUED Student Portal</title>
 
-  <!-- 🔗 Social Media Link Preview (Open Graph) -->
+  <!-- 🔗 WhatsApp / Facebook / Instagram / TikTok / Telegram -->
   <meta property="og:title" content="LASUED Student Portal">
   <meta property="og:description" content="Welcome Esteemed Scholars — Select a course and access your learning materials.">
-  <meta property="og:image" content="student.png">
+  <meta property="og:image" content="https://student-cbt.vercel.app/student.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:url" content="https://student-cbt.vercel.app/">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="">
+  <meta property="og:site_name" content="LASUED Student Portal">
 
-  <!-- Twitter Card -->
+  <!-- 🐦 Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LASUED Student Portal">
   <meta name="twitter:description" content="Welcome Esteemed Scholars — Select a course and access your learning materials.">
-  <meta name="twitter:image" content="student.png">
+  <meta name="twitter:image" content="https://student-cbt.vercel.app/student.png">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
@@ -31,7 +33,6 @@
     h1, h2, h3, .font-heading {
       font-family: 'Poppins', sans-serif;
     }
-    /* Glass card for splash */
     .glass-card {
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(20px);
@@ -40,7 +41,6 @@
       border-radius: 24px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.1);
     }
-    /* Course card glass style – transparent glass effect */
     .course-card {
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(12px);
@@ -51,9 +51,8 @@
     }
     .course-card:active {
       transform: scale(0.97);
-      background: rgba(90, 45, 130, 0.15); /* deeper purple on tap */
+      background: rgba(90, 45, 130, 0.15);
     }
-    /* Splash screen */
     .splash-screen {
       position: fixed;
       top: 0;
@@ -89,7 +88,6 @@
   <!-- SPLASH SCREEN -->
   <div id="splash" class="splash-screen">
     <div class="glass-card w-[80%] max-w-[320px] py-12 px-6 flex flex-col items-center justify-center text-center animate-fade-in">
-      <!-- Graduation cap icon (faint) -->
       <svg class="w-16 h-16 text-white/40 mb-4" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12 3L1 9l4 2.18v4.64L12 21l7-5.18v-4.64L23 9l-11-6zm0 2.18l7.68 4.18L12 13.54l-7.68-4.18L12 5.18zM5 12.47l7 3.79 7-3.79v4.22l-7 5.18-7-5.18v-4.22z"/>
       </svg>
@@ -99,19 +97,16 @@
 
   <!-- MAIN COURSE SELECTION -->
   <div id="app" class="app-content flex flex-col min-h-screen bg-gradient-to-b from-[#F8F7FC] to-white">
-    <!-- Header with LASUED logo -->
     <div class="flex flex-col items-center pt-10 pb-6 px-4">
       <img src="lasued.png" alt="LASUED logo" class="h-20 w-auto object-contain mb-4">
       <h2 class="text-3xl font-heading font-bold text-[#5A2D82]">Select a Course</h2>
       <p class="text-sm text-[#9B7BCE] mt-1">Tap to open course materials</p>
     </div>
 
-    <!-- Course Cards -->
     <div class="flex-1 px-4 pb-6 space-y-3 max-w-md mx-auto w-full">
       <div id="courseList" class="space-y-3"></div>
     </div>
 
-    <!-- Footer -->
     <div class="text-center py-6 text-xs text-[#9B7BCE] flex items-center justify-center gap-1">
       <span>Credited by LASUED COMMUNITY</span>
       <svg class="w-4 h-4 text-red-400 fill-current" viewBox="0 0 20 20">
@@ -121,7 +116,6 @@
   </div>
 
   <script>
-    // Course data — only the two requested
     const courses = [
       { code: "COS121", title: "Problem Solving" },
       { code: "LASUED-CSC125", title: "Application of Information Systems in Education" }
@@ -153,7 +147,6 @@
       container.appendChild(card);
     });
 
-    // Splash transition — now 2 seconds (2000ms)
     const splash = document.getElementById('splash');
     const app = document.getElementById('app');
 
@@ -170,7 +163,7 @@
         setTimeout(() => {
           splash.style.display = 'none';
         }, 800);
-      }, 2000);  // ⬅️ Changed from 3000 to 2000 (2 seconds)
+      }, 2000);
     });
   </script>
 </body>
