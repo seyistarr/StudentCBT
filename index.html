@@ -1,732 +1,177 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Student CBT — LASUED Physics (PHY 121)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>LASUED Student Portal</title>
 
-   <!-- Favicon (browser tab logo) -->
-<link rel="icon" type="image/png" href="lasued.png">
+  <!-- 🔗 Social Media Link Preview (Open Graph) -->
+  <meta property="og:title" content="LASUED Student Portal">
+  <meta property="og:description" content="Welcome Esteemed Scholars — Select a course and access your learning materials.">
+  <meta property="og:image" content="student.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
 
-<!-- Open Graph (WhatsApp, Facebook, LinkedIn preview) -->
-<meta property="og:title" content="Student CBT | LASUED Physics">
-<meta property="og:description" content="Practice CBT exams easily and efficiently. Covers Current Electricity & Magnetism.">
-<meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iMzE1IiB2aWV3Qm94PSIwIDAgNjAwIDMxNSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGEyMzQyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWQ2ZmE0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSIzMTUiIGZpbGw9InVybCgjZykiLz48dGV4dCB4PSIzMDAiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2YwYzA0MCI+U1RVREVOVCBDQlQ8L3RleHQ+PHRleHQgeD0iMzAwIiB5PSIxNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjgpIj5MQVNVQUQgUGh5c2ljcyA8L3RleHQ+PHRleHQgeD0iMzAwIiB5PSIyNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjYpIj5DdXJyZW50IEVsZWN0cmljaXR5ICZhbXA7IE1hZ25ldGlzbTwvdGV4dD48L3N2Zz4=">
-<meta property="og:url" content="">
-<meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LASUED Student Portal">
+  <meta name="twitter:description" content="Welcome Esteemed Scholars — Select a course and access your learning materials.">
+  <meta name="twitter:image" content="student.png">
 
-<!-- Twitter preview -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Student CBT | LASUED Physics">
-<meta name="twitter:description" content="Practice CBT exams easily and efficiently. Covers Current Electricity & Magnetism.">
-<meta name="twitter:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iMzE1IiB2aWV3Qm94PSIwIDAgNjAwIDMxNSI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGEyMzQyIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWQ2ZmE0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSIzMTUiIGZpbGw9InVybCgjZykiLz48dGV4dCB4PSIzMDAiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI2YwYzA0MCI+U1RVREVOVCBDQlQ8L3RleHQ+PHRleHQgeD0iMzAwIiB5PSIxNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxOCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjgpIj5MQVNVQUQgUGh5c2ljcyA8L3RleHQ+PHRleHQgeD0iMzAwIiB5PSIyNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjYpIj5DdXJyZW50IEVsZWN0cmljaXR5ICZhbXA7IE1hZ25ldGlzbTwvdGV4dD48L3N2Zz4=">
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: { 50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd', 400: '#a78bfa',
-                            500: '#8b5cf6', 600: '#6E5AE6', 700: '#5b3fd4', 800: '#4c2fb5', 900: '#3b1f94' },
-                        gold: { 400: '#F4C95D', 500: '#f0c040', 600: '#d4a830' },
-                    },
-                    fontFamily: {
-                        display: ['"Playfair Display"', 'Georgia', 'serif'],
-                        body: ['"Inter"', 'system-ui', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
-                    },
-                }
-            }
-        }
-    </script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <style>
-        :root {
-            --glass-bg: rgba(255, 255, 255, 0.75);
-            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-        }
-        .dark {
-            --glass-bg: rgba(30, 30, 50, 0.75);
-            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.7);
-            -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        }
-        .dark .glass-nav {
-            background: rgba(20, 20, 40, 0.7);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-        .card-lift {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-        }
-        .card-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        .option-card {
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-        .option-card:hover {
-            border-color: #c4b5fd;
-            background: #faf5ff;
-        }
-        .dark .option-card:hover {
-            border-color: #6E5AE6;
-            background: rgba(110, 90, 230, 0.1);
-        }
-        .option-card.selected {
-            border-color: #6E5AE6 !important;
-            background: #ede9fe !important;
-            box-shadow: 0 0 0 3px rgba(110, 90, 230, 0.15);
-        }
-        .dark .option-card.selected {
-            background: rgba(110, 90, 230, 0.2) !important;
-            border-color: #8b5cf6 !important;
-        }
-        .option-card.correct {
-            border-color: #22C55E !important;
-            background: #f0fdf4 !important;
-        }
-        .dark .option-card.correct {
-            background: rgba(34, 197, 94, 0.15) !important;
-            border-color: #22C55E !important;
-        }
-        .option-card.wrong {
-            border-color: #EF4444 !important;
-            background: #fef2f2 !important;
-            animation: shake 0.4s ease;
-        }
-        .dark .option-card.wrong {
-            background: rgba(239, 68, 68, 0.12) !important;
-            border-color: #EF4444 !important;
-        }
-        @keyframes shake {
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-            20% {
-                transform: translateX(-6px);
-            }
-            40% {
-                transform: translateX(6px);
-            }
-            60% {
-                transform: translateX(-4px);
-            }
-            80% {
-                transform: translateX(4px);
-            }
-        }
-        @keyframes fadeSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-fade-slide {
-            animation: fadeSlideIn 0.4s ease forwards;
-        }
-        .panel-hidden {
-            display: none;
-        }
-        .panel-visible {
-            display: block;
-            animation: fadeSlideIn 0.35s ease forwards;
-        }
-        .timer-warning {
-            animation: pulse 1s infinite;
-            color: #F4C95D !important;
-        }
-        .timer-danger {
-            animation: pulse 0.5s infinite;
-            color: #EF4444 !important;
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-        .modal-overlay {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-        }
-        .dark .modal-overlay {
-            background: rgba(0, 0, 0, 0.7);
-        }
-        .number-nav {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            background: #f1f5f9;
-            color: #475569;
-            flex-shrink: 0;
-        }
-        .dark .number-nav {
-            background: #334155;
-            color: #cbd5e1;
-        }
-        .number-nav.active {
-            background: #6E5AE6;
-            color: white;
-            transform: scale(1.1);
-        }
-        .number-nav.answered {
-            background: #c4b5fd;
-            color: #3b1f94;
-        }
-        .dark .number-nav.answered {
-            background: #7c3aed;
-            color: white;
-        }
-        .nav-scroll {
-            scrollbar-width: thin;
-            scrollbar-color: #cbd5e1 transparent;
-        }
-        .nav-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-        .nav-scroll::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 2px;
-        }
-        .calc-btn {
-            padding: 8px 4px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 600;
-            background: #f3f4f6;
-            border: 1px solid #e5e7eb;
-            cursor: pointer;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        .dark .calc-btn {
-            background: #374151;
-            border-color: #4b5563;
-            color: #e5e7eb;
-        }
-        .calc-btn:hover {
-            background: #e5e7eb;
-        }
-        .dark .calc-btn:hover {
-            background: #4b5563;
-        }
-        .calc-btn:active {
-            transform: scale(0.95);
-        }
-        .notes-content h2 {
-            font-family: 'Playfair Display', serif;
-        }
-        .notes-content .formula {
-            font-family: 'JetBrains Mono', monospace;
-            background: #f0f4ff;
-            border: 1px solid #c4b5fd;
-            border-radius: 8px;
-            padding: 10px 14px;
-            margin: 10px 0;
-            text-align: center;
-            color: #3b1f94;
-        }
-        .dark .notes-content .formula {
-            background: #1e1b4b;
-            border-color: #4c1d95;
-            color: #c4b5fd;
-        }
-        .notes-content .keybox {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
-            border-radius: 0 8px 8px 0;
-            padding: 12px 16px;
-            margin: 12px 0;
-            font-size: 14px;
-        }
-        .dark .notes-content .keybox {
-            background: #451a03;
-            color: #fde68a;
-        }
-        .notes-content table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            margin: 12px 0;
-        }
-        .notes-content th {
-            background: #0a2342;
-            color: #fff;
-            padding: 8px 12px;
-            text-align: left;
-        }
-        .notes-content td {
-            padding: 7px 12px;
-            border: 1px solid #d1d5db;
-        }
-        .dark .notes-content td {
-            border-color: #374151;
-        }
-    </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: #F8F7FC;
+    }
+    h1, h2, h3, .font-heading {
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Glass card for splash */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    /* Course card glass style – transparent glass effect */
+    .course-card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 16px;
+      transition: all 0.2s ease;
+    }
+    .course-card:active {
+      transform: scale(0.97);
+      background: rgba(90, 45, 130, 0.15); /* deeper purple on tap */
+    }
+    /* Splash screen */
+    .splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #5A2D82 0%, #9B7BCE 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .splash-screen.fade-out {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+    .app-content {
+      display: none;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+  </style>
 </head>
-<body class="bg-[#FAF9F6] dark:bg-[#1a1a2e] text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen">
+<body class="min-h-screen">
 
-    <!-- ═══════════ TOP NAVIGATION ═══════════ -->
-    <nav class="glass-nav sticky top-0 z-50 px-4 py-3 flex items-center justify-between flex-wrap gap-2 shadow-sm">
-        <div class="flex items-center gap-3 flex-shrink-0">
-            <img src="lasued.png" alt="LASUED Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" class="h-9 w-auto rounded object-contain max-w-[80px]">
-            <div class="hidden items-center gap-2 bg-brand-600 text-white rounded-lg px-3 py-1.5 flex-shrink-0" style="display:none;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><span class="text-xs font-bold">LASUED</span>
-            </div>
-            <div class="hidden sm:block">
-                <span class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide">PHY 121 · Physics Dept.</span>
-                <h1 class="text-sm font-bold text-gray-800 dark:text-white leading-tight">Current Electricity &amp; Magnetism</h1>
-            </div>
+  <!-- SPLASH SCREEN -->
+  <div id="splash" class="splash-screen">
+    <div class="glass-card w-[80%] max-w-[320px] py-12 px-6 flex flex-col items-center justify-center text-center animate-fade-in">
+      <!-- Graduation cap icon (faint) -->
+      <svg class="w-16 h-16 text-white/40 mb-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 3L1 9l4 2.18v4.64L12 21l7-5.18v-4.64L23 9l-11-6zm0 2.18l7.68 4.18L12 13.54l-7.68-4.18L12 5.18zM5 12.47l7 3.79 7-3.79v4.22l-7 5.18-7-5.18v-4.22z"/>
+      </svg>
+      <h1 class="text-white text-4xl md:text-5xl font-heading font-bold tracking-tight leading-tight">Welcome<br>Esteemed Scholars</h1>
+    </div>
+  </div>
+
+  <!-- MAIN COURSE SELECTION -->
+  <div id="app" class="app-content flex flex-col min-h-screen bg-gradient-to-b from-[#F8F7FC] to-white">
+    <!-- Header with LASUED logo -->
+    <div class="flex flex-col items-center pt-10 pb-6 px-4">
+      <img src="lasued.png" alt="LASUED logo" class="h-20 w-auto object-contain mb-4">
+      <h2 class="text-3xl font-heading font-bold text-[#5A2D82]">Select a Course</h2>
+      <p class="text-sm text-[#9B7BCE] mt-1">Tap to open course materials</p>
+    </div>
+
+    <!-- Course Cards -->
+    <div class="flex-1 px-4 pb-6 space-y-3 max-w-md mx-auto w-full">
+      <div id="courseList" class="space-y-3"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center py-6 text-xs text-[#9B7BCE] flex items-center justify-center gap-1">
+      <span>Credited by LASUED COMMUNITY</span>
+      <svg class="w-4 h-4 text-red-400 fill-current" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    // Course data — only the two requested
+    const courses = [
+      { code: "COS121", title: "Problem Solving" },
+      { code: "LASUED-CSC125", title: "Application of Information Systems in Education" }
+    ];
+
+    const container = document.getElementById('courseList');
+    courses.forEach(course => {
+      const card = document.createElement('div');
+      card.className = "course-card px-4 py-4 flex items-center gap-3 cursor-pointer shadow-sm";
+      card.setAttribute('data-href', `${course.code}.html`);
+      card.innerHTML = `
+        <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-[#5A2D82] flex-shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
         </div>
-        <div class="flex items-center gap-1.5 flex-wrap">
-            <button onclick="switchTab('notes',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors active bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 whitespace-nowrap" data-tab="notes"><svg class="w-4 h-4 inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Notes</button>
-            <button onclick="switchTab('practice',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap" data-tab="practice"><svg class="w-4 h-4 inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Practice</button>
-            <button onclick="switchTab('formulas',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap" data-tab="formulas"><svg class="w-4 h-4 inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M4 7h16"/><path d="M4 7l2 10a2 2 0 002 2h8a2 2 0 002-2l2-10"/></svg>Formulas</button>
-            <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ml-1" aria-label="Toggle dark mode"><svg id="dark-icon-sun" class="w-4.5 h-4.5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg id="dark-icon-moon" class="w-4.5 h-4.5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+        <div class="flex-1 min-w-0">
+          <p class="font-semibold text-[#5A2D82] text-sm">${course.code}</p>
+          <p class="text-xs text-gray-600 truncate">${course.title}</p>
         </div>
-    </nav>
+        <svg class="w-5 h-5 text-[#9B7BCE] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      `;
+      card.addEventListener('click', () => {
+        const href = card.getAttribute('data-href');
+        if (href) window.location.href = href;
+      });
+      container.appendChild(card);
+    });
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    // Splash transition — now 2 seconds (2000ms)
+    const splash = document.getElementById('splash');
+    const app = document.getElementById('app');
 
-        <!-- ═══════════ NOTES PANEL ═══════════ -->
-        <div id="panel-notes" class="panel-visible space-y-6">
-            <div class="text-center py-8">
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">PHY 121 <span class="text-brand-600 dark:text-brand-400">&mdash;</span> Complete Lecture Notes</h2>
-                <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">Current Electricity &amp; Magnetic Field and Magnetic Force — with diagrams, worked examples, and quizzes.</p>
-                <p class="mt-2 text-xs text-gray-400 dark:text-gray-500">Learning Architect: <span class="font-semibold text-brand-600">Archangelstr</span></p>
-            </div>
-            <div class="flex gap-2 flex-wrap bg-white dark:bg-gray-800 rounded-2xl p-2 shadow-sm border">
-                <button onclick="switchNotesSubtab('current')" id="notes-sub-current" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 transition-colors">Current Electricity</button>
-                <button onclick="switchNotesSubtab('magnetism')" id="notes-sub-magnetism" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Magnetic Field &amp; Force</button>
-            </div>
-            <div id="notes-current" class="notes-content space-y-4">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 1 — Introduction &amp; Electric Cells</h2><p>The study of electric charge falls into two categories: <strong>static electricity</strong> (charges at rest) and <strong>current electricity</strong> (charges in motion). Electric current is a flow of electric charge through a conductive medium — typically moving electrons in a wire, or ions in an electrolyte.</p><h3 class="font-semibold mt-3">The Simple Electric Cell</h3><p>An electric cell transforms chemical energy into electrical energy. The simplest cell uses two different metals (electrodes) dipped in an electrolyte solution.</p><svg viewBox="0 0 420 240" class="w-full max-w-md mx-auto my-3"><rect x="80" y="70" width="240" height="140" rx="4" fill="#e8f4fd" stroke="#1d6fa4" stroke-width="2"/><text x="200" y="180" text-anchor="middle" font-size="12" fill="#1d6fa4">H₂SO₄ (Electrolyte)</text><rect x="100" y="60" width="26" height="150" rx="2" fill="#888" stroke="#555"/><text x="113" y="228" text-anchor="middle" font-size="11">Zn (−)</text><rect x="294" y="60" width="26" height="150" rx="2" fill="#333" stroke="#111"/><text x="307" y="228" text-anchor="middle" font-size="11">C (+)</text><line x1="113" y1="60" x2="113" y2="35" stroke="#c00" stroke-width="2"/><line x1="113" y1="35" x2="307" y2="35" stroke="#c00" stroke-width="2"/><line x1="307" y1="35" x2="307" y2="60" stroke="#c00" stroke-width="2"/><text x="210" y="25" text-anchor="middle" font-size="10" fill="#c00">← e⁻ flow</text></svg><p class="text-xs text-gray-500 text-center">Fig. — Simple electric cell: Zinc and Carbon electrodes in dilute H₂SO₄</p><p>The chemical reaction: <strong>Zn + H₂SO₄ + H₂O → ZnSO₄ + H₂O + H₂</strong></p><div class="keybox">A <strong>battery</strong> is a combination of several cells. The <strong>emf E</strong> of a cell is the total energy per coulomb it delivers to the external circuit (unit: volts, V).</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 2 — Electric Current &amp; Current Density</h2><div class="formula">I = ΔQ / Δt &nbsp;&nbsp; [Unit: ampere, A = C/s]</div><div class="formula">I = ΔQ/Δt = qnAv<sub>d</sub></div><div class="formula">J = I / A = qnv<sub>d</sub> &nbsp;&nbsp; [Unit: A/m²]</div><div class="keybox"><strong>Direction:</strong> Current density J is in the direction of positive charge motion. For electrons, J is opposite to electron drift direction.</div><p><strong>Worked Example — Drift Velocity:</strong> Copper wire (2mm×2mm, 4m long) carries 10A. n=8×10²⁸ m⁻³. A=4×10⁻⁶ m², J=2.5×10⁶ A/m², v<sub>d</sub>=J/(nq)=<strong>1.953×10⁻⁴ m/s</strong></p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 3 — Ohm's Law, Conductance &amp; Resistivity</h2><div class="formula">I ∝ V → I = V/R or V = IR</div><div class="formula">G = 1/R = I/V &nbsp; [Siemens, S]</div><div class="formula">R = ρL / A &nbsp; [ρ in Ω·m]</div><div class="formula">σ = 1/ρ &nbsp; (Ω·m)⁻¹ &nbsp; J = σE</div><h3 class="font-semibold mt-3">Temperature Dependence</h3><div class="formula">R = R₀ [1 + α(T − T₀)]</div><p>For <strong>metals</strong>: resistance increases with T (positive α). For <strong>semiconductors</strong>: resistance decreases with T (negative α).</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 4 — Ohmic vs Non-Ohmic Conductors</h2><p><strong>Ohmic:</strong> Obey Ohm's Law, I–V graph is straight line through origin (copper, tungsten, CuSO₄).</p><p><strong>Non-Ohmic:</strong> Do NOT obey Ohm's Law, I–V graph is a curve or doesn't pass through origin (diode, battery, neon gas).</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 5 — Resistors in Series &amp; Parallel</h2><svg viewBox="0 0 500 200" class="w-full max-w-lg mx-auto my-3"><text x="100" y="15" text-anchor="middle" font-size="12" font-weight="bold">SERIES</text><rect x="40" y="40" width="40" height="18" rx="3" fill="#dbeafe" stroke="#1d6fa4"/><text x="60" y="53" text-anchor="middle" font-size="10">R₁</text><rect x="95" y="40" width="40" height="18" rx="3" fill="#dbeafe" stroke="#1d6fa4"/><text x="115" y="53" text-anchor="middle" font-size="10">R₂</text><rect x="150" y="40" width="40" height="18" rx="3" fill="#dbeafe" stroke="#1d6fa4"/><text x="170" y="53" text-anchor="middle" font-size="10">R₃</text><text x="105" y="85" text-anchor="middle" font-size="10" fill="#059669">Req = R₁+R₂+R₃</text><text x="370" y="15" text-anchor="middle" font-size="12" font-weight="bold">PARALLEL</text><rect x="320" y="50" width="30" height="40" rx="3" fill="#d1fae5" stroke="#059669"/><text x="335" y="74" text-anchor="middle" font-size="10">R₁</text><rect x="370" y="50" width="30" height="40" rx="3" fill="#d1fae5" stroke="#059669"/><text x="385" y="74" text-anchor="middle" font-size="10">R₂</text><rect x="420" y="50" width="30" height="40" rx="3" fill="#d1fae5" stroke="#059669"/><text x="435" y="74" text-anchor="middle" font-size="10">R₃</text><text x="385" y="110" text-anchor="middle" font-size="10" fill="#059669">1/Req = 1/R₁+1/R₂+1/R₃</text></svg><table><tr><th>Property</th><th>Series</th><th>Parallel</th></tr><tr><td>Current</td><td>Same through all</td><td>Splits: I=I₁+I₂+I₃</td></tr><tr><td>Voltage</td><td>Divides</td><td>Same across all</td></tr><tr><td>Req</td><td>R₁+R₂+R₃</td><td>1/Req=1/R₁+1/R₂+1/R₃</td></tr></table><p class="text-xs mt-2">Note: For two parallel resistors: R<sub>eq</sub> = R₁R₂/(R₁+R₂).</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 6 — Internal Resistance &amp; Terminal Voltage</h2><div class="formula">V = E − Ir &nbsp;(discharging)</div><div class="formula">V = E + Ir &nbsp;(charging)</div><div class="formula">I = E / (R + r)</div><p><strong>Worked Example:</strong> Battery emf=4V, r=2Ω, R=8Ω → I=4/(8+2)=0.4A, Terminal p.d.=0.4×8=<strong>3.2V</strong></p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 7 — Electrical Power &amp; Efficiency</h2><div class="formula">P = VI = I²R = V²/R</div><div class="formula">η = V/E = R/(R+r)</div><div class="formula">P_out = E²R/(R+r)²</div><div class="keybox"><strong>Maximum Power Transfer:</strong> Maximum power when R=r. Efficiency at that point = 50%. For higher efficiency use R≫r.</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 8 — Cells in Series &amp; Parallel</h2><table><tr><th></th><th>Series</th><th>Parallel (identical cells)</th></tr><tr><td>Total emf</td><td>E=E₁+E₂+…</td><td>E=E₁</td></tr><tr><td>Total r</td><td>r=r₁+r₂+…</td><td>1/r=1/r₁+1/r₂+…</td></tr><tr><td>Best use</td><td>Higher voltage</td><td>Higher current/longer life</td></tr></table></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">SECTION 9 — Kirchhoff's Rules</h2><p><strong>KCL (Junction Rule):</strong> ΣI = 0 at any junction. Based on conservation of charge.</p><p><strong>KVL (Loop Rule):</strong> Σ(E+IR) = 0 around any closed loop. Based on conservation of energy.</p><p><strong>Sign Conventions:</strong> Resistor traversed with current → −IR (drop); opposite → +IR (rise). Cell from − to + → +E; + to − → −E.</p><p><strong>Worked Example:</strong> 10V and 5V batteries, 2Ω and 3Ω resistors in single loop: −2I+10−5−3I=0 → 5I=5 → <strong>I=1A</strong></p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">Complete Equation Reference — Current Electricity</h2><table><tr><th>Concept</th><th>Formula</th><th>Unit</th></tr><tr><td>Current</td><td>I=ΔQ/Δt=qnAv_d</td><td>A</td></tr><tr><td>Current density</td><td>J=I/A=qnv_d=σE</td><td>A/m²</td></tr><tr><td>Ohm's Law</td><td>V=IR</td><td>Ω</td></tr><tr><td>Conductance</td><td>G=1/R</td><td>S</td></tr><tr><td>Resistivity</td><td>R=ρL/A; σ=1/ρ</td><td>Ω·m</td></tr><tr><td>Temp. dependence</td><td>R=R₀[1+α(T−T₀)]</td><td>—</td></tr><tr><td>Terminal V (discharge)</td><td>V=E−Ir</td><td>V</td></tr><tr><td>Circuit current</td><td>I=E/(R+r)</td><td>A</td></tr><tr><td>Power</td><td>P=VI=I²R=V²/R</td><td>W</td></tr><tr><td>Efficiency</td><td>η=R/(R+r)</td><td>—</td></tr><tr><td>Series R</td><td>R_eq=R₁+R₂+R₃</td><td>Ω</td></tr><tr><td>Parallel R</td><td>1/R_eq=1/R₁+1/R₂+1/R₃</td><td>Ω</td></tr><tr><td>Cells series</td><td>E=E₁+E₂+…</td><td>V</td></tr><tr><td>Cells parallel</td><td>E=E₁; 1/r=1/r₁+…</td><td>V</td></tr><tr><td>KCL</td><td>ΣI=0</td><td>—</td></tr><tr><td>KVL</td><td>Σ(E+IR)=0</td><td>—</td></tr></table></div>
-            </div>
-            <div id="notes-magnetism" class="notes-content space-y-4 hidden">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.1–14.3 — Magnetic Field &amp; Magnetic Lines of Force</h2><p>A <strong>magnetic field</strong> is a region of space around a magnet, moving charge, or current-carrying conductor where magnetic force can be detected. Symbol: <strong>B⃗</strong>. SI unit: <strong>Tesla (T)</strong> = N/(A·m) = Wb/m².</p><div class="keybox"><strong>Formal Definition:</strong> B⃗ at a point is defined by the force on a positive test charge q moving with velocity v⃗. F<sub>max</sub>=qvB when velocity ⊥ field.</div><h3 class="font-semibold mt-3">Properties of Magnetic Field Lines</h3><ol class="list-decimal pl-5 space-y-1 text-sm"><li>Emerge from North, enter South outside the magnet; South to North inside — closed loops.</li><li>Never intersect (unique direction at each point).</li><li>Tangent = field direction; density indicates strength.</li><li>Perpendicular to conductor surface at that surface.</li><li>Exist in 3D; tend to shorten; repel laterally.</li></ol></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.4 — Magnetic Force on a Current-Carrying Wire</h2><div class="formula">F = BIl sin θ</div><p>Maximum force when θ=90° (F<sub>max</sub>=BIl). Zero when parallel. Direction by right-hand rule.</p><div class="keybox"><strong>Right-Hand Grip Rule:</strong> Thumb = conventional current direction; curled fingers = magnetic field direction encircling the wire.</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.5 — Magnetic Force on a Moving Charge</h2><div class="formula">F⃗ = qv⃗ × B⃗</div><div class="formula">F = qvB sin θ</div><p>Force is ⊥ to both v⃗ and B⃗. For ⊥ entry: circular motion.</p><div class="formula">r = mv/(qB)</div><div class="formula">ω = qB/m &nbsp;|&nbsp; T = 2πm/(qB) &nbsp;|&nbsp; f = qB/(2πm)</div><div class="keybox"><strong>Key Insight:</strong> Period T and angular speed ω are independent of particle's speed and orbital radius — they depend only on q/m and B.</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.6 — Cyclotrons</h2><div class="formula">K.E = ½mv² = (q²B²/2m)r²</div><p>Cyclotron frequency f=qB/(2πm) is constant. K.E ∝ q², B², and 1/m.</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.7 — The Hall Effect</h2><div class="formula">V<sub>H</sub> = vBd</div><div class="formula">V<sub>H</sub> = IBd/(nqA)</div><p>Hall coefficient = 1/(nq). Used to determine carrier type and density in semiconductors.</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.8 — Torque on a Current Loop</h2><div class="formula">τ = BIA &nbsp;(single loop)</div><div class="formula">τ = BIAN &nbsp;(N-turn coil)</div><p>Principle behind electric motors, analog voltmeters, and ammeters.</p></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.11 — The Biot-Savart Law</h2><div class="formula">dB⃗ = (μ₀/4π)·(Idl⃗ × r̂)/r²</div><p>μ₀ = 4π×10⁻⁷ T·m/A (permeability of free space).</p><p><strong>Key results:</strong></p><div class="formula">Long wire: B = μ₀I/(2πa)</div><div class="formula">Solenoid: B = μ₀nI = μ₀NI/l</div><div class="formula">Circular loop centre: B = μ₀I/(2r)</div><div class="formula">Loop axial: B = μ₀IR²/[2(x²+R²)^(3/2)]</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">§ 14.12 — Forces Between Parallel Conductors</h2><div class="formula">F/L = μ₀I₁I₂/(2πd)</div><p>Same direction → <strong>attract</strong>. Opposite → <strong>repel</strong>.</p><div class="keybox"><strong>Definition of the Ampere:</strong> Current in each of two infinitely long parallel wires 1m apart producing 2×10⁻⁷ N/m force on each wire.</div></div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border"><h2 class="text-xl font-bold mb-3">Complete Equation Reference — Magnetism</h2><table><tr><th>Concept</th><th>Formula</th><th>Unit</th></tr><tr><td>Force on wire</td><td>F=BIl sinθ</td><td>N</td></tr><tr><td>Force on charge</td><td>F=qvB sinθ</td><td>N</td></tr><tr><td>Orbit radius</td><td>r=mv/(qB)</td><td>m</td></tr><tr><td>Cyclotron freq</td><td>f=qB/(2πm)</td><td>Hz</td></tr><tr><td>Period</td><td>T=2πm/(qB)</td><td>s</td></tr><tr><td>Hall voltage</td><td>V_H=IBd/(nqA)</td><td>V</td></tr><tr><td>Torque on coil</td><td>τ=BIAN</td><td>N·m</td></tr><tr><td>Biot-Savart</td><td>dB=(μ₀/4π)Idl sinθ/r²</td><td>T</td></tr><tr><td>Long wire B</td><td>B=μ₀I/(2πa)</td><td>T</td></tr><tr><td>Solenoid B</td><td>B=μ₀nI</td><td>T</td></tr><tr><td>Loop centre B</td><td>B=μ₀I/(2r)</td><td>T</td></tr><tr><td>Force between wires</td><td>F/L=μ₀I₁I₂/(2πd)</td><td>N/m</td></tr><tr><td>Magnetic flux</td><td>Φ=BA cosθ</td><td>Wb</td></tr><tr><td>Velocity selector</td><td>v=E/B</td><td>m/s</td></tr></table></div>
-            </div>
-        </div>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        splash.querySelector('.glass-card').style.transform = 'scale(1.03)';
+        splash.querySelector('.glass-card').style.transition = 'transform 1.0s ease-out';
+      }, 100);
 
-        <!-- ═══════════ PRACTICE PANEL ═══════════ -->
-        <div id="panel-practice" class="panel-hidden">
-            <div class="space-y-4">
-                <div class="flex flex-wrap items-center gap-2 bg-white dark:bg-gray-800 rounded-2xl p-3 shadow-sm border">
-                    <button onclick="setPracticeMode('practice')" id="mode-practice-btn" class="px-4 py-2 rounded-lg text-sm font-semibold bg-brand-100 dark:bg-brand-900/40 text-brand-700">Practice</button>
-                    <button onclick="setPracticeMode('exam')" id="mode-exam-btn" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600">Exam</button>
-                    <button id="start-exam-btn" class="hidden px-4 py-2 bg-brand-600 text-white rounded-lg text-sm font-semibold" onclick="openTimerModal()">Start Exam</button>
-                    <div id="timer-pill" class="hidden ml-auto bg-white dark:bg-gray-800 border px-3 py-1.5 rounded-full text-sm font-mono font-bold cursor-pointer" onclick="openTimerModal()"><span id="timer-pill-display">20:00</span></div>
-                    <button id="stop-exam-btn" class="hidden px-3 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-lg text-sm" onclick="stopExam()">End</button>
-                    <button class="ml-auto px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-medium" onclick="toggleCalculatorModal()"><svg class="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>Calc</button>
-                    <button class="px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-medium" onclick="toggleFormulaModal()"><svg class="w-4 h-4 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7V5a2 2 0 012-2h12a2 2 0 012 2v2"/></svg>Formulas</button>
-                </div>
-                <div class="grid grid-cols-4 gap-2">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="total-q-display">100</div><div class="text-xs text-gray-500">Total</div></div>
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="answered-q-display">0</div><div class="text-xs text-gray-500">Answered</div></div>
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold text-brand-600" id="score-display-mini">—</div><div class="text-xs text-gray-500">Score</div></div>
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="percent-display-mini">—</div><div class="text-xs text-gray-500">%</div></div>
-                </div>
-                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full"><div id="progress-bar-fill" class="h-full bg-brand-600 rounded-full transition-all" style="width:0%"></div></div>
-                <div id="question-view" class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border min-h-[300px] transition-all"></div>
-                <div class="flex flex-wrap gap-2 justify-center">
-                    <button onclick="submitAllAnswers()" class="px-6 py-3 bg-brand-600 text-white rounded-xl text-sm font-semibold shadow-md">Submit &amp; Grade All</button>
-                    <button onclick="resetAllAnswers()" class="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm">Reset</button>
-                    <button onclick="showHistoryModal()" class="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm flex items-center gap-1.5"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> History</button>
-                </div>
-                <div class="flex items-center justify-between gap-2">
-                    <button id="prev-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(-1)">← Prev</button>
-                    <div class="flex gap-1 overflow-x-auto nav-scroll py-1" id="number-navigator"></div>
-                    <button id="next-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(1)">Next →</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ═══════════ FORMULAS PANEL ═══════════ -->
-        <div id="panel-formulas" class="panel-hidden space-y-5">
-            <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border"><input type="text" id="formula-search" placeholder="Search all formulas..." oninput="filterFormulas()" class="w-full px-4 py-3 rounded-xl border bg-gray-50 dark:bg-gray-700 text-sm focus:ring-2 focus:ring-brand-400"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="formula-grid"></div>
-        </div>
-    </main>
-
-    <!-- ═══════════ MODALS ═══════════ -->
-    <div id="timer-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal-overlay"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4"><h3 class="text-lg font-bold mb-3">Exam Timer</h3><select id="exam-duration-select" class="w-full rounded-lg border px-3 py-2 text-sm mb-4"><option value="10">10 min</option><option value="20" selected>20 min</option><option value="30">30 min</option><option value="45">45 min</option></select><div class="flex gap-2"><button onclick="startExamFromModal()" class="flex-1 bg-brand-600 text-white py-2 rounded-lg font-semibold">Start</button><button onclick="closeTimerModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">Cancel</button></div></div></div>
-    <div id="calculator-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-2xl max-w-xs w-full mx-4"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Calculator</h3><button onclick="toggleCalculatorModal()" class="text-gray-500"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="bg-gray-100 dark:bg-gray-700 rounded-xl p-3 mb-3 text-right font-mono text-2xl font-bold min-h-[48px]" id="calc-display">0</div><div class="grid grid-cols-4 gap-2"><button onclick="calcInput('sin(')" class="calc-btn">sin</button><button onclick="calcInput('cos(')" class="calc-btn">cos</button><button onclick="calcInput('tan(')" class="calc-btn">tan</button><button onclick="calcClear()" class="calc-btn bg-red-100 dark:bg-red-900/30 text-red-600">C</button><button onclick="calcInput('log(')" class="calc-btn">log</button><button onclick="calcInput('ln(')" class="calc-btn">ln</button><button onclick="calcInput('**')" class="calc-btn">x^y</button><button onclick="calcInput('/')" class="calc-btn bg-brand-100 text-brand-700">/</button><button onclick="calcInput('7')" class="calc-btn">7</button><button onclick="calcInput('8')" class="calc-btn">8</button><button onclick="calcInput('9')" class="calc-btn">9</button><button onclick="calcInput('*')" class="calc-btn bg-brand-100 text-brand-700">*</button><button onclick="calcInput('4')" class="calc-btn">4</button><button onclick="calcInput('5')" class="calc-btn">5</button><button onclick="calcInput('6')" class="calc-btn">6</button><button onclick="calcInput('-')" class="calc-btn bg-brand-100 text-brand-700">-</button><button onclick="calcInput('1')" class="calc-btn">1</button><button onclick="calcInput('2')" class="calc-btn">2</button><button onclick="calcInput('3')" class="calc-btn">3</button><button onclick="calcInput('+')" class="calc-btn bg-brand-100 text-brand-700">+</button><button onclick="calcInput('0')" class="calc-btn">0</button><button onclick="calcInput('.')" class="calc-btn">.</button><button onclick="calcInput('PI')" class="calc-btn">π</button><button onclick="calcEvaluate()" class="calc-btn bg-brand-600 text-white font-bold">=</button></div></div></div>
-    <div id="formula-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-2xl max-w-lg w-full mx-4 max-h-[80vh] overflow-y-auto"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Formula Library</h3><button onclick="toggleFormulaModal()" class="text-gray-500"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><input type="text" id="modal-formula-search" placeholder="Search..." oninput="filterModalFormulas()" class="w-full px-4 py-2 rounded-lg border mb-3 text-sm"><div id="modal-formula-list" class="space-y-2"></div></div></div>
-    <div id="congrats-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4 text-center"><div id="congrats-icon" class="mb-3"></div><h2 class="text-xl font-bold mb-2" id="congrats-title">Well done!</h2><p class="text-sm text-gray-600 dark:text-gray-300 mb-4" id="congrats-message"></p><button onclick="closeCongratsModal()" class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold">Continue</button></div></div>
-    <!-- Score History Modal -->
-    <div id="history-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto"><div class="flex justify-between items-center mb-4"><h3 class="text-lg font-bold text-gray-800 dark:text-white">Score History</h3><button onclick="closeHistoryModal()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div id="history-list" class="space-y-2"></div><button onclick="clearHistory()" class="mt-4 px-4 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg text-sm font-semibold w-full">Clear History</button></div></div>
-
-    <footer class="text-center py-6 text-xs text-gray-400 dark:text-gray-500 border-t mt-8 space-y-1">
-        <p>&copy; 2026 <span class="font-semibold text-brand-600">Archangelstr</span>. All rights reserved. &middot; LASUED Physics</p>
-        <p>Lecturers: <span class="font-semibold">Dr. Akeredolu B.E</span> &amp; <span class="font-semibold">Dr. Dosunmu G.O</span></p>
-    </footer>
-
-    <script>
-        // ═══════════ INDEXEDDB SETUP ═══════════
-        const DB_NAME = 'CBE_DB';
-        const DB_VERSION = 1;
-        let db = null;
-
-        function openDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(DB_NAME, DB_VERSION);
-                request.onupgradeneeded = function(event) {
-                    const database = event.target.result;
-                    if (!database.objectStoreNames.contains('results')) {
-                        database.createObjectStore('results', { keyPath: 'id' });
-                    }
-                };
-                request.onsuccess = function(event) {
-                    db = event.target.result;
-                    resolve(db);
-                };
-                request.onerror = function(event) {
-                    console.error('IndexedDB error:', event.target.error);
-                    reject(event.target.error);
-                };
-            });
-        }
-
-        async function saveResult(score, total, percentage) {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('results', 'readwrite');
-                const store = tx.objectStore('results');
-                const record = {
-                    id: Date.now(),
-                    score: score,
-                    total: total,
-                    percentage: percentage,
-                    date: new Date().toISOString()
-                };
-                const request = store.put(record);
-                request.onsuccess = function() { resolve(record); };
-                request.onerror = function() { reject(request.error); };
-            });
-        }
-
-        async function getResults(limit) {
-            limit = limit || 20;
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('results', 'readonly');
-                const store = tx.objectStore('results');
-                const getAll = store.getAll();
-                getAll.onsuccess = function() {
-                    let results = getAll.result || [];
-                    results.sort(function(a, b) { return b.id - a.id; });
-                    resolve(results.slice(0, limit));
-                };
-                getAll.onerror = function() { reject(getAll.error); };
-            });
-        }
-
-        async function clearResults() {
-            if (!db) await openDB();
-            return new Promise((resolve, reject) => {
-                const tx = db.transaction('results', 'readwrite');
-                const store = tx.objectStore('results');
-                const request = store.clear();
-                request.onsuccess = function() { resolve(); };
-                request.onerror = function() { reject(request.error); };
-            });
-        }
-
-        // Initialize IndexedDB on page load
-        openDB().then(function() { console.log('IndexedDB ready - CBE_DB v' + DB_VERSION); }).catch(function(e) { console.error('IndexedDB init failed:', e); });
-
-        // ═══════════ ALL 100 QUESTIONS (50 Current + 50 Magnetism) ═══════════
-        const allQuestions = [
-            // === CURRENT ELECTRICITY (50 questions) ===
-            { q: "Current of 4+2t² A flows in a wire. Charge passing between t=5s and t=10s?", opts: ["603.3 C", "500 C", "250 C", "1000 C"], ans: 0, exp: "q=∫(4+2t²)dt=[4t+2t³/3]₅¹⁰=603.3 C" },
-            { q: "Unit of current density J is:", opts: ["A/m", "A·m", "A/m²", "A·m²"], ans: 2, exp: "J=I/A → unit is A/m²." },
-            { q: "Drift velocity of charge carriers: v_d =", opts: ["nqA/I", "J/nq", "nqJ", "I·n·q"], ans: 1, exp: "From J=nqv_d → v_d=J/(nq)=I/(nqA)." },
-            { q: "Wire: ρ=2.8×10⁻⁸ Ω·m, A=1×10⁻⁶ m², R=0.056 Ω. Length?", opts: ["0.5 m", "1 m", "2 m", "4 m"], ans: 2, exp: "L=RA/ρ=(0.056×1e-6)/(2.8e-8)=2m." },
-            { q: "Conductance G is measured in:", opts: ["Ohm", "Volt", "Siemens", "Farad"], ans: 2, exp: "G=1/R, unit: siemens (S)." },
-            { q: "Copper wire R₀=5Ω at 0°C, α=4.3×10⁻³ °C⁻¹. R at 30°C?", opts: ["5.645 Ω", "5.43 Ω", "6.29 Ω", "4.36 Ω"], ans: 0, exp: "R=5[1+(4.3e-3)(30)]=5×1.129=5.645Ω." },
-            { q: "For non-ohmic conductors, I–V graph:", opts: ["Straight line thru origin", "Straight not thru origin", "Curve or not thru origin", "Horizontal line"], ans: 2, exp: "Non-ohmic (diodes, batteries) have curved I–V graphs." },
-            { q: "p.d.=2V, L=2m, A=8×10⁻⁹ m², I=0.1A. Conductivity?", opts: ["1.0×10⁷", "1.25×10⁷", "8.0×10⁻⁸", "2.5×10⁶"], ans: 1, exp: "R=20Ω, ρ=8e-8, σ=1/ρ=1.25e7 (Ω·m)⁻¹." },
-            { q: "Wire stretched to double length (volume unchanged). Resistance:", opts: ["Doubles", "Quadruples", "Halves", "Stays same"], ans: 1, exp: "L→2L, A→A/2, R→4R." },
-            { q: "20kΩ+40kΩ series, need parallel R for total 20kΩ. R=?", opts: ["20kΩ", "30kΩ", "40kΩ", "60kΩ"], ans: 1, exp: "Series=60kΩ, 1/20=1/60+1/R → R=30kΩ." },
-            { q: "Three resistors 6Ω,3Ω,2Ω in parallel. Req?", opts: ["11Ω", "1Ω", "2Ω", "0.91Ω"], ans: 1, exp: "1/R=1/6+1/3+1/2=1, R=1Ω." },
-            { q: "12V battery, r=0.5Ω, R=11.5Ω. Current?", opts: ["0.8A", "1.0A", "1.2A", "2.0A"], ans: 1, exp: "I=12/(11.5+0.5)=1.0A." },
-            { q: "Battery E=10V, r=2Ω, delivers 2A. Terminal voltage?", opts: ["10V", "8V", "6V", "14V"], ans: 2, exp: "V=10−2×2=6V." },
-            { q: "ΣI=0 at any junction is:", opts: ["Ohm's Law", "KVL", "KCL", "Faraday's Law"], ans: 2, exp: "Kirchhoff's Current Law (junction rule)." },
-            { q: "Two 100Ω parallel, then series with 100Ω. Total?", opts: ["300Ω", "150Ω", "50Ω", "100Ω"], ans: 1, exp: "100‖100=50Ω, +100=150Ω." },
-            { q: "12V battery (r=1Ω), R₁=2Ω, R₂=5Ω series. p.d. across 5Ω?", opts: ["5V", "7.5V", "9V", "6V"], ans: 1, exp: "I=12/8=1.5A, V₅=7.5V." },
-            { q: "Traversing resistor opposite to current in loop rule:", opts: ["−IR", "0", "+IR", "−V/R"], ans: 2, exp: "Against current → potential rise +IR." },
-            { q: "R₁=2Ω‖R₂=4Ω, series with 6Ω. Req?", opts: ["12Ω", "7.33Ω", "4.67Ω", "1.33Ω"], ans: 1, exp: "2‖4=1.33Ω, +6=7.33Ω." },
-            { q: "Battery E=12V, terminal V=10V at 4A. Internal r?", opts: ["0.5Ω", "1.0Ω", "2.0Ω", "3.0Ω"], ans: 0, exp: "10=12−4r → r=0.5Ω." },
-            { q: "20kΩ+40kΩ series, parallel R for 20kΩ eq?", opts: ["20kΩ", "30kΩ", "40kΩ", "60kΩ"], ans: 1, exp: "Same as Q10 — R=30kΩ." },
-            { q: "750W iron on 220V draws current:", opts: ["3.41A", "0.29A", "2.75A", "165A"], ans: 0, exp: "I=P/V=750/220=3.41A." },
-            { q: "Battery efficiency η =", opts: ["R/(R−r)", "r/(R+r)", "R/(R+r)", "E/V"], ans: 2, exp: "η=P_out/P_gen=IV/IE=V/E=R/(R+r)." },
-            { q: "Max power transfer when:", opts: ["R=0", "R=r", "R→∞", "r=0"], ans: 1, exp: "Maximum power when load R equals internal r." },
-            { q: "Three identical cells 1.5V, 0.5Ω in series. Total E & r?", opts: ["1.5V,0.17Ω", "4.5V,1.5Ω", "4.5V,0.17Ω", "1.5V,1.5Ω"], ans: 1, exp: "Series: E=4.5V, r=1.5Ω." },
-            { q: "Three identical cells 1.5V, 0.5Ω in PARALLEL. Total E & r?", opts: ["4.5V,0.17Ω", "1.5V,1.5Ω", "1.5V,0.17Ω", "4.5V,1.5Ω"], ans: 2, exp: "Parallel: E=1.5V, 1/r=6→r≈0.17Ω." },
-            { q: "Copper wire 2mm×2mm, 4m, 10A, n=8×10²⁸. Drift speed?", opts: ["1.95×10⁻⁴ m/s", "2.5×10⁶ m/s", "1.6×10⁻¹⁹ m/s", "3×10⁸ m/s"], ans: 0, exp: "v_d=J/(nq)=2.5e6/(8e28×1.6e-19)=1.95e-4 m/s." },
-            { q: "Wire R=6Ω stretched to 3× length. New R?", opts: ["18Ω", "2Ω", "54Ω", "6Ω"], ans: 2, exp: "L→3L, A→A/3, R→9×6=54Ω." },
-            { q: "100V battery (r=5Ω) connected to 500Ω voltmeter. Reading?", opts: ["100V", "95V", "99V", "90V"], ans: 2, exp: "I=100/505≈0.198A, V=0.198×500≈99V." },
-            { q: "Which is ohmic?", opts: ["Diode", "Copper wire", "Neon gas", "Battery"], ans: 1, exp: "Copper obeys Ohm's Law; others are non-ohmic." },
-            { q: "Resistivity unit:", opts: ["Ω", "Ω/m", "Ω·m", "S/m"], ans: 2, exp: "ρ has units Ω·m." },
-            { q: "A 9V battery delivers 0.5A. Total power generated?", opts: ["4.5W", "18W", "9W", "0.5W"], ans: 0, exp: "P=EI=9×0.5=4.5W." },
-            { q: "Two 4Ω resistors in parallel, then series with 2Ω. Req?", opts: ["6Ω", "4Ω", "8Ω", "10Ω"], ans: 1, exp: "4‖4=2Ω, +2=4Ω." },
-            { q: "Current through 3Ω in series with 6Ω across 18V:", opts: ["6A", "2A", "3A", "1A"], ans: 1, exp: "I=18/9=2A." },
-            { q: "Voltage across 6Ω (from Q33):", opts: ["6V", "12V", "18V", "3V"], ans: 1, exp: "V=2×6=12V." },
-            { q: "KVL is based on conservation of:", opts: ["Charge", "Energy", "Mass", "Momentum"], ans: 1, exp: "Loop rule: conservation of energy." },
-            { q: "KCL is based on conservation of:", opts: ["Charge", "Energy", "Mass", "Momentum"], ans: 0, exp: "Junction rule: conservation of charge." },
-            { q: "A 60W bulb on 120V draws:", opts: ["0.5A", "2A", "0.25A", "4A"], ans: 0, exp: "I=P/V=60/120=0.5A." },
-            { q: "Resistance of 60W, 120V bulb:", opts: ["240Ω", "120Ω", "60Ω", "30Ω"], ans: 0, exp: "R=V²/P=14400/60=240Ω." },
-            { q: "Five 10Ω resistors in parallel. Req?", opts: ["50Ω", "10Ω", "2Ω", "0.5Ω"], ans: 2, exp: "1/R=5/10, R=2Ω." },
-            { q: "A cell has emf 2V, internal r=0.1Ω. Short-circuit current?", opts: ["20A", "2A", "0.2A", "200A"], ans: 0, exp: "I_sc=E/r=2/0.1=20A." },
-            { q: "Power dissipated in internal r when I=2A, r=0.5Ω:", opts: ["1W", "2W", "4W", "0.5W"], ans: 1, exp: "P=I²r=4×0.5=2W." },
-            { q: "A 12V battery charges at 3A. Terminal voltage?", opts: ["12V", ">12V", "<12V", "0V"], ans: 1, exp: "Charging: V=E+Ir > E." },
-            { q: "Resistance of ideal ammeter:", opts: ["Zero", "Infinite", "1Ω", "Depends"], ans: 0, exp: "Ideal ammeter has zero resistance." },
-            { q: "Resistance of ideal voltmeter:", opts: ["Zero", "Infinite", "1Ω", "Depends"], ans: 1, exp: "Ideal voltmeter has infinite resistance." },
-            { q: "A wire's resistance is 10Ω. Cut in half, one piece resistance:", opts: ["20Ω", "10Ω", "5Ω", "2.5Ω"], ans: 2, exp: "R∝L, half length → 5Ω." },
-            { q: "Two halves from Q45 in parallel:", opts: ["5Ω", "10Ω", "2.5Ω", "20Ω"], ans: 2, exp: "5‖5=2.5Ω." },
-            { q: "Temperature coefficient α for semiconductors is:", opts: ["Positive", "Negative", "Zero", "Infinite"], ans: 1, exp: "Semiconductors: negative α (R decreases with T)." },
-            { q: "Copper has α≈4×10⁻³. At 100°C rise, R increases by:", opts: ["4%", "40%", "400%", "0.4%"], ans: 1, exp: "ΔR/R₀=αΔT=4e-3×100=0.4=40%." },
-            { q: "Three 3Ω resistors: max Req by series, min by parallel. Ratio?", opts: ["9:1", "3:1", "1:9", "1:3"], ans: 0, exp: "Series=9Ω, parallel=1Ω, ratio=9:1." },
-            { q: "A 100W, 200V bulb and 60W, 200V bulb in series across 200V. Which glows brighter?", opts: ["100W", "60W", "Same", "Neither"], ans: 1, exp: "Higher R (60W has R=667Ω vs 400Ω) gets more voltage drop." },
-            // === MAGNETIC FIELD (50 questions) ===
-            { q: "Direction of magnetic force on current-carrying wire in B field?", opts: ["Parallel to current", "Parallel to field", "Perpendicular to both", "In field direction"], ans: 2, exp: "F⃗=Il⃗×B⃗ → perpendicular to both." },
-            { q: "Wire 30A, 5cm ⊥ 0.8T. Force?", opts: ["0.6N", "1.2N", "2.4N", "0.12N"], ans: 1, exp: "F=BIl=0.8×30×0.05=1.2N." },
-            { q: "Magnetic force on moving charge depends on all EXCEPT:", opts: ["Charge", "Field strength", "Speed", "Mass"], ans: 3, exp: "F=qvB sinθ — mass not in formula." },
-            { q: "Charge enters B field ⊥. Path?", opts: ["Straight", "Parabola", "Circle", "Spiral"], ans: 2, exp: "Perpendicular force → centripetal → circle." },
-            { q: "Cyclotron frequency:", opts: ["Depends on speed", "Depends on radius", "Independent of speed & radius", "Increases with energy"], ans: 2, exp: "f=qB/(2πm) — no v or r." },
-            { q: "Radius of circular orbit: r =", opts: ["qB/mv", "mv/qB", "qvB/m", "m/(qvB)"], ans: 1, exp: "qvB=mv²/r → r=mv/(qB)." },
-            { q: "Two parallel wires opposite currents:", opts: ["Attract", "Repel", "No force", "No field"], ans: 1, exp: "Opposite currents repel." },
-            { q: "SI unit of magnetic flux density:", opts: ["Weber", "Gauss", "Tesla", "A·m"], ans: 2, exp: "Tesla (T)." },
-            { q: "Hall effect occurs because:", opts: ["Current flows", "Carriers deflected by B force", "Conductor heats", "E-field accelerates"], ans: 1, exp: "Magnetic force pushes carriers sideways." },
-            { q: "Biot-Savart: field ∝", opts: ["r²", "1/r", "1/r²", "Independent of angle"], ans: 2, exp: "dB∝1/r²." },
-            { q: "Solenoid centre B =", opts: ["μ₀NI", "μ₀NI/l", "μ₀I/(2l)", "NI/l"], ans: 1, exp: "B=μ₀nI=μ₀NI/l." },
-            { q: "Long straight wire I=20A, a=4mm. B=?", opts: ["0.001T", "0.01T", "0.1T", "0.0001T"], ans: 0, exp: "B=μ₀I/(2πa)=10⁻³ T." },
-            { q: "Positive charge at rest in B field, force:", opts: ["Eastward", "Westward", "Northward", "Zero"], ans: 3, exp: "v=0 → F=0." },
-            { q: "1 Tesla =", opts: ["N/(A·m)", "J/(A·m)", "C/(m·s)", "A·m/N"], ans: 0, exp: "From F=BIl." },
-            { q: "Torque on N-turn coil:", opts: ["NBI/A", "BIAN", "BIA/N", "B/(IAN)"], ans: 1, exp: "τ=BIAN." },
-            { q: "Wire ∥ B field, force:", opts: ["Maximum", "Zero", "BIl", "Perpendicular"], ans: 1, exp: "θ=0 → sin0=0." },
-            { q: "μ₀ =", opts: ["4π×10⁻⁷", "4π×10⁻⁵", "8.85×10⁻¹²", "1/(4π×10⁻⁷)"], ans: 0, exp: "Permeability of free space." },
-            { q: "Not required for force on wire:", opts: ["Length", "Wire radius", "Field", "Current"], ans: 1, exp: "Radius irrelevant." },
-            { q: "Electron moving west, max upward force. B direction?", opts: ["North", "South", "Up", "Down"], ans: 1, exp: "For -e, v×B down → West×South=Down." },
-            { q: "F/L between wires 10cm, 6A & 4A:", opts: ["48 μN/m", "24 μN/m", "12 μN/m", "96 μN/m"], ans: 0, exp: "F/L=μ₀I₁I₂/(2πd)=48 μN/m." },
-            { q: "Field lines outside bar magnet:", opts: ["S to N", "N to S", "E to W", "No direction"], ans: 1, exp: "N→S outside." },
-            { q: "Can field lines intersect?", opts: ["Yes at poles", "Yes in strong fields", "No", "Yes in 3D"], ans: 2, exp: "Unique direction at each point." },
-            { q: "Right-hand grip: thumb =", opts: ["Field", "Conventional current", "Force", "Electron flow"], ans: 1, exp: "Thumb=current." },
-            { q: "Proton v=2e6 m/s, B=0.5T ⊥. Radius?", opts: ["2.09cm", "4.18cm", "8.35cm", "1.04cm"], ans: 1, exp: "r=mv/(qB)=4.18cm." },
-            { q: "Period T =", opts: ["2πm/(qB)", "qB/(2πm)", "mv/(qB)", "2πr/v"], ans: 0, exp: "T=2πm/(qB)." },
-            { q: "Cyclotron freq for proton in 0.8T:", opts: ["7.63MHz", "12.2MHz", "3.82MHz", "15.3MHz"], ans: 1, exp: "f=qB/(2πm)≈12.2MHz." },
-            { q: "B at centre of circular loop:", opts: ["μ₀I/r", "μ₀I/(2r)", "μ₀I/(4r)", "2μ₀I/r"], ans: 1, exp: "B=μ₀I/(2r)." },
-            { q: "In V_H=vBd, v is:", opts: ["Speed of light", "Drift velocity", "Orbital velocity", "Voltage"], ans: 1, exp: "Drift velocity of carriers." },
-            { q: "Distance between wires doubled → force:", opts: ["Twice", "Half", "One-quarter", "Four times"], ans: 1, exp: "F∝1/d." },
-            { q: "Uniform B field lines:", opts: ["Curved", "Parallel equally spaced", "Concentric", "Radiating"], ans: 1, exp: "Constant magnitude & direction." },
-            { q: "Magnetic flux Φ =", opts: ["BA sinθ", "BA cosθ", "B/A", "A/B"], ans: 1, exp: "Φ=BA cosθ." },
-            { q: "1 Weber =", opts: ["1 T/m²", "1 T·m²", "1 T·m", "1 N/A"], ans: 1, exp: "1 Wb=1 T·m²." },
-            { q: "Solenoid 500 turns, 0.5m, 2A. B=?", opts: ["2.51mT", "5.02mT", "1.26mT", "0.63mT"], ans: 0, exp: "B=μ₀×500×2/0.5=2.51mT." },
-            { q: "B at end of long solenoid:", opts: ["μ₀nI", "½μ₀nI", "2μ₀nI", "0"], ans: 1, exp: "B_end=½μ₀nI." },
-            { q: "B at large x from loop (x>>R):", opts: ["∝1/x", "∝1/x²", "∝1/x³", "∝x"], ans: 2, exp: "Dipole: B∝1/x³." },
-            { q: "Force on charge ∥ B:", opts: ["Maximum", "qvB", "Zero", "Perpendicular to v"], ans: 2, exp: "θ=0 → sin0=0." },
-            { q: "Largest radius in same B (same v):", opts: ["Proton", "Electron", "Alpha", "Neutron"], ans: 2, exp: "r∝m/q; alpha has largest m/q." },
-            { q: "Hall coefficient =", opts: ["1/(nq)", "nq", "q/n", "1/(nqB)"], ans: 0, exp: "R_H=1/(nq)." },
-            { q: "Coil 8cm×5cm, 100 turns, 0.5A in 0.4T. Torque?", opts: ["0.08 N·m", "0.16 N·m", "0.04 N·m", "0.02 N·m"], ans: 0, exp: "τ=0.4×0.5×0.004×100=0.08 N·m." },
-            { q: "Wire 0.3m, 4A at 30° to 0.6T. Force?", opts: ["0.36N", "0.72N", "0.18N", "1.44N"], ans: 0, exp: "F=0.6×4×0.3×0.5=0.36N." },
-            { q: "B inside toroid depends on:", opts: ["Radius only", "I and n", "Cross-section", "Wire length"], ans: 1, exp: "B=μ₀nI." },
-            { q: "Law for B from steady current:", opts: ["Faraday's", "Ampère's", "Gauss's", "Coulomb's"], ans: 1, exp: "Ampère's law." },
-            { q: "Gauss's law for magnetism:", opts: ["∮B·dA=μ₀I", "∮B·dA=0", "∮B·dl=μ₀I", "∮E·dA=q/ε₀"], ans: 1, exp: "∮B·dA=0 — no monopoles." },
-            { q: "Electron 3e6 m/s ⊥ 0.2T. Cyclotron freq?", opts: ["5.6GHz", "5.6MHz", "2.8GHz", "2.8MHz"], ans: 0, exp: "f=qB/(2πm)≈5.6GHz." },
-            { q: "Velocity selector E=2e4 V/m, B=0.1T. v=?", opts: ["2e5 m/s", "2e3 m/s", "2e4 m/s", "5e4 m/s"], ans: 0, exp: "v=E/B=2e5 m/s." },
-            { q: "Magnetic dipole moment:", opts: ["μ=IA", "μ=I/A", "μ=BIA", "μ=qvB"], ans: 0, exp: "μ=NIA." },
-            { q: "Ferromagnetic material:", opts: ["Copper", "Aluminium", "Iron", "Silver"], ans: 2, exp: "Iron is ferromagnetic." },
-            { q: "Earth's B at surface ≈", opts: ["0.5T", "0.5G", "5T", "50G"], ans: 1, exp: "~0.5 Gauss = 50 μT." },
-            { q: "Max torque on loop when:", opts: ["Plane ⊥ B", "Plane ∥ B", "Axis ∥ B", "I=0"], ans: 1, exp: "τ=μB sinφ, max at φ=90°." },
-            { q: "Work to rotate dipole by θ:", opts: ["μB sinθ", "μB(1-cosθ)", "μB cosθ", "μB tanθ"], ans: 1, exp: "W=μB(1-cosθ)." }
-        ];
-
-        const formulaData = [
-            { title: "Electric Current", formula: "I = ΔQ/Δt = qnAv_d", desc: "Rate of charge flow. Unit: Ampere (A).", cat: "Current Electricity", usage: "Find current from charge or drift velocity." },
-            { title: "Current Density", formula: "J = I/A = qnv_d = σE", desc: "Current per unit area. Unit: A/m².", cat: "Current Electricity", usage: "Relate current to cross-sectional area." },
-            { title: "Ohm's Law", formula: "V = IR / I = V/R", desc: "Voltage proportional to current.", cat: "Current Electricity", usage: "Basic circuit calculations." },
-            { title: "Conductance", formula: "G = 1/R = I/V", desc: "Ease of current flow. Unit: Siemens (S).", cat: "Current Electricity", usage: "Alternative to resistance." },
-            { title: "Resistivity", formula: "R = ρL/A ; σ = 1/ρ", desc: "Material property. ρ in Ω·m.", cat: "Current Electricity", usage: "Find resistance from material and geometry." },
-            { title: "Temperature Dependence", formula: "R = R₀[1 + α(T − T₀)]", desc: "α = temp coefficient.", cat: "Current Electricity", usage: "Predict resistance at different temperatures." },
-            { title: "Terminal Voltage (Discharge)", formula: "V = E − Ir", desc: "r = internal resistance.", cat: "Current Electricity", usage: "Find actual voltage delivered by battery." },
-            { title: "Terminal Voltage (Charge)", formula: "V = E + Ir", desc: "Current reversed for charging.", cat: "Current Electricity", usage: "Voltage when battery is being charged." },
-            { title: "Circuit Current", formula: "I = E / (R + r)", desc: "Total resistance in series.", cat: "Current Electricity", usage: "Find current in simple battery circuit." },
-            { title: "Electric Power", formula: "P = VI = I²R = V²/R", desc: "Rate of energy transfer. Watt (W).", cat: "Current Electricity", usage: "Calculate power dissipated or generated." },
-            { title: "Efficiency", formula: "η = V/E = R/(R+r)", desc: "Ratio of output to input power.", cat: "Current Electricity", usage: "Assess battery or circuit efficiency." },
-            { title: "Series Resistance", formula: "R_eq = R₁ + R₂ + R₃", desc: "Req > largest individual R.", cat: "Current Electricity", usage: "Simplify series resistor networks." },
-            { title: "Parallel Resistance", formula: "1/R_eq = 1/R₁ + 1/R₂ + 1/R₃", desc: "Req < smallest individual R.", cat: "Current Electricity", usage: "Simplify parallel resistor networks." },
-            { title: "Cells in Series", formula: "E = E₁+E₂+… ; r = r₁+r₂+…", desc: "Higher voltage output.", cat: "Current Electricity", usage: "Combine cells for higher voltage." },
-            { title: "Cells in Parallel", formula: "E = E₁ ; 1/r = 1/r₁+1/r₂+…", desc: "Higher current capacity.", cat: "Current Electricity", usage: "Combine identical cells for longer life." },
-            { title: "KCL (Junction Rule)", formula: "ΣI = 0 at any junction", desc: "Conservation of charge.", cat: "Current Electricity", usage: "Analyze currents at circuit nodes." },
-            { title: "KVL (Loop Rule)", formula: "Σ(E + IR) = 0 around loop", desc: "Conservation of energy.", cat: "Current Electricity", usage: "Analyze voltage drops in any closed loop." },
-            { title: "Force on a Wire", formula: "F = BIl sin θ", desc: "B (T), I (A), l (m). Max when θ=90°.", cat: "Magnetism", usage: "Force on current-carrying conductor." },
-            { title: "Force on Moving Charge", formula: "F = qvB sin θ", desc: "q (C), v (m/s). Zero when parallel.", cat: "Magnetism", usage: "Force on single charge in B field." },
-            { title: "Radius of Circular Path", formula: "r = mv/(qB)", desc: "From centripetal = magnetic force.", cat: "Magnetism", usage: "Orbit radius for charged particle." },
-            { title: "Cyclotron Frequency", formula: "f = qB/(2πm)", desc: "Independent of speed and radius.", cat: "Magnetism", usage: "Design of cyclotron accelerators." },
-            { title: "Period of Circular Motion", formula: "T = 2πm/(qB)", desc: "Constant for given m, q, B.", cat: "Magnetism", usage: "Time for one full circle." },
-            { title: "Hall Voltage", formula: "V_H = IBd/(nqA)", desc: "n = carrier density, d = thickness.", cat: "Magnetism", usage: "Determine carrier type and density." },
-            { title: "Torque on Coil", formula: "τ = BIAN", desc: "A = area, N = turns.", cat: "Magnetism", usage: "Motor principle, galvanometer." },
-            { title: "Biot-Savart Law", formula: "dB = (μ₀/4π)·Idl sinθ/r²", desc: "μ₀ = 4π×10⁻⁷ T·m/A.", cat: "Magnetism", usage: "Find B from current element." },
-            { title: "Long Straight Wire", formula: "B = μ₀I/(2πa)", desc: "a = perpendicular distance.", cat: "Magnetism", usage: "Magnetic field around a long wire." },
-            { title: "Solenoid (centre)", formula: "B = μ₀nI = μ₀NI/l", desc: "n = turns per unit length.", cat: "Magnetism", usage: "Uniform field inside solenoid." },
-            { title: "Force Between Wires", formula: "F/L = μ₀I₁I₂/(2πd)", desc: "Same direction → attract.", cat: "Magnetism", usage: "Definition of the ampere." },
-            { title: "Circular Loop (centre)", formula: "B = μ₀I/(2r)", desc: "r = radius of loop.", cat: "Magnetism", usage: "Field at centre of single loop." },
-            { title: "Magnetic Flux", formula: "Φ = BA cos θ", desc: "Unit: Weber (Wb) = T·m².", cat: "Magnetism", usage: "Flux through a surface." },
-            { title: "Velocity Selector", formula: "v = E/B", desc: "Electric & magnetic forces balance.", cat: "Magnetism", usage: "Select particles with specific speed." },
-            { title: "Cyclotron K.E.", formula: "K.E = q²B²r²/(2m)", desc: "r = maximum orbit radius.", cat: "Magnetism", usage: "Kinetic energy of accelerated particles." },
-            { title: "Solenoid (end)", formula: "B = ½μ₀nI", desc: "Half of centre value.", cat: "Magnetism", usage: "Field at either end of solenoid." },
-            { title: "Circular Loop (axial)", formula: "B = μ₀IR²/[2(x²+R²)^(3/2)]", desc: "x = axial distance.", cat: "Magnetism", usage: "Field on axis of loop." },
-            { title: "Magnetic Dipole Moment", formula: "μ = NIA", desc: "Direction by right-hand rule.", cat: "Magnetism", usage: "Torque on loop: τ = μ×B." },
-            { title: "Potential Energy of Dipole", formula: "U = -μB cos θ", desc: "Minimum when aligned.", cat: "Magnetism", usage: "Work to rotate dipole." },
-        ];
-
-        // ═══════════ STATE ═══════════
-        let answeredQuestions = {};
-        let submittedQuestions = false;
-        let practiceMode = 'practice';
-        let examActive = false,
-            examTimer = null,
-            examSeconds = 0;
-        let currentQuestionIndex = 0;
-        let calcExpression = '';
-
-        function switchTab(tab, btn) {
-            document.querySelectorAll('[id^="panel-"]').forEach(function(p) { p.classList.add('panel-hidden'); p.classList.remove('panel-visible'); });
-            document.getElementById('panel-' + tab).classList.replace('panel-hidden', 'panel-visible');
-            document.querySelectorAll('.nav-tab').forEach(function(b) { b.classList.remove('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300', 'active'); });
-            if (btn) btn.classList.add('bg-brand-100', 'dark:bg-brand-900/40', 'text-brand-700', 'dark:text-brand-300', 'active');
-            if (tab === 'practice') { buildQuestionView(); updateStatsDisplay(); }
-            if (tab === 'formulas') buildFormulaGrid();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function switchNotesSubtab(sub) {
-            document.getElementById('notes-current').classList.toggle('hidden', sub !== 'current');
-            document.getElementById('notes-magnetism').classList.toggle('hidden', sub !== 'magnetism');
-            var currBtn = document.getElementById('notes-sub-current'), magBtn = document.getElementById('notes-sub-magnetism');
-            currBtn.classList.toggle('bg-brand-100', sub === 'current'); currBtn.classList.toggle('dark:bg-brand-900/40', sub === 'current');
-            currBtn.classList.toggle('text-brand-700', sub === 'current'); currBtn.classList.toggle('bg-gray-100', sub !== 'current');
-            currBtn.classList.toggle('dark:bg-gray-700', sub !== 'current'); currBtn.classList.toggle('text-gray-600', sub !== 'current');
-            magBtn.classList.toggle('bg-brand-100', sub === 'magnetism'); magBtn.classList.toggle('dark:bg-brand-900/40', sub === 'magnetism');
-            magBtn.classList.toggle('text-brand-700', sub === 'magnetism'); magBtn.classList.toggle('bg-gray-100', sub !== 'magnetism');
-            magBtn.classList.toggle('dark:bg-gray-700', sub !== 'magnetism'); magBtn.classList.toggle('text-gray-600', sub !== 'magnetism');
-        }
-
-        function toggleDarkMode() { document.documentElement.classList.toggle('dark'); localStorage.setItem('darkMode', document.documentElement.classList.contains('dark') ? '1' : '0'); }
-        if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark');
-
-        function setPracticeMode(mode) {
-            practiceMode = mode;
-            document.getElementById('mode-practice-btn').classList.toggle('bg-brand-100', mode === 'practice');
-            document.getElementById('mode-exam-btn').classList.toggle('bg-brand-100', mode === 'exam');
-            if (mode === 'exam') { document.getElementById('start-exam-btn').classList.remove('hidden'); document.getElementById('timer-pill').classList.add('hidden'); stopExamTimer(); } else { document.getElementById('start-exam-btn').classList.add('hidden'); document.getElementById('timer-pill').classList.add('hidden'); stopExamTimer(); }
-            resetAllAnswers();
-        }
-
-        function openTimerModal() { document.getElementById('timer-modal').classList.remove('hidden'); }
-        function closeTimerModal() { document.getElementById('timer-modal').classList.add('hidden'); }
-
-        function startExamFromModal() { var d = parseInt(document.getElementById('exam-duration-select').value); examSeconds = d * 60; examActive = true; closeTimerModal(); document.getElementById('start-exam-btn').classList.add('hidden'); document.getElementById('timer-pill').classList.remove('hidden'); document.getElementById('stop-exam-btn').classList.remove('hidden'); updateTimerPill(); examTimer = setInterval(function() { examSeconds--; updateTimerPill(); if (examSeconds <= 0) { stopExamTimer(); submitAllAnswers(); } }, 1000); }
-        function stopExam() { if (confirm('End exam?')) { stopExamTimer(); submitAllAnswers(); } }
-
-        function stopExamTimer() { if (examTimer) clearInterval(examTimer); examTimer = null; examActive = false; document.getElementById('timer-pill').classList.add('hidden'); document.getElementById('stop-exam-btn').classList.add('hidden'); document.getElementById('timer-pill').classList.remove('timer-warning', 'timer-danger'); }
-
-        function updateTimerPill() { var m = Math.floor(Math.max(0, examSeconds) / 60), s = Math.max(0, examSeconds) % 60; document.getElementById('timer-pill-display').textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); var p = document.getElementById('timer-pill'); p.classList.remove('timer-warning', 'timer-danger'); if (examSeconds <= 60) p.classList.add('timer-danger'); else if (examSeconds <= 180) p.classList.add('timer-warning'); }
-
-        function buildQuestionView() { var q = allQuestions[currentQuestionIndex]; if (!q) return; var sel = answeredQuestions[currentQuestionIndex]; document.getElementById('question-view').innerHTML = '<div class="flex items-start gap-3 mb-4"><span class="w-8 h-8 bg-brand-100 dark:bg-brand-900/40 text-brand-700 rounded-full flex items-center justify-center text-xs font-bold">' + (currentQuestionIndex + 1) + '</span><p class="text-base font-semibold">' + q.q + '</p></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ml-11">' + q.opts.map(function(o, j) { var c = 'option-card rounded-xl px-4 py-3 text-sm flex items-center gap-3 bg-gray-50 dark:bg-gray-800/60'; if (submittedQuestions) { if (j === q.ans) c += ' correct'; else if (j === sel && sel !== q.ans) c += ' wrong'; } else if (sel === j) c += ' selected'; return '<div class="' + c + '" onclick="' + (submittedQuestions ? '' : 'selectAnswer(' + currentQuestionIndex + ',' + j + ')') + '"><span class="w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-bold">' + String.fromCharCode(65 + j) + '</span><span>' + o + '</span></div>'; }).join('') + '</div>' + (submittedQuestions ? '<div class="ml-11 mt-3 bg-brand-50 dark:bg-brand-900/20 p-3 rounded-xl text-sm">' + q.exp + '</div>' : ''); buildNumberNavigator(); document.getElementById('prev-btn').disabled = currentQuestionIndex === 0; document.getElementById('next-btn').disabled = currentQuestionIndex === allQuestions.length - 1; }
-
-        function buildNumberNavigator() { document.getElementById('number-navigator').innerHTML = allQuestions.map(function(_, i) { var c = 'number-nav'; if (i === currentQuestionIndex) c += ' active'; else if (answeredQuestions[i] !== undefined) c += ' answered'; return '<span class="' + c + '" onclick="jumpToQuestion(' + i + ')">' + (i + 1) + '</span>'; }).join(''); }
-
-        function navigateQuestion(d) { var n = currentQuestionIndex + d; if (n >= 0 && n < allQuestions.length) { currentQuestionIndex = n; buildQuestionView(); } }
-        function jumpToQuestion(i) { currentQuestionIndex = i; buildQuestionView(); }
-
-        function selectAnswer(qi, oi) { if (submittedQuestions || (examActive && examSeconds <= 0)) return; if (answeredQuestions[qi] === oi) delete answeredQuestions[qi]; else answeredQuestions[qi] = oi; buildQuestionView(); updateStatsDisplay(); }
-
-        function updateStatsDisplay() { var c = Object.keys(answeredQuestions).length; document.getElementById('answered-q-display').textContent = c; document.getElementById('progress-bar-fill').style.width = (c / allQuestions.length * 100) + '%'; if (!submittedQuestions) { document.getElementById('score-display-mini').textContent = '—'; document.getElementById('percent-display-mini').textContent = '—'; } }
-
-        async function submitAllAnswers() {
-            submittedQuestions = true; if (examActive) stopExamTimer();
-            var s = 0; allQuestions.forEach(function(q, i) { if (answeredQuestions[i] === q.ans) s++; });
-            var total = allQuestions.length, perc = Math.round(s / total * 100);
-            document.getElementById('score-display-mini').textContent = s + '/' + total;
-            document.getElementById('percent-display-mini').textContent = perc + '%';
-            buildQuestionView();
-            showCongratsModal(s, perc);
-            try { await saveResult(s, total, perc); console.log('Score saved to IndexedDB'); } catch (e) { console.error('Failed to save score:', e); }
-        }
-
-        function resetAllAnswers() { answeredQuestions = {}; submittedQuestions = false; currentQuestionIndex = 0; document.getElementById('score-display-mini').textContent = '—'; document.getElementById('percent-display-mini').textContent = '—'; buildQuestionView(); updateStatsDisplay(); }
-
-        var trophySVG = '<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F4C95D" stroke-width="1.5"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v4"/><path d="M8 21h8"/></svg>';
-        var thumbsSVG = '<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5"><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/><path d="M7 11V7a4 4 0 018-4v4h3a2 2 0 012 2v4a2 2 0 01-2 2h-4"/><path d="M15 11l-3 3-3-3"/></svg>';
-        var sparkleSVG = '<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.5"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>';
-
-        function showCongratsModal(s, p) { var iD = document.getElementById('congrats-icon'), mE = document.getElementById('congrats-message'), tE = document.getElementById('congrats-title'); var m = '', ic = ''; if (p >= 90) { m = (['Omo see result 🔥 you carry book for head like gala 😂', 'Ahhh professor don land 🎓😂 abeg leave small brain for us!', 'You devour the book 😭🔥 wetin be this score?'])[Math.floor(Math.random() * 3)]; tE.textContent = 'Outstanding!'; ic = trophySVG; } else if (p >= 75) { m = (['You dey middle 😅 balance life 😂', 'Ahh you stand gidigba for center 😂 push small!', 'You try sha 👍'])[Math.floor(Math.random() * 3)]; tE.textContent = 'Good Job!'; ic = thumbsSVG; } else if (p >= 50) { m = (['You try sha… but your result dey whisper \'read your book\' 😂', 'No be bad thing… but you still dey warm up 😂'])[Math.floor(Math.random() * 2)]; tE.textContent = 'You Try'; ic = sparkleSVG; } else { m = (['Awfar 😂 tie your belt, make brain wake up!', 'How far nau 😭 you and book be like strangers…'])[Math.floor(Math.random() * 2)]; tE.textContent = 'No Give Up!'; ic = sparkleSVG; } iD.innerHTML = ic; mE.textContent = m + ' (Score: ' + s + '/100, ' + p + '%)'; document.getElementById('congrats-modal').classList.remove('hidden'); }
-        function closeCongratsModal() { document.getElementById('congrats-modal').classList.add('hidden'); }
-
-        function toggleCalculatorModal() { document.getElementById('calculator-modal').classList.toggle('hidden'); }
-        function calcInput(v) { if (v === 'PI') calcExpression += 'Math.PI'; else if (['sin(', 'cos(', 'tan(', 'log('].indexOf(v) !== -1) calcExpression += 'Math.' + v; else if (v === 'ln(') calcExpression += 'Math.log('; else calcExpression += v; document.getElementById('calc-display').textContent = calcExpression || '0'; }
-        function calcClear() { calcExpression = ''; document.getElementById('calc-display').textContent = '0'; }
-        function calcEvaluate() { try { var r = eval(calcExpression); document.getElementById('calc-display').textContent = r; calcExpression = String(r); } catch (e) { document.getElementById('calc-display').textContent = 'Error'; calcExpression = ''; } }
-
-        function toggleFormulaModal() { var m = document.getElementById('formula-modal'); m.classList.toggle('hidden'); if (!m.classList.contains('hidden')) filterModalFormulas(); }
-        function filterModalFormulas() { var q = document.getElementById('modal-formula-search').value.toLowerCase(); document.getElementById('modal-formula-list').innerHTML = formulaData.filter(function(f) { return f.title.toLowerCase().indexOf(q) !== -1 || f.formula.toLowerCase().indexOf(q) !== -1 || f.cat.toLowerCase().indexOf(q) !== -1; }).map(function(f) { return '<div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"><div class="flex justify-between"><span class="font-semibold">' + f.title + '</span><span class="text-xs text-brand-500">' + f.cat + '</span></div><div class="font-mono text-brand-700 dark:text-brand-300 text-sm mt-1">' + f.formula + '</div><p class="text-xs text-gray-500 mt-1">' + f.desc + '<br><span class="italic">' + (f.usage || '') + '</span></p></div>'; }).join(''); }
-
-        function buildFormulaGrid(q) { q = q || ''; document.getElementById('formula-grid').innerHTML = formulaData.filter(function(f) { return !q || f.title.toLowerCase().indexOf(q.toLowerCase()) !== -1 || f.formula.toLowerCase().indexOf(q.toLowerCase()) !== -1; }).map(function(f) { return '<div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border card-lift"><span class="text-xs font-bold uppercase text-brand-500">' + f.cat + '</span><h4 class="font-semibold mt-1">' + f.title + '</h4><div class="font-mono text-brand-700 dark:text-brand-300 mt-2 text-sm bg-brand-50 dark:bg-brand-900/30 p-2 rounded">' + f.formula + '</div><p class="text-xs text-gray-500 mt-2">' + f.desc + '</p><p class="text-xs text-gray-400 italic">' + (f.usage || '') + '</p></div>'; }).join(''); }
-        function filterFormulas() { buildFormulaGrid(document.getElementById('formula-search').value); }
-
-        // ═══════════ HISTORY MODAL ═══════════
-        async function showHistoryModal() {
-            var modal = document.getElementById('history-modal'), list = document.getElementById('history-list');
-            try { var results = await getResults(); if (results.length === 0) { list.innerHTML = '<p class="text-gray-500 text-sm text-center py-4">No scores recorded yet.</p>'; } else { list.innerHTML = results.map(function(r) { var d = new Date(r.date), pct = r.percentage || Math.round((r.score / r.total) * 100), color = 'text-green-600'; if (pct < 50) color = 'text-red-600'; else if (pct < 75) color = 'text-yellow-600'; return '<div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg flex justify-between items-center"><div><span class="font-mono font-bold ' + color + '">' + r.score + '/' + r.total + ' (' + pct + '%)</span><span class="text-xs text-gray-500 block">' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString() + '</span></div></div>'; }).join(''); } modal.classList.remove('hidden'); } catch (e) { alert('Could not load history.'); }
-        }
-        function closeHistoryModal() { document.getElementById('history-modal').classList.add('hidden'); }
-        async function clearHistory() { if (confirm('Delete all score history? This cannot be undone.')) { await clearResults(); showHistoryModal(); } }
-
-        function init() { buildQuestionView(); buildFormulaGrid(); updateStatsDisplay(); }
-        init();
-    </script>
+      setTimeout(() => {
+        splash.classList.add('fade-out');
+        app.style.display = 'flex';
+        app.style.flexDirection = 'column';
+        setTimeout(() => {
+          splash.style.display = 'none';
+        }, 800);
+      }, 2000);  // ⬅️ Changed from 3000 to 2000 (2 seconds)
+    });
+  </script>
 </body>
 </html>
