@@ -1,9 +1,11 @@
-const CACHE_NAME = "lasued-v3";
+const CACHE_NAME = "lasued-v4";
 
 const ASSETS = [
   "/",
   "/index.html",
   "/COS121.html",
+  "/LASUED-CSC124.html",
+  "/Practice-csc124.html",
   "/LASUED-CSC125.html",
   "/lasued.png",
   "/student.jpg",
@@ -40,7 +42,7 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// 🌐 Fetch — Cache-first, network fallback (full offline support)
+// 🌐 Fetch — Cache-first with network fallback (full offline support)
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {

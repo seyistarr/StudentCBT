@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Student CBT - LASUED CSC 124</title>
+    <link rel="icon" type="image/png" href="lasued.png">
+
+    <meta property="og:title" content="Student CBT | LASUED CSC 124">
+    <meta property="og:description" content="Comprehensive notes on Learning Theories and Pedagogical Implications for ICT Teachers.">
+    <meta property="og:image" content="https://student-cbt.vercel.app/student.png">
+    <meta property="og:url" content="https://student-cbt.vercel.app/LASUED-CSC124.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Student CBT | LASUED CSC 124">
+    <meta name="twitter:description" content="Comprehensive notes on Learning Theories and Pedagogical Implications for ICT Teachers.">
+    <meta name="twitter:image" content="https://student-cbt.vercel.app/student.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 
+                            50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd', 
+                            400: '#a78bfa', 500: '#8b5cf6', 600: '#6E5AE6', 700: '#5b3fd4', 
+                            800: '#4c2fb5', 900: '#3b1f94' 
+                        },
+                        gold: { 400: '#F4C95D', 500: '#f0c040', 600: '#d4a830' }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'Georgia', 'serif'],
+                        body: ['"Inter"', 'system-ui', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --glass-bg: rgba(255,255,255,0.75); --glass-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+        .dark { --glass-bg: rgba(30,30,50,0.75); --glass-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .glass-nav { background: rgba(255,255,255,0.7); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .dark .glass-nav { background: rgba(20,20,40,0.7); border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .panel-hidden { display: none !important; }
+        .panel-visible { display: block !important; animation: fadeSlideIn 0.35s ease forwards; }
+        @keyframes fadeSlideIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+        .notes-content h2 { font-family: 'Playfair Display', serif; }
+        .notes-content .keybox { background:#fffbeb; border-left:4px solid #f59e0b; border-radius:0 8px 8px 0; padding:12px 16px; margin:12px 0; font-size:14px; }
+        .dark .notes-content .keybox { background:#451a03; color:#fde68a; }
+        .notes-content .infobox { background:#f0f4ff; border-left:4px solid #6E5AE6; border-radius:0 8px 8px 0; padding:12px 16px; margin:12px 0; font-size:14px; }
+        .dark .notes-content .infobox { background:#1e1b4b; color:#c4b5fd; }
+        .notes-content table { width:100%; border-collapse:collapse; font-size:13px; margin:12px 0; }
+        .notes-content th { background:#0a2342; color:#fff; padding:8px 12px; text-align:left; }
+        .notes-content td { padding:7px 12px; border:1px solid #d1d5db; }
+        .dark .notes-content td { border-color:#374151; }
+        .revise-card { transition: all 0.25s; cursor: pointer; }
+        .revise-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); }
+        .dark .revise-card:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.35); }
+        .dark-icon { width: 18px; height: 18px; }
+    </style>
+</head>
+<body class="bg-[#FAF9F6] dark:bg-[#1a1a2e] text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen">
+
+    <!-- FIXED TOP NAVIGATION -->
+    <nav class="glass-nav sticky top-0 z-50 px-4 py-3 flex items-center justify-between flex-wrap gap-2 shadow-sm">
+        <div class="flex items-center gap-3 flex-shrink-0">
+            <img src="lasued.png" alt="LASUED Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" class="h-9 w-auto rounded object-contain max-w-[80px]">
+            <div class="hidden items-center gap-2 bg-brand-600 text-white rounded-lg px-3 py-1.5" style="display:none;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                <span class="text-xs font-bold">LASUED</span>
+            </div>
+            <div class="hidden sm:block">
+                <span class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide">CSC 124 · Computer Science Education Dept.</span>
+                <h1 class="text-sm font-bold text-gray-800 dark:text-white leading-tight">Learning Theories &amp; Pedagogical Implications on ICT Teaching</h1>
+            </div>
+        </div>
+        <div class="flex items-center gap-1.5 flex-wrap">
+            <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors flex items-center gap-1.5">
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span class="hidden sm:inline">Home</span>
+            </a>
+            <button onclick="switchTab('notes',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors active bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 whitespace-nowrap" data-tab="notes">
+                <svg class="dark-icon inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Notes
+            </button>
+            <a href="Practice-CSC124.html" class="px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap flex items-center gap-1.5">
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span>Practice</span>
+            </a>
+            <button onclick="switchTab('revise',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap" data-tab="revise">
+                <svg class="dark-icon inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Revise
+            </button>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ml-1" aria-label="Toggle dark mode">
+                <svg id="dark-icon-sun" class="dark-icon hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg id="dark-icon-moon" class="dark-icon block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- NOTES PANEL -->
+        <div id="panel-notes" class="panel-visible space-y-6">
+            <div class="text-center py-8">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">CSC 124 <span class="text-brand-600 dark:text-brand-400">–</span> Learning Theories &amp; Pedagogy</h2>
+                <p class="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm">Learning Theories &amp; Pedagogical Implications on ICT Teaching – Complete Study Notes.</p>
+                <p class="mt-2 text-xs text-gray-400 dark:text-gray-500">Learning Architect: <span class="font-semibold text-brand-600">Archangelstr</span></p>
+            </div>
+            <div class="flex gap-2 flex-wrap bg-white dark:bg-gray-800 rounded-2xl p-2 shadow-sm border">
+                <button onclick="switchNotesSubtab('intro')" id="notes-sub-intro" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 transition-colors">Introduction</button>
+                <button onclick="switchNotesSubtab('behaviorism')" id="notes-sub-behaviorism" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Behaviorism</button>
+                <button onclick="switchNotesSubtab('cognitivism')" id="notes-sub-cognitivism" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Cognitivism</button>
+                <button onclick="switchNotesSubtab('social')" id="notes-sub-social" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Social Learning</button>
+                <button onclick="switchNotesSubtab('constructivism')" id="notes-sub-constructivism" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Constructivism</button>
+                <button onclick="switchNotesSubtab('humanism')" id="notes-sub-humanism" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Humanism</button>
+                <button onclick="switchNotesSubtab('connectivism')" id="notes-sub-connectivism" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Connectivism</button>
+                <button onclick="switchNotesSubtab('developmental')" id="notes-sub-developmental" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Developmental</button>
+                <button onclick="switchNotesSubtab('tpack')" id="notes-sub-tpack" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">TAM &amp; TPACK</button>
+                <button onclick="switchNotesSubtab('comparison')" id="notes-sub-comparison" class="notes-sub-btn px-4 py-2.5 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">Exam Guide</button>
+            </div>
+
+            <!-- INTRODUCTION -->
+            <div id="notes-intro" class="notes-content space-y-4 notes-section">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">What Are Learning Theories?</h2>
+                    <p><strong>Learning</strong> can be defined as the process of <strong>receiving, processing, and retaining knowledge</strong> — encompassing cognitive, emotional, and environmental influences as well as experiences acquired over time (Option C from the exam). In general terms, it is the teacher's conscious effort to help students learn according to their interests and needs.</p>
+                    <p>A <strong>learning theory</strong> in education is a set of <strong>principles and assumptions that explain how people learn, acquire knowledge, skills, and behaviours.</strong> It is a collection of thoughts, ideas, and systems about how to practice the learning process between teacher and student. Learning theories help us determine how people learn and gain knowledge, and how teaching can make this process easier. As Bruner noted, learning theory is <strong>prescriptive</strong> (determining appropriate methods/strategies for optimal results) and <strong>descriptive</strong> (explaining how the learning process occurs).</p>
+                    <div class="keybox"><strong>Exam Definition:</strong> Learning theory contains procedures for how a teacher applies teaching and learning activities to students both inside and outside the classroom.</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Why Are Learning Theories Important? (Exam Question 1b)</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li>They help educators design effective instruction and create engaging learning environments.</li>
+                        <li>They provide insights into how students learn, enabling more effective teaching practices.</li>
+                        <li>Teachers can tailor methods to cater to diverse learning styles, paces, and needs.</li>
+                        <li>They improve student engagement and retention of information because individual learning styles are accommodated.</li>
+                        <li>They help teachers explain the <strong>"why"</strong> behind their teaching choices and make informed decisions about instructional strategies.</li>
+                        <li>They help us judge, assess the success of various media literacy education efforts.</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Overview of Major Learning Theories</h2>
+                    <table>
+                        <tr><th>Theory</th><th>Learning is...</th><th>Focus</th><th>Teacher's Role</th><th>Student's Role</th></tr>
+                        <tr><td>Behaviorism</td><td>Change in observable behavior</td><td>Stimulus, Response, Rewards, Punishment</td><td>Controller, Shaper</td><td>Passive receiver</td></tr>
+                        <tr><td>Cognitivism</td><td>Active mental processing</td><td>Memory, Thinking, Schemas, Problem-solving</td><td>Organizer of info</td><td>Active processor</td></tr>
+                        <tr><td>Social Learning</td><td>Observing &amp; imitating others</td><td>Modeling, Vicarious Reinforcement, Self-Efficacy</td><td>Role model, Mentor</td><td>Observer, Imitator</td></tr>
+                        <tr><td>Constructivism</td><td>Actively building meaning</td><td>Experience, Prior Knowledge, Social Interaction, ZPD</td><td>Facilitator, Scaffolder</td><td>Active constructor</td></tr>
+                        <tr><td>Humanism</td><td>Becoming fully-functioning</td><td>Emotions, Self-actualization, Whole Person</td><td>Empathetic guide</td><td>Self-directed</td></tr>
+                        <tr><td>Connectivism</td><td>Forming &amp; navigating networks</td><td>Connections, Technology, Digital Networks</td><td>Network curator</td><td>Network builder</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- BEHAVIORISM -->
+            <div id="notes-behaviorism" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">1. BEHAVIORISM – Learning by Reward &amp; Punishment</h2>
+                    <p><strong>Behaviourism</strong> is a school of psychology founded by <strong>John B. Watson in 1913</strong> who argued that behaviour must be the sole subject of psychology. It views individuals only in terms of physical phenomena and ignores mental aspects — it does not recognize intelligence, talents, interests, and feelings of individuals in a study. Behaviourism was born as a reaction to introspection (which analyzes the human soul based on subjective reports) and psychoanalysis (which talks about the invisible subconscious).</p>
+                    <p>Behaviorists view people as <strong>reactive beings</strong> who respond to their environment. Human behavior is controlled by <strong>rewards or reinforcement</strong> from the environment. In learning practice, there is a close relationship between behavioral reactions and stimulation.</p>
+                    <div class="keybox"><strong>Exam Definition:</strong> Behaviourism is a school of psychology that views individuals only in terms of physical phenomena and ignores mental aspects. Learning events train reflexes into habits.</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Thinkers &amp; Their Contributions</h2>
+                    <table>
+                        <tr><th>Thinker</th><th>Key Concept</th><th>Experiment / Contribution</th></tr>
+                        <tr><td><strong>Ivan Pavlov</strong></td><td>Classical Conditioning (Learning by association)</td><td><strong>Pavlov's Dogs:</strong> Rang bell before giving food. Eventually dog salivated at bell alone. Proved learning occurs through association of stimuli.</td></tr>
+                        <tr><td><strong>John B. Watson</strong></td><td>Father of Behaviorism</td><td><strong>Little Albert:</strong> Conditioned a baby to fear a white rat by pairing it with a loud noise. Fear generalized to other furry objects. Proved emotions can be conditioned.</td></tr>
+                        <tr><td><strong>B.F. Skinner</strong></td><td>Operant Conditioning (Learning by consequences)</td><td><strong>Skinner Box:</strong> Rats learned to press lever for food (positive reinforcement) or to stop electric shock (negative reinforcement). Behaviour shaped by consequences.</td></tr>
+                        <tr><td><strong>E.L. Thorndike</strong></td><td>Connectionism (Law of Effect)</td><td>Behaviours followed by satisfying consequences are strengthened; those followed by discomfort are weakened.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Characteristics of Behaviorism (Exam-Ready)</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li><strong>Concerned with environmental influences</strong> – the environment shapes behavior</li>
+                        <li><strong>Concern over parts (not the whole)</strong> – breaks behavior into stimulus-response units</li>
+                        <li><strong>Concerned with psychomotor reactions</strong> – focuses on physical, observable actions</li>
+                        <li><strong>Concerning the causes of the past</strong> – past conditioning determines present behavior</li>
+                        <li><strong>Concerned about forming habits</strong> – learning is habit formation through repetition</li>
+                        <li><strong>Prioritizing the mechanism of learning outcomes</strong> – learning is mechanical</li>
+                        <li><strong>Prioritizing "trial and error"</strong> – learning through repeated attempts</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">The Five S-R Connections (Behaviourism) – Exam Section B</h2>
+                    <table>
+                        <tr><th>Connection</th><th>Definition</th><th>Example</th></tr>
+                        <tr><td><strong>Reinforcement</strong></td><td>Strengthens behaviour. Can be positive (providing rewards) or negative (removing unpleasant stimuli).</td><td>Giving praise for identifying fake news (positive); cancelling quiz for timely submissions (negative).</td></tr>
+                        <tr><td><strong>Punishment</strong></td><td>Reduces chances of behaviour reoccurring by introducing unpleasant stimulus or removing pleasant one.</td><td>Restricting screen time for uncritical media consumption.</td></tr>
+                        <tr><td><strong>Conditioning</strong></td><td>Behaviour acquired repeatedly by connecting a specific stimulus to a specific reaction.</td><td>Bell rings → students pack bags automatically.</td></tr>
+                        <tr><td><strong>Generalization</strong></td><td>Response to one signal also seen with similar signals.</td><td>Student anxious in one classroom becomes anxious in all classrooms.</td></tr>
+                        <tr><td><strong>Discrimination</strong></td><td>Response limited to initial signal; does not extend to similar ones.</td><td>Student only responds to the actual fire alarm, not similar-sounding bells.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Life &amp; Classroom Scenarios (Nigerian Context)</h2>
+                    <p><strong>School (Positive Reinforcement):</strong> Miss Obi gives a sweet or sticker to any primary school pupil who answers a question correctly. Pupils become eager to participate because they associate answering with reward.</p>
+                    <p><strong>Home (Praise):</strong> A mother in Lagos praises her child loudly and claps whenever the child finishes homework on time. The child repeats this behavior to get more praise.</p>
+                    <p><strong>University (Punishment):</strong> A lecturer announces that any student who submits an assignment late will lose 10 marks. Students rush to submit on time to avoid the penalty.</p>
+                    <p><strong>Religious Setting (Negative Reinforcement):</strong> A Quranic teacher stops shouting at his students only when they recite correctly. The students learn to recite well to remove the unpleasant shouting.</p>
+                    <p><strong>Classical Conditioning in Real Life:</strong> If a student was once embarrassed badly during a class presentation, just entering that classroom might trigger anxiety, even if no presentation is happening. The classroom (stimulus) now triggers fear (response).</p>
+                    <p><strong>Touching a Hot Iron:</strong> A child touches a hot iron (stimulus) and feels pain (consequence). The child learns not to touch it again. The behavior is stopped by a single, powerful punishment — pure operant conditioning.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Application in Media &amp; Information Literacy (MIL)</h2>
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        <li>Give badges, certificates, or applause when students correctly identify fake news or stereotypes (positive reinforcement).</li>
+                        <li>Restrict privileges or deduct points if a student shares unverified information without checking sources (punishment).</li>
+                        <li>Repeatedly practise a checklist for evaluating news sources ("Who is the author? Is there evidence?") until it becomes an automatic thinking habit.</li>
+                        <li>Teachers and parents can use positive feedback to motivate students to think critically about media content.</li>
+                        <li>Consequences can dissuade students from thoughtlessly consuming media — restrict media access if they exhibit deficiency in critical thinking.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COGNITIVISM -->
+            <div id="notes-cognitivism" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">2. COGNITIVISM – Learning by Thinking &amp; Mental Processing</h2>
+                    <p><strong>Cognitive psychology</strong> is a branch of general psychology that includes scientific studies of mental life — how humans think, gain knowledge, process impressions through senses, solve problems, and dig up memories. It encompasses cognitive, affective (feelings), and conative (will/decisions) symptoms.</p>
+                    <p>Cognitivism arose because experts were dissatisfied with behaviorism's S-R-reinforcement model. They argued that a person's behavior is <strong>not only controlled by reward and reinforcement</strong>. Behavior is always based on <strong>cognition</strong> — the act of knowing or thinking about the situation where the action occurs. In a learning situation, a person gains <strong>insight</strong> for problem-solving. <strong>The whole is more than its parts.</strong></p>
+                    <div class="keybox"><strong>Exam Definition:</strong> Cognitive Learning Theory suggests that learning consists of working with information, which includes paying attention, perceiving, remembering, and solving problems. Learning happens in the mind through processes like sensing, focusing, remembering, and problem-solving.</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Characteristics of Cognitivism (Exam-Ready)</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li><strong>Increase what is in man</strong> — focuses on internal mental processes</li>
+                        <li><strong>Increase overall than parts</strong> — holism: the whole is greater than sum of parts</li>
+                        <li><strong>Increase the cognitive role</strong> — emphasizes thinking, memory, problem-solving</li>
+                        <li><strong>Improve current time conditions</strong> — focus on present processing, not just past conditioning</li>
+                        <li><strong>Increase formation of cognitive structures</strong> — building schemas and mental frameworks</li>
+                        <li><strong>Prioritizing balance in humans</strong> — equilibration between assimilation and accommodation</li>
+                        <li><strong>Prioritizing "insight" (understanding)</strong> — deep comprehension, not surface learning</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Thinkers &amp; Concepts</h2>
+                    <table>
+                        <tr><th>Thinker</th><th>Key Concept</th><th>Explanation</th></tr>
+                        <tr><td><strong>Jean Piaget</strong></td><td>Cognitive Development Theory</td><td>Children pass through 4 stages of mental growth. They build schemas through assimilation (fitting new info in) and accommodation (changing schemas).</td></tr>
+                        <tr><td><strong>Wolfgang Köhler</strong></td><td>Insight Learning</td><td>Observed chimpanzees suddenly solving problems by seeing the whole situation — an "Aha!" moment, not trial-and-error.</td></tr>
+                        <tr><td><strong>Kurt Lewin</strong></td><td>Field Theory</td><td>Behavior is a function of the person and the environment: <strong>B = f(P, E)</strong>. Internal mindset and external surroundings interact.</td></tr>
+                        <tr><td><strong>Jerome Bruner</strong></td><td>Discovery Learning &amp; Spiral Curriculum</td><td>Students learn best by actively discovering knowledge. Topics should be revisited at increasing levels of complexity.</td></tr>
+                        <tr><td><strong>Max Wertheimer</strong></td><td>Gestalt Psychology</td><td>The mind organizes sensory information into meaningful wholes. Learning happens through sudden restructuring of perception.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Piaget's Four Stages of Cognitive Development</h2>
+                    <table>
+                        <tr><th>Stage</th><th>Age Range</th><th>Key Features</th></tr>
+                        <tr><td><strong>Sensorimotor</strong></td><td>0–2 years</td><td>Learning through senses and actions. Develops <strong>object permanence</strong> — understanding things exist even when unseen. A baby learning a hidden toy is still there.</td></tr>
+                        <tr><td><strong>Preoperational</strong></td><td>2–7 years</td><td>Symbolic thinking and language use, but <strong>egocentric</strong> — cannot see others' perspectives. A 5-year-old thinks broken biscuit in 3 pieces is "more" than one whole biscuit.</td></tr>
+                        <tr><td><strong>Concrete Operational</strong></td><td>7–11 years</td><td>Logical thinking about concrete objects. Understands <strong>conservation</strong> — water amount stays same despite shape change.</td></tr>
+                        <tr><td><strong>Formal Operational</strong></td><td>12+ years</td><td>Abstract, hypothetical, scientific thinking. Can debate ethics, ponder future, and reason without physical objects.</td></tr>
+                    </table>
+                    <p><strong>Key Processes:</strong> <strong>Assimilation</strong> (fit new info into existing schema — child calling a cat "dog"), <strong>Accommodation</strong> (change schema to fit new info — learning the four-legged animal that meows is a "cat"), <strong>Equilibration</strong> (balance between the two drives intellectual growth).</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Cognitive Concepts (Exam Essentials)</h2>
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        <li><strong>Schemas:</strong> Thinking patterns that assist individuals in comprehending and classifying information. Mental frameworks for organizing knowledge.</li>
+                        <li><strong>Metacognition:</strong> A person's understanding and management of their own thinking processes — observing, assessing, and adjusting one's cognitive actions. "Thinking about thinking."</li>
+                        <li><strong>Information Processing:</strong> Sensory input → attention → perception → encoding → memory → retrieval.</li>
+                        <li><strong>Meaningful Learning:</strong> Learning works best when it matters and makes sense to the learner. Link new information to what you already know.</li>
+                        <li><strong>Transfer:</strong> Applying what was learned in one context to another. Using prior knowledge in fresh situations.</li>
+                        <li><strong>Attention:</strong> A finite resource that needs to be distributed among various tasks. Media literacy can help students concentrate on essential elements while disregarding distractions.</li>
+                        <li><strong>Memory:</strong> An engaged process including encoding, storing, and recalling information.</li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Ten (10) Importances of Cognitive Learning Theory (Exam Section B)</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li>It examines how people handle information to make choices and tackle issues.</li>
+                        <li>It asserts learning happens in the mind through sensing, focusing, remembering, and problem-solving.</li>
+                        <li>Transfer means using what you've learned before in fresh situations.</li>
+                        <li>To boost transfer, link new knowledge with what learners already know.</li>
+                        <li>Feedback offers learners insights into their performance and helps them adapt learning methods.</li>
+                        <li>In media education, it enhances students' ability to think critically about media messages.</li>
+                        <li>Perception is an engaged procedure including picking, arranging, and comprehending sensory data.</li>
+                        <li>Attention is a finite resource needing distribution among tasks.</li>
+                        <li>Problem-solving is an intricate procedure encompassing recognising a problem, creating answers, assessing results, and picking the best.</li>
+                        <li>Memory is an engaged process including encoding, storing, and recalling information.</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Life &amp; Classroom Scenarios (Nigerian Context)</h2>
+                    <p><strong>University (Deep Understanding):</strong> Instead of cramming a textbook, a law student understands the principle behind a legal case. When presented with a new problem, she recalls and applies that principle. Deep understanding = cognitivism at work.</p>
+                    <p><strong>Insight Learning (Köhler):</strong> You've been struggling to solve a difficult MTH 101 problem for hours. Suddenly, while bathing, the solution "clicks" in your head. The mind was working on it subconsciously — that's insight.</p>
+                    <p><strong>Driving School:</strong> An instructor teaches you not just to move the steering wheel but explains how the steering system works. You become a better driver because you understand the process, not just the action.</p>
+                    <p><strong>Venn Diagrams &amp; Concept Maps:</strong> A teacher uses visual organizers to help students connect new information on media literacy to what they already know about advertising.</p>
+                </div>
+            </div>
+
+            <!-- SOCIAL LEARNING THEORY -->
+            <div id="notes-social" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">3. SOCIAL LEARNING THEORY – Learning by Observing Others</h2>
+                    <p><strong>Social Learning Theory (SLT)</strong>, also called <strong>Social Cognitive Theory</strong>, was developed by <strong>Albert Bandura</strong>. It highlights how watching and interacting with others influence our actions. SLT was developed to <strong>introduce modelling into the principle of learning</strong>, along with social influence and its effect on external and internal social reinforcement.</p>
+                    <p>This theory bridges Behaviorism and Cognitivism — we learn through consequences but also by observing and imitating <strong>models</strong> (parents, teachers, celebrities, peers).</p>
+                    <div class="keybox"><strong>Core Idea:</strong> Observational learning involves four cognitive steps: <strong>Attention</strong> (notice the model) → <strong>Retention</strong> (remember) → <strong>Reproduction</strong> (ability to copy) → <strong>Motivation</strong> (want to copy, often because model gets rewarded).</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Aspects of Social Learning Theory</h2>
+                    <table>
+                        <tr><th>Concept</th><th>Definition</th><th>Example</th></tr>
+                        <tr><td><strong>Observational Learning (Modeling)</strong></td><td>People acquire fresh behaviours by watching others and seeing the consequences. Also called vicarious learning.</td><td>A student teacher watches an experienced lecturer use humour to engage a class, then tries the same technique.</td></tr>
+                        <tr><td><strong>Vicarious Reinforcement</strong></td><td>Seeing a model get rewarded increases chance of imitation; seeing punishment decreases it.</td><td>Young boy sees older brother praised for making his bed, becomes motivated to also make his bed.</td></tr>
+                        <tr><td><strong>Self-Efficacy</strong></td><td>Person's belief in their capability to accomplish a task. Shaped by personal encounters, observing others, and peer input.</td><td>In study group, one member explains confidently; others gain belief they can understand it too.</td></tr>
+                        <tr><td><strong>Reciprocal Determinism</strong></td><td>Behavior, surroundings, and individual factors all interact in a two-way manner.</td><td>Student who dislikes school (personal) acts out (behavior), creating strict environment, reinforcing dislike.</td></tr>
+                        <tr><td><strong>Mental Processes</strong></td><td>Focusing, recollection, and drive determine if a person observes behaviour and how effectively they recall and imitate it.</td><td>Paying attention to a lecturer's critical analysis of a news article and remembering the steps.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Life &amp; Classroom Scenarios (Nigerian Context)</h2>
+                    <p><strong>Cultural Learning:</strong> A young girl learns to cook egusi soup by watching her mother. No one gives her formal rewards; she learns through observation and practice — pure social learning.</p>
+                    <p><strong>Teacher as Role Model:</strong> A student teacher on teaching practice watches an experienced lecturer use humour to keep a class engaged. The student teacher then tries the same technique, having seen it work (vicarious reinforcement).</p>
+                    <p><strong>Nollywood Influence:</strong> A teenager adopts a certain slang, hairstyle, or dance move seen in a Nollywood or Netflix series because it seems "cool." They model the behaviour they observed.</p>
+                    <p><strong>Community Influence:</strong> A student sees a respected community leader always cross-check a news story before sharing it on WhatsApp. The student observes this and imitates the behaviour — learning responsible media consumption.</p>
+                    <p><strong>Peer Modeling:</strong> In a study group, one member explains a concept confidently. Others observe this, learn the content, and also gain the confidence that they can understand it if they try — their self-efficacy increases.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Application in Media &amp; Information Literacy</h2>
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        <li>Students watch and assess media content, including media figures' actions and viewpoints, developing ability to identify and assess how media messages affect their beliefs and actions.</li>
+                        <li>Media literacy can enable students to identify impractical body ideals shown in media and inspire them to oppose them.</li>
+                        <li>Role models (teachers, parents, peers) who critically analyse media serve as models for students to imitate.</li>
+                        <li>Students gain self-belief necessary to make well-considered choices regarding their media consumption.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CONSTRUCTIVISM -->
+            <div id="notes-constructivism" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">4. CONSTRUCTIVISM – Learning by Building Knowledge</h2>
+                    <p><strong>Constructivism</strong> is the development of cognitive learning theory. It departs from the belief that <strong>knowledge is a process of formation that continues to develop and change.</strong> The essence is that students must find and transform complex information into other situations, and if desired, that information becomes their own.</p>
+                    <p>In the perspective of constructivism, <strong>strategy of gaining precedence</strong> over how much students acquire and remember knowledge. Learning begins with the occurrence of <strong>cognitive conflict</strong> — a gap between what you know and new information — and knowledge is built through experience from interaction with the environment.</p>
+                    <div class="keybox"><strong>Exam Definition:</strong> Constructivism states that the learning process (acquisition of knowledge) begins with the occurrence of cognitive conflict. This cognitive conflict can only be overcome through knowledge that will be built by the learner himself through experience from interaction with his environment.</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Thinkers &amp; Concepts</h2>
+                    <table>
+                        <tr><th>Thinker</th><th>Key Concept</th><th>Explanation</th></tr>
+                        <tr><td><strong>Jean Piaget</strong></td><td>Active, Individual Construction</td><td>Learner as "little scientist" building knowledge through direct interaction with environment. Knowledge is actively constructed through cognitive stages.</td></tr>
+                        <tr><td><strong>Lev Vygotsky</strong></td><td>Social Constructivism, ZPD, Scaffolding</td><td>Knowledge is co-constructed with others. Learning happens in the Zone of Proximal Development — gap between independent and assisted performance.</td></tr>
+                        <tr><td><strong>Jerome Bruner</strong></td><td>Spiral Curriculum, Discovery Learning</td><td>Any subject can be taught in intellectually honest form at any age. Topics revisited with increasing complexity.</td></tr>
+                        <tr><td><strong>Tasker, Wheatley, Hudoyo, Hanbury, Tytler</strong></td><td>Constructivism leaders</td><td>Contributed to the development of constructivist educational approaches.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Characteristics of Constructivist Learning (Exam-Ready)</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li>Provide learning experiences linking prior knowledge — learning through the process of knowledge formation.</li>
+                        <li>Providing various alternative learning experiences — not all do the same task; a problem can be solved in multiple ways.</li>
+                        <li>Integrating learning with realistic and relevant situations involving concrete experiences (e.g., understanding a concept through everyday life).</li>
+                        <li>Integrating learning to enable social transmission — interaction and cooperation of a person with others or the environment.</li>
+                        <li>Utilizing various media including oral and written communication so learning becomes more active.</li>
+                        <li>Involving students emotionally and socially so it becomes exciting and students want to learn.</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Vygotsky's Key Ideas (Detailed)</h2>
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        <li><strong>Zone of Proximal Development (ZPD):</strong> The gap between what a learner can do independently and what they can achieve with help from a More Knowledgeable Other (MKO). Effective teaching targets the ZPD.</li>
+                        <li><strong>Scaffolding:</strong> Offering temporary assistance to help learners finish tasks they can't do alone. The support is gradually removed as competence grows. (Important: Scaffolding belongs to Vygotsky, not Piaget!)</li>
+                        <li><strong>Private Speech:</strong> Children talk to themselves aloud to control behaviour and thinking. Over time, becomes internalised as inner speech.</li>
+                        <li><strong>Cultural Tools:</strong> Culture equips us with aids (words, symbols) passed on during social exchanges — crucial for cognitive advancement.</li>
+                        <li><strong>Collaborative Learning:</strong> Working with classmates allows social interaction, information exchange, and meaning negotiation.</li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Life &amp; Classroom Scenarios (Nigerian Context)</h2>
+                    <p><strong>Igbo Apprenticeship System:</strong> A young apprentice in Onitsha market learns trading not from books but by watching his master, asking questions, making small transactions under supervision, making mistakes, and eventually developing deep commercial understanding — pure social constructivism.</p>
+                    <p><strong>ZPD Example:</strong> A student cannot independently solve a quadratic equation. The teacher sits with him, shows step-by-step how to move terms. After three examples, the student can solve similar problems on his own. The teacher provided scaffolding within the student's ZPD.</p>
+                    <p><strong>Project-Based Learning:</strong> A lecturer assigns groups to create a business plan for a small-scale farm. Students interview real farmers, do accounting, and present their plan. They construct business knowledge by doing it.</p>
+                    <p><strong>Lab Work:</strong> Science students don't just read about osmosis; they put yam slices in salt water and observe them shrink. They construct the concept themselves through experiment.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Application in MIL</h2>
+                    <p>The ultimate constructivist activity: Students don't just analyze advertisements; they create their own public health campaign video. By constructing a persuasive message themselves, they understand the techniques from the inside out. Students actively build mental models of how media works rather than passively receiving information.</p>
+                </div>
+            </div>
+
+            <!-- HUMANISM -->
+            <div id="notes-humanism" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">5. HUMANISM – Learning as a Whole Person</h2>
+                    <p><strong>Humanism</strong> is a psychological approach that emphasizes human problems, interests, values, and human dignity. It is the <strong>flow of humanity.</strong> For adherents, the learning process must originate and lead to humans themselves. In the world of education, the flow of humanism emerged in the 1960s to 1970s.</p>
+                    <p><strong>Abraham Maslow (1908–1970)</strong> can be seen as the <strong>father of humanistic psychology.</strong> This movement was dissatisfied with behavioristic psychology and psychoanalysis and sought alternative psychology focusing on humans with the characteristics of their existence. Maslow named humanistic psychology a <strong>"third force"</strong> alongside behavioristic psychology (first force) and psychoanalysis (second force). Humans are creative beings controlled by their values and choices, not by unconscious forces.</p>
+                    <div class="keybox"><strong>Core Difference:</strong> Behaviorists view people as reactive beings responding to environment. Humanists believe each person determines their own practice — they are free in choosing the quality of their lives.</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Thinkers &amp; Concepts</h2>
+                    <table>
+                        <tr><th>Thinker</th><th>Key Concept</th><th>Explanation</th></tr>
+                        <tr><td><strong>Abraham Maslow</strong></td><td>Hierarchy of Needs</td><td>People can only learn and self-actualize when basic needs are met. Hierarchy (bottom to top): Physiological → Safety → Love/Belonging → Esteem → Self-Actualization.</td></tr>
+                        <tr><td><strong>Carl Rogers</strong></td><td>Student-Centered (Client-Centered) Learning</td><td>Teacher as facilitator providing unconditional positive regard, empathy, genuineness, and a safe environment. Meaningful learning is self-initiated and personally relevant.</td></tr>
+                        <tr><td><strong>Frankle</strong></td><td>Humanistic Psychology Contributor</td><td>Cognitive characteristics are still found in the flow of humanism; psychology was perfected by figures like Rogers and Frankle.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Characteristics of Humanism (Exam-Ready)</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li><strong>Concern with humans as individuals</strong> — each learner is unique</li>
+                        <li><strong>Concern on personal roundness/wholeness</strong> — holistic development</li>
+                        <li><strong>Concerned with the role of cognitive AND practical</strong> — mind and action</li>
+                        <li><strong>Concerned with subjective perceptions</strong> — each individual's unique view matters</li>
+                        <li><strong>Concerned about the ability to determine the form of one's behavior</strong> — self-determination</li>
+                        <li><strong>Prioritizing "insight"</strong> — deep self-understanding and personal growth</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Maslow's Hierarchy of Needs (Detailed)</h2>
+                    <table>
+                        <tr><th>Level</th><th>Need</th><th>Examples</th><th>Educational Implication</th></tr>
+                        <tr><td>1 (Base)</td><td><strong>Physiological</strong></td><td>Food, water, rest, shelter</td><td>Hungry students cannot concentrate. School feeding programmes are essential.</td></tr>
+                        <tr><td>2</td><td><strong>Safety</strong></td><td>Security, health, stability</td><td>Students in unsafe environments or who are bullied cannot learn effectively.</td></tr>
+                        <tr><td>3</td><td><strong>Love &amp; Belonging</strong></td><td>Friendships, family, community</td><td>Students need to feel accepted in the classroom community.</td></tr>
+                        <tr><td>4</td><td><strong>Esteem</strong></td><td>Respect, recognition, confidence</td><td>Praise, awards, and positive feedback build learners' self-esteem.</td></tr>
+                        <tr><td>5 (Top)</td><td><strong>Self-Actualization</strong></td><td>Creativity, achieving full potential</td><td>The ultimate goal — education should help learners become the best version of themselves.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Life &amp; Classroom Scenarios (Nigerian Context)</h2>
+                    <p><strong>University Counseling:</strong> A student is depressed due to financial problems and can't focus on lectures. A humanistic lecturer notices, refers him to the counseling unit, and gives extra time. Once the student's emotional need for safety and support is met, academic performance improves.</p>
+                    <p><strong>Boarding School (Maslow in Action):</strong> In a boarding school where students are not given enough food (physiological) or are constantly bullied (safety and love needs), no amount of excellent teaching will make them learn. Basic needs must be addressed first.</p>
+                    <p><strong>Friendly Teacher (Rogers):</strong> Mr. Bello, a secondary school teacher, starts each class by asking how his students are feeling and shares a motivational story. His students feel safe and valued and therefore participate freely without fear of being mocked.</p>
+                    <p><strong>Personal Growth:</strong> A mother who always wanted to study returns to university through distance learning. Her learning is driven by a deep personal desire for self-actualization, not external rewards.</p>
+                </div>
+            </div>
+
+            <!-- CONNECTIVISM -->
+            <div id="notes-connectivism" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">6. CONNECTIVISM – Learning in the Digital Age</h2>
+                    <p><strong>Connectivism</strong> is an educational theory developed by <strong>George Siemens</strong> and <strong>Stephen Downes</strong> that highlights the significance of links and networks in learning. It proposes that learning isn't solely an individual activity but a social one where knowledge is formed and exchanged through networks.</p>
+                    <p>Knowledge no longer lives solely in our minds or even in books; it is distributed across a network of connections. <strong>"The pipe is more important than the content within the pipe."</strong> In a rapidly changing world, knowing how to find, evaluate, and connect information is the essential skill.</p>
+                    <div class="keybox"><strong>Key Exam Definition:</strong> Connectivism stresses the importance of networked learning, where students interact with each other and various learning materials through different platforms and situations.</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Principles of Connectivism</h2>
+                    <table>
+                        <tr><th>Principle</th><th>Explanation</th></tr>
+                        <tr><td><strong>Networked Learning</strong></td><td>Learning happens via networks and connections rather than solely through individual experience. Students interact with diverse learning materials through different platforms.</td></tr>
+                        <tr><td><strong>Distributed Cognition</strong></td><td>Knowledge is spread among groups of people and technology rather than confined to one person's thoughts.</td></tr>
+                        <tr><td><strong>Technology</strong></td><td>Grants learners access to information, resources, and networks. A potent instrument for generating and disseminating knowledge.</td></tr>
+                        <tr><td><strong>Lifelong Learning</strong></td><td>Continuous learning and adjusting to shifts in a fast-evolving world. Learning never stops because knowledge changes so rapidly.</td></tr>
+                        <tr><td><strong>Personal Learning Networks (PLN)</strong></td><td>Learners actively create and sustain personal learning connections involving people and materials to aid their learning.</td></tr>
+                        <tr><td><strong>Openness</strong></td><td>Importance of readily available information, resources, and connections along with willingness to exchange knowledge.</td></tr>
+                        <tr><td><strong>Critical Source Evaluation</strong></td><td>Not all nodes in a network are equally reliable. Some sources are more dependable than others — thorough assessment is essential.</td></tr>
+                        <tr><td><strong>Decision-Making is Learning</strong></td><td>Choosing what to learn and what to discard is itself a critical learning process.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Life &amp; Classroom Scenarios (Nigerian Context)</h2>
+                    <p><strong>University Project:</strong> A student doesn't only rely on the textbook. She joins 3 WhatsApp groups for her course, follows 5 professors on LinkedIn, watches free YouTube tutorials, and uses Wikipedia and Google Scholar. When she has a question, she posts it online and gets answers from her network across the world. This is connectivism in action.</p>
+                    <p><strong>#EndSARS Movement:</strong> During the movement, many young Nigerians learned about legal rights, global activism strategies, and media documentation not from a classroom but from a connected network of tweets, spaces, and shared documents.</p>
+                    <p><strong>Freelance Skill Acquisition:</strong> A young graduate learns graphic design entirely through online communities — watching videos on YouTube, asking questions on Reddit, sharing work for feedback on Dribbble. His learning network replaces a physical classroom.</p>
+                    <p><strong>Agriculture Student:</strong> A student studying agricultural science builds a PLN by following innovative farmers on Instagram and connecting with agricultural researchers on LinkedIn, learning cutting-edge techniques directly from the field.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Application in Media &amp; Information Literacy</h2>
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        <li>Motivate students to interact with diverse media outlets and scrutinise media messages considering the interlinked structure of media networks.</li>
+                        <li>During breaking news, students track the story across their network of news outlets, social media, and fact-checking websites — knowledge is distributed and cross-referenced.</li>
+                        <li>Encourage students to build a network of reliable news sources and expert analysts on social media.</li>
+                        <li>Students don't just analyze media; they create and share within their networks (class blog, podcast series), understanding how knowledge spreads.</li>
+                        <li>Evaluate which connections are trustworthy — critical source evaluation is the core MIL skill.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DEVELOPMENTAL THEORIES -->
+            <div id="notes-developmental" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Key Developmental Theories (Detailed)</h2>
+                    <p>These theories overlap with Cognitivism and Constructivism but are crucial for understanding how learners grow and develop their thinking abilities from infancy to adolescence.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">A. Piaget's Theory of Cognitive Development (Full)</h2>
+                    <p>Jean Piaget's cognitive development theory is a <strong>significant and widely recognised framework aiming to clarify how individuals progress in their thinking abilities from infancy to adolescence.</strong> The key aspects include:</p>
+                    <table>
+                        <tr><th>Aspect</th><th>Explanation</th></tr>
+                        <tr><td><strong>Stages of Development</strong></td><td>Learners go through four clear cognitive growth phases: Sensorimotor (0-2), Preoperational (2-7), Concrete Operational (7-11), Formal Operational (12+). Each has distinct qualities and constraints.</td></tr>
+                        <tr><td><strong>Schemas</strong></td><td>Children create mental structures (schemas) to structure their encounters and understand the world. These always change and adjust as the child engages with their surroundings.</td></tr>
+                        <tr><td><strong>Assimilation &amp; Accommodation</strong></td><td>Students blend fresh knowledge into existing mental frameworks (assimilation) while adapting and expanding frameworks to fit new information (accommodation).</td></tr>
+                        <tr><td><strong>Object Permanence</strong></td><td>Babies don't understand that things still exist when unseen until they acquire this skill at approximately <strong>eight months old</strong>.</td></tr>
+                        <tr><td><strong>Egocentrism</strong></td><td>During the Preoperational stage (2-7), children tend to be self-centred and find it challenging to grasp how others see things.</td></tr>
+                        <tr><td><strong>Conservation</strong></td><td>Alterations in how something looks don't alter its basic qualities (size, weight, quantity). Achieved in Concrete Operational stage.</td></tr>
+                        <tr><td><strong>Formal Operations</strong></td><td>During the last phase (12+), adolescents attain capacity for abstract thinking, hypothetical reasoning, and logical deductions.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Piaget &amp; Media Literacy Connections</h2>
+                    <ol class="list-decimal pl-5 space-y-1 text-sm">
+                        <li>Piaget stresses hands-on learning in cognitive growth — media literacy offers practical encounters that aid world comprehension and foster critical thinking.</li>
+                        <li>Students actively building comprehension through interactions with surroundings — media literacy underscores actively engaging with media to grasp messages.</li>
+                        <li>Social interactions and cultural surroundings play a role in cognitive growth — media literacy aids students in grasping cultural and social settings where media messages are made and consumed.</li>
+                    </ol>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">B. Vygotsky's Theory of Learning</h2>
+                    <p>Lev Vygotsky's learning theory highlights how social interactions and cultural surroundings influence the growth of our thinking abilities.</p>
+                    <table>
+                        <tr><th>Concept</th><th>Explanation</th></tr>
+                        <tr><td><strong>Zone of Proximal Development (ZPD)</strong></td><td>Gap between what a learner can do independently and what they can achieve with help from someone who knows more (MKO).</td></tr>
+                        <tr><td><strong>Social Interaction</strong></td><td>When learners interact with individuals who possess greater knowledge, they absorb new ideas and abilities better.</td></tr>
+                        <tr><td><strong>Scaffolding</strong></td><td>Offering temporary assistance to help learners finish tasks they can't do alone. Support decreases as competence grows.</td></tr>
+                        <tr><td><strong>Cultural Tools</strong></td><td>Culture equips us with aids (words, symbols) that make learning and mental growth easier.</td></tr>
+                        <tr><td><strong>Private Speech → Inner Speech</strong></td><td>Students talk to themselves aloud to control behaviour; over time becomes internalised silent thought.</td></tr>
+                        <tr><td><strong>Collaborative Learning</strong></td><td>Working with classmates allows social interaction, information exchange, and meaning negotiation — beneficial for cognitive development.</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">C. Bruner's Spiral Curriculum (Exam Detailed)</h2>
+                    <p><strong>Jerome Bruner's Spiral Curriculum</strong> is an educational framework that underscores the significance of <strong>revisiting key concepts and ideas during the learning process, using existing knowledge as a foundation for effective learning.</strong> It highlights the value of hands-on learning and investigation.</p>
+                    <table>
+                        <tr><th>Characteristic</th><th>Explanation</th></tr>
+                        <tr><td><strong>Conceptual Progression (Spiral Path)</strong></td><td>Students revisit essential ideas and concepts at higher levels of sophistication, enabling deeper and more intricate comprehension over time.</td></tr>
+                        <tr><td><strong>Active Learning</strong></td><td>Students should participate in tasks demanding advanced thinking abilities like problem-solving and critical thinking.</td></tr>
+                        <tr><td><strong>Discovery Learning</strong></td><td>Students are motivated to investigate and unearth fresh concepts and notions independently for a more profound and enduring educational encounter.</td></tr>
+                        <tr><td><strong>Multiple Representations</strong></td><td>Employing various forms (visuals, sounds, physical experiences) to illustrate concepts and accommodate diverse learning preferences.</td></tr>
+                        <tr><td><strong>Scaffolding</strong></td><td>Educators offer assistance and direction while students grasp fresh concepts, ensuring they expand upon current knowledge.</td></tr>
+                        <tr><td><strong>Real-Life Contexts</strong></td><td>Using real-life contexts to help students grasp significance and value of learning — enhances meaningfulness.</td></tr>
+                    </table>
+                    <p><strong>Spiral Example:</strong> JSS1 — plants need sunlight (basic). SS1 — photosynthesis at cellular level. University — molecular biophysics of photosynthesis. Same concept deepened each time.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Adult Learning (Andragogy)</h2>
+                    <p><strong>Adult learning</strong> is basically concerned on <strong>how older learners gain and retain knowledge</strong> because adults learn differently than children due to their life experiences, prior knowledge, and self-direction. An effective training program should recognize and cater to the needs of adult learners. A good training program should provide learners with good resources in form of <strong>audio, video, and interactive content.</strong></p>
+                </div>
+            </div>
+
+            <!-- TAM & TPACK -->
+            <div id="notes-tpack" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Technology Acceptance Model (TAM) &amp; TPACK</h2>
+                    <p>These are critical theories for ICT teachers. They explain how users accept technology and how teachers can integrate technology into their pedagogy.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Technology Acceptance Model (TAM)</h2>
+                    <p><strong>TAM</strong> was defined by <strong>Davis, Bagozzi, &amp; Warshaw</strong> to convey the concept of how users may understand and accept new technology and how they may use it. The aim is to understand the reason for individuals' accepting or rejecting any new technology in the areas of computer science education.</p>
+                    <p>The adoption of technology helps the implementation of software and hardware technology in an institution to <strong>increase human productivity, competitive advantage, improve processing speed, and make information readily available.</strong></p>
+                    <p><strong>Five constructs of TAM:</strong> Perceived Ease of Use (PEU), Perceived Usefulness (PU), Attitude towards Use (ATU), Behavioural Intention (BI), and Actual Use (AU). TAM serves as a basis and fundamental theory for many other theories that were later developed.</p>
+                    <div class="keybox"><strong>Exam Definition:</strong> TAM elucidates the technology determinant acceptance as user behaviour in a broad array of emerging end-user technologies of computing together with the user populace while simultaneously justifying theoretical and economic viewpoints (Davis, 2019).</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">TPACK (Technological Pedagogical Content Knowledge)</h2>
+                    <p><strong>TPCK</strong> means <strong>Technological Pedagogical Content Knowledge.</strong> Also known as <strong>TPACK</strong>, it is a framework that introduces the relationship and complexities between all three basic components in the field of education: <strong>technology, pedagogy, and content knowledge.</strong></p>
+                    <p><strong>TPACK enables teachers to successfully incorporate technology in teaching</strong> by enabling them to make appropriate, context-specific strategies. It covers assessment, application of relevant software to teaching and learning, education apps, and artificial intelligence in education for easy understanding and better retention by students.</p>
+                    <div class="infobox"><strong>Seven Components of TPCK Framework:</strong> Content Knowledge (CK), Pedagogical Knowledge (PK), Technology Knowledge (TK), Pedagogical Content Knowledge (PCK), Technological Content Knowledge (TCK), Technological Pedagogical Knowledge (TPK), and Technological Pedagogical Content Knowledge (TPACK).</div>
+                    <p><strong>Assessment, application of relevant software, education apps, and artificial intelligence in education</strong> have emerged steadily as a result of TPACK/TPCK.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Exam-Focused Definitions</h2>
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        <li><strong>Technology Adoption:</strong> The implementation of software and hardware technology in an institution to increase human productivity, competitive advantage, improve processing speed, and make information readily available.</li>
+                        <li><strong>TPACK Purpose:</strong> Enables teachers to successfully incorporate technology in teaching by making appropriate, context-specific strategies.</li>
+                        <li><strong>Social Learning Theory Purpose:</strong> Introducing the modelling into the principle of learning, and the social influence and its effect on external and internal social reinforcement.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- EXAM GUIDE -->
+            <div id="notes-comparison" class="notes-content space-y-4 notes-section hidden">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Final Comparative Summary (Exam Table)</h2>
+                    <table>
+                        <tr><th>Theory</th><th>Learning is...</th><th>Focus</th><th>Teacher</th><th>Student</th></tr>
+                        <tr><td>Behaviorism</td><td>Change in observable behavior</td><td>Stimulus, Response, Rewards</td><td>Controller</td><td>Passive receiver</td></tr>
+                        <tr><td>Cognitivism</td><td>Active mental processing</td><td>Memory, Thinking, Schemas</td><td>Organizer</td><td>Active processor</td></tr>
+                        <tr><td>Social Learning</td><td>Observing and imitating</td><td>Modeling, Vicarious Reinforcement</td><td>Role model</td><td>Observer, imitator</td></tr>
+                        <tr><td>Constructivism</td><td>Building personal meaning</td><td>Experience, ZPD, Social Interaction</td><td>Facilitator</td><td>Active constructor</td></tr>
+                        <tr><td>Humanism</td><td>Becoming fully-functioning</td><td>Emotions, Self-actualization</td><td>Empathetic guide</td><td>Self-directed</td></tr>
+                        <tr><td>Connectivism</td><td>Forming and navigating networks</td><td>Connections, Technology</td><td>Network curator</td><td>Network builder</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Thinker → Theory → Key Term (Master Reference)</h2>
+                    <table>
+                        <tr><th>Thinker</th><th>Theory</th><th>Key Term</th></tr>
+                        <tr><td>Ivan Pavlov</td><td>Behaviourism</td><td>Classical conditioning (association)</td></tr>
+                        <tr><td>John B. Watson</td><td>Behaviourism</td><td>Father of Behaviourism (1913); observable behaviour only</td></tr>
+                        <tr><td>B.F. Skinner</td><td>Behaviourism</td><td>Operant conditioning (reinforcement/punishment)</td></tr>
+                        <tr><td>E.L. Thorndike</td><td>Behaviourism</td><td>Connectionism; Law of Effect</td></tr>
+                        <tr><td>Jean Piaget</td><td>Cognitivism / Constructivism</td><td>Stages of cognitive development; schemas; assimilation &amp; accommodation</td></tr>
+                        <tr><td>Wolfgang Köhler</td><td>Cognitivism</td><td>Insight learning (sudden "aha!")</td></tr>
+                        <tr><td>Kurt Lewin</td><td>Cognitivism</td><td>Field Theory; B = f(P, E)</td></tr>
+                        <tr><td>Max Wertheimer</td><td>Cognitivism</td><td>Gestalt psychology</td></tr>
+                        <tr><td>Lev Vygotsky</td><td>Constructivism</td><td>ZPD; Scaffolding; Private Speech; MKO</td></tr>
+                        <tr><td>Jerome Bruner</td><td>Constructivism/Cognitivism</td><td>Spiral Curriculum; Discovery Learning; Active Learning</td></tr>
+                        <tr><td>Abraham Maslow</td><td>Humanism</td><td>Hierarchy of Needs; father of humanistic psychology</td></tr>
+                        <tr><td>Carl Rogers</td><td>Humanism</td><td>Student-centred learning; unconditional positive regard</td></tr>
+                        <tr><td>Albert Bandura</td><td>Social Learning</td><td>Observational learning; modeling; self-efficacy; reciprocal determinism</td></tr>
+                        <tr><td>George Siemens / Stephen Downes</td><td>Connectivism</td><td>Networked learning; PLN; distributed cognition</td></tr>
+                        <tr><td>Davis, Bagozzi &amp; Warshaw</td><td>TAM</td><td>Technology Acceptance Model; PEU, PU, ATU, BI, AU</td></tr>
+                    </table>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border">
+                    <h2 class="text-xl font-bold mb-3">Common Exam Pitfalls to Avoid</h2>
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        <li>Mixing up <strong>Watson</strong> (founded behaviourism) and <strong>Skinner</strong> (operant conditioning).</li>
+                        <li>Confusing <strong>Köhler's insight</strong> (sudden "aha!") with <strong>Bruner's discovery</strong> (gradual exploration).</li>
+                        <li>Attributing <strong>scaffolding to Piaget</strong> — scaffolding belongs to <strong>Vygotsky!</strong></li>
+                        <li>Piaget appears under two theories: in Cognitivism (stages/mental processes) and Constructivism (active building of knowledge).</li>
+                        <li><strong>Object permanence</strong> is acquired at approximately <strong>8 months old</strong> — exam question!</li>
+                        <li><strong>Egocentrism</strong> characterizes the <strong>Preoperational stage</strong> (2-7 years), not the Sensorimotor stage.</li>
+                        <li><strong>TPCK/TPACK</strong> has 7 components, not 3.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- REVISE PANEL -->
+        <div id="panel-revise" class="panel-hidden space-y-5">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border">
+                <input type="text" id="revise-search" placeholder="Search revision cards..." oninput="filterReviseCards()" class="w-full px-4 py-3 rounded-xl border bg-gray-50 dark:bg-gray-700 text-sm focus:ring-2 focus:ring-brand-400">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="revise-grid"></div>
+        </div>
+    </main>
+
+    <footer class="text-center py-6 text-xs text-gray-400 dark:text-gray-500 border-t mt-8 space-y-1">
+        <p>&copy; <span id="current-year"></span> <span class="font-semibold text-brand-600">Archangelstr</span>. All rights reserved. · LASUED CSC 124</p>
+        <p>Course: <span class="font-semibold">Learning Theories &amp; Pedagogical Implications on ICT Teaching</span></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var reviseData = [
+                { title: "Learning Definition", content: "The receiving, processing, and retaining of knowledge — cognitive, emotional, and environmental influences as well as experiences acquired.", cat: "Introduction" },
+                { title: "Learning Theory Definition", content: "A set of principles and assumptions that explain how people learn, acquire knowledge, skills, and behaviours.", cat: "Introduction" },
+                { title: "Behaviorism Core", content: "Founded by John B. Watson (1913). Focuses only on observable behavior. S-R connections. Pavlov (Classical), Skinner (Operant).", cat: "Behaviorism" },
+                { title: "Five S-R Connections", content: "1. Reinforcement 2. Punishment 3. Conditioning 4. Generalization 5. Discrimination.", cat: "Behaviorism" },
+                { title: "Behaviorism Characteristics", content: "Environmental influences, parts over whole, psychomotor reactions, past causes, habit formation, trial & error, mechanical outcomes.", cat: "Behaviorism" },
+                { title: "Cognitivism Core", content: "Mental processes: attention, perception, memory, problem-solving. Information processing model. Schemas, metacognition, insight.", cat: "Cognitivism" },
+                { title: "Piaget's Four Stages", content: "Sensorimotor (0-2), Preoperational (2-7, egocentric), Concrete Operational (7-11, conservation), Formal Operational (12+, abstract).", cat: "Cognitivism" },
+                { title: "Assimilation & Accommodation", content: "Assimilation = fit new info into existing schema. Accommodation = change schema to fit new info. Piaget.", cat: "Cognitivism" },
+                { title: "Object Permanence (Exam!)", content: "Babies don't understand things still exist when unseen until approx. EIGHT MONTHS old. Piaget.", cat: "Cognitivism" },
+                { title: "Köhler's Insight", content: "Sudden 'Aha!' solution — not trial-and-error. The mind works on problems subconsciously.", cat: "Cognitivism" },
+                { title: "Field Theory (Lewin)", content: "B = f(P, E). Behavior is a function of the person AND the environment.", cat: "Cognitivism" },
+                { title: "Social Learning Theory", content: "Bandura. Learning by watching others. Steps: Attention, Retention, Reproduction, Motivation.", cat: "Social Learning" },
+                { title: "Vicarious Reinforcement", content: "Seeing a model rewarded = more likely to copy. Seeing punished = less likely.", cat: "Social Learning" },
+                { title: "Self-Efficacy", content: "Belief in your own ability to succeed. Boosted by seeing similar others succeed. Bandura.", cat: "Social Learning" },
+                { title: "Constructivism Core", content: "Knowledge is actively built by learner. Begins with cognitive conflict. Piaget (individual), Vygotsky (social).", cat: "Constructivism" },
+                { title: "ZPD (Vygotsky)", content: "Zone of Proximal Development — gap between independent and assisted performance.", cat: "Constructivism" },
+                { title: "Scaffolding", content: "Temporary support from MKO within ZPD; gradually removed. BELONGS TO VYGOTSKY, NOT PIAGET!", cat: "Constructivism" },
+                { title: "Spiral Curriculum", content: "Bruner. Revisit topics at increasing complexity. Active learning, discovery learning, multiple representations.", cat: "Constructivism" },
+                { title: "Humanism Core", content: "Whole person: emotions, self-actualization. Maslow (Hierarchy), Rogers (Student-Centred, unconditional positive regard).", cat: "Humanism" },
+                { title: "Maslow's Hierarchy", content: "Physiological → Safety → Love/Belonging → Esteem → Self-Actualization. Basic needs first!", cat: "Humanism" },
+                { title: "Connectivism Core", content: "Siemens & Downes. Learning = forming networks. 'Pipe > content.' PLN, distributed cognition, lifelong learning.", cat: "Connectivism" },
+                { title: "TAM (Technology Acceptance Model)", content: "Davis, Bagozzi & Warshaw. 5 constructs: PEU, PU, ATU, BI, AU. Explains user technology acceptance.", cat: "TAM & TPACK" },
+                { title: "TPACK (TPCK)", content: "Technological Pedagogical Content Knowledge. 7 components. Enables teachers to incorporate technology in teaching.", cat: "TAM & TPACK" },
+                { title: "Adult Learning", content: "Adults learn differently than children due to life experiences, prior knowledge, and self-direction.", cat: "Concepts" },
+                { title: "Egocentrism (Exam!)", content: "Preoperational stage (2-7 years). Children are self-centred and struggle to see others' perspectives.", cat: "Piaget" },
+                { title: "Conservation", content: "Alterations in appearance don't alter basic qualities (size, weight, quantity). Concrete Operational stage.", cat: "Piaget" },
+                { title: "Key Exam Pitfalls", content: "Scaffolding = Vygotsky! Object permanence = 8 months! Egocentrism = Preoperational! TPCK = 7 components!", cat: "Exam Prep" }
+            ];
+
+            window.switchTab = function(tab, btn) {
+                var panels = document.querySelectorAll('[id^="panel-"]');
+                for (var i = 0; i < panels.length; i++) { panels[i].classList.add('panel-hidden'); panels[i].classList.remove('panel-visible'); }
+                var panel = document.getElementById('panel-' + tab);
+                if (panel) { panel.classList.remove('panel-hidden'); panel.classList.add('panel-visible'); }
+                var tabs = document.querySelectorAll('.nav-tab');
+                for (var j = 0; j < tabs.length; j++) { tabs[j].classList.remove('bg-brand-100','dark:bg-brand-900/40','text-brand-700','dark:text-brand-300','active'); }
+                if (btn) { btn.classList.add('bg-brand-100','dark:bg-brand-900/40','text-brand-700','dark:text-brand-300','active'); }
+                if (tab === 'revise') { buildReviseGrid(); }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            window.switchNotesSubtab = function(sub) {
+                var sections = document.getElementsByClassName('notes-section');
+                for (var i = 0; i < sections.length; i++) { sections[i].classList.add('hidden'); }
+                var target = document.getElementById('notes-' + sub);
+                if (target) { target.classList.remove('hidden'); }
+                var buttons = document.getElementsByClassName('notes-sub-btn');
+                for (var j = 0; j < buttons.length; j++) {
+                    var btn = buttons[j];
+                    if (btn.id === 'notes-sub-' + sub) {
+                        btn.classList.add('bg-brand-100','dark:bg-brand-900/40','text-brand-700','dark:text-brand-300');
+                        btn.classList.remove('bg-gray-100','dark:bg-gray-700','text-gray-600','dark:text-gray-300');
+                    } else {
+                        btn.classList.remove('bg-brand-100','dark:bg-brand-900/40','text-brand-700','dark:text-brand-300');
+                        btn.classList.add('bg-gray-100','dark:bg-gray-700','text-gray-600','dark:text-gray-300');
+                    }
+                }
+            };
+
+            window.toggleDarkMode = function() {
+                document.documentElement.classList.toggle('dark');
+                try { localStorage.setItem('darkMode', document.documentElement.classList.contains('dark') ? '1' : '0'); } catch(e) {}
+            };
+            try { if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark'); } catch(e) {}
+
+            window.filterReviseCards = function() { buildReviseGrid(document.getElementById('revise-search').value); };
+
+            function buildReviseGrid(q) {
+                q = q || '';
+                var grid = document.getElementById('revise-grid');
+                var filtered = reviseData.filter(function(r) { return !q || r.title.toLowerCase().indexOf(q.toLowerCase()) !== -1; });
+                if (filtered.length === 0) { grid.innerHTML = '<p class="text-gray-500 col-span-full text-center py-8">No revision cards found.</p>'; return; }
+                var html = '';
+                for (var i = 0; i < filtered.length; i++) {
+                    var r = filtered[i];
+                    html += '<div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border revise-card"><span class="text-xs font-bold uppercase text-brand-500">' + r.cat + '</span><h4 class="font-semibold mt-1">' + r.title + '</h4><p class="text-sm text-gray-600 dark:text-gray-300 mt-2">' + r.content + '</p></div>';
+                }
+                grid.innerHTML = html;
+            }
+
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            buildReviseGrid();
+            window.switchNotesSubtab('intro');
+            console.log('CSC 124 Notes Application initialized successfully!');
+        });
+    </script>
+</body>
+</html>

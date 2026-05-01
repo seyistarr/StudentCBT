@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Practice CBT - LASUED CSC 124</title>
+    <link rel="icon" type="image/png" href="lasued.png">
+
+    <meta property="og:title" content="Practice CBT | LASUED CSC 124">
+    <meta property="og:description" content="Practice CBT exams on Learning Theories and Pedagogical Implications on ICT Teaching.">
+    <meta property="og:image" content="https://student-cbt.vercel.app/student.png">
+    <meta property="og:url" content="https://student-cbt.vercel.app/Practice-CSC124.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Practice CBT | LASUED CSC 124">
+    <meta name="twitter:description" content="Practice CBT exams on Learning Theories and Pedagogical Implications on ICT Teaching.">
+    <meta name="twitter:image" content="https://student-cbt.vercel.app/student.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 
+                            50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd', 
+                            400: '#a78bfa', 500: '#8b5cf6', 600: '#6E5AE6', 700: '#5b3fd4', 
+                            800: '#4c2fb5', 900: '#3b1f94' 
+                        },
+                        gold: { 400: '#F4C95D', 500: '#f0c040', 600: '#d4a830' }
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'Georgia', 'serif'],
+                        body: ['"Inter"', 'system-ui', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --glass-bg: rgba(255,255,255,0.75); --glass-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+        .dark { --glass-bg: rgba(30,30,50,0.75); --glass-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+        .glass-nav { background: rgba(255,255,255,0.7); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .dark .glass-nav { background: rgba(20,20,40,0.7); border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .option-card { transition: all 0.2s; cursor: pointer; border: 2px solid transparent; }
+        .option-card:hover { border-color: #c4b5fd; background: #faf5ff; }
+        .dark .option-card:hover { border-color: #6E5AE6; background: rgba(110,90,230,0.1); }
+        .option-card.selected { border-color: #6E5AE6 !important; background: #ede9fe !important; box-shadow: 0 0 0 3px rgba(110,90,230,0.15); }
+        .dark .option-card.selected { background: rgba(110,90,230,0.2) !important; border-color: #8b5cf6 !important; }
+        .option-card.correct { border-color: #22C55E !important; background: #f0fdf4 !important; }
+        .dark .option-card.correct { background: rgba(34,197,94,0.15) !important; border-color: #22C55E !important; }
+        .option-card.wrong { border-color: #EF4444 !important; background: #fef2f2 !important; animation: shake 0.4s ease; }
+        .dark .option-card.wrong { background: rgba(239,68,68,0.12) !important; border-color: #EF4444 !important; }
+        @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-6px); } 40% { transform: translateX(6px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
+        @keyframes fadeSlideIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+        .panel-hidden { display: none !important; }
+        .panel-visible { display: block !important; animation: fadeSlideIn 0.35s ease forwards; }
+        .timer-warning { animation: pulse 1s infinite; color: #F4C95D !important; }
+        .timer-danger { animation: pulse 0.5s infinite; color: #EF4444 !important; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+        .modal-overlay { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+        .dark .modal-overlay { background: rgba(0,0,0,0.7); }
+        .number-nav { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; cursor:pointer; transition:0.2s; background:#f1f5f9; color:#475569; flex-shrink:0; }
+        .dark .number-nav { background:#334155; color:#cbd5e1; }
+        .number-nav.active { background:#6E5AE6; color:white; transform:scale(1.1); }
+        .number-nav.answered { background:#c4b5fd; color:#3b1f94; }
+        .dark .number-nav.answered { background:#7c3aed; color:white; }
+        .dark-icon { width: 18px; height: 18px; }
+    </style>
+</head>
+<body class="bg-[#FAF9F6] dark:bg-[#1a1a2e] text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen">
+
+    <!-- FIXED TOP NAVIGATION -->
+    <nav class="glass-nav sticky top-0 z-50 px-4 py-3 flex items-center justify-between flex-wrap gap-2 shadow-sm">
+        <div class="flex items-center gap-3 flex-shrink-0">
+            <img src="lasued.png" alt="LASUED Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" class="h-9 w-auto rounded object-contain max-w-[80px]">
+            <div class="hidden items-center gap-2 bg-brand-600 text-white rounded-lg px-3 py-1.5" style="display:none;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                <span class="text-xs font-bold">LASUED</span>
+            </div>
+            <div class="hidden sm:block">
+                <span class="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide">CSC 124 · Computer Science Education Dept.</span>
+                <h1 class="text-sm font-bold text-gray-800 dark:text-white leading-tight">Learning Theories &amp; Pedagogical Implications on ICT Teaching</h1>
+            </div>
+        </div>
+        <div class="flex items-center gap-1.5 flex-wrap">
+            <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors flex items-center gap-1.5">
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="LASUED-CSC124.html" class="px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap flex items-center gap-1.5">
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+                <span>Notes</span>
+            </a>
+            <button onclick="switchTab('practice',this)" class="nav-tab px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors active bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 whitespace-nowrap" data-tab="practice">
+                <svg class="dark-icon inline mr-1.5 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Practice
+            </button>
+            <a href="LASUED-CSC124.html" onclick="document.getElementById('panel-revise')?document.getElementById('panel-revise').classList.remove('panel-hidden'):null;" class="px-3.5 py-2 rounded-lg text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800 transition-colors whitespace-nowrap flex items-center gap-1.5">
+                <svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>Revise</span>
+            </a>
+            <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ml-1" aria-label="Toggle dark mode">
+                <svg id="dark-icon-sun" class="dark-icon hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg id="dark-icon-moon" class="dark-icon block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- PRACTICE PANEL -->
+        <div id="panel-practice" class="panel-visible">
+            <div class="space-y-4">
+                <div class="text-center py-4">
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">CSC 124 <span class="text-brand-600 dark:text-brand-400">–</span> Practice CBT</h2>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Section A — 30 Multiple Choice Questions (Compulsory)</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2 bg-white dark:bg-gray-800 rounded-2xl p-3 shadow-sm border">
+                    <button onclick="setPracticeMode('practice')" id="mode-practice-btn" class="px-4 py-2 rounded-lg text-sm font-semibold bg-brand-100 dark:bg-brand-900/40 text-brand-700">Practice</button>
+                    <button onclick="setPracticeMode('exam')" id="mode-exam-btn" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600">Exam</button>
+                    <button id="start-exam-btn" class="hidden px-4 py-2 bg-brand-600 text-white rounded-lg text-sm font-semibold" onclick="openTimerModal()">Start Exam</button>
+                    <div id="timer-pill" class="hidden ml-auto bg-white dark:bg-gray-800 border px-3 py-1.5 rounded-full text-sm font-mono font-bold cursor-pointer" onclick="openTimerModal()"><span id="timer-pill-display">20:00</span></div>
+                    <button id="stop-exam-btn" class="hidden px-3 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 rounded-lg text-sm" onclick="stopExam()">End</button>
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="total-q-display">30</div><div class="text-xs text-gray-500">Total</div></div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="answered-q-display">0</div><div class="text-xs text-gray-500">Answered</div></div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold text-brand-600" id="score-display-mini">--</div><div class="text-xs text-gray-500">Score</div></div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-2 text-center shadow-sm"><div class="text-xl font-bold" id="percent-display-mini">--</div><div class="text-xs text-gray-500">%</div></div>
+                </div>
+                <div class="h-2 bg-gray-200 dark:bg-gray-700 rounded-full"><div id="progress-bar-fill" class="h-full bg-brand-600 rounded-full transition-all" style="width:0%"></div></div>
+                <div id="question-view" class="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-sm border min-h-[300px] transition-all"></div>
+                <div class="flex flex-wrap gap-2 justify-center">
+                    <button onclick="submitAllAnswers()" class="px-6 py-3 bg-brand-600 text-white rounded-xl text-sm font-semibold shadow-md">Submit &amp; Grade All</button>
+                    <button onclick="resetAllAnswers()" class="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm">Reset</button>
+                    <button onclick="showHistoryModal()" class="px-5 py-2.5 bg-gray-100 dark:bg-gray-700 rounded-xl text-sm flex items-center gap-1.5"><svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> History</button>
+                </div>
+                <div class="flex items-center justify-between gap-2">
+                    <button id="prev-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(-1)">Prev</button>
+                    <div class="flex gap-1 overflow-x-auto nav-scroll py-1" id="number-navigator"></div>
+                    <button id="next-btn" class="px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-semibold disabled:opacity-50" onclick="navigateQuestion(1)">Next</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODALS -->
+    <div id="timer-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden modal-overlay"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4"><h3 class="text-lg font-bold mb-3">Exam Timer</h3><select id="exam-duration-select" class="w-full rounded-lg border px-3 py-2 text-sm mb-4 dark:bg-gray-700 dark:border-gray-600"><option value="10">10 min</option><option value="20" selected>20 min</option><option value="30">30 min</option><option value="45">45 min</option></select><div class="flex gap-2"><button onclick="startExamFromModal()" class="flex-1 bg-brand-600 text-white py-2 rounded-lg font-semibold">Start</button><button onclick="closeTimerModal()" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">Cancel</button></div></div></div>
+    <div id="congrats-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-sm w-full mx-4 text-center"><div id="congrats-icon" class="mb-3"></div><h2 class="text-xl font-bold mb-2" id="congrats-title">Result</h2><p class="text-sm text-gray-600 dark:text-gray-300 mb-1" id="congrats-message"></p><p class="text-3xl font-bold text-brand-600 mb-4" id="congrats-score"></p><button onclick="closeCongratsModal()" class="px-6 py-2 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors">Continue</button></div></div>
+    <div id="history-modal" class="fixed inset-0 z-50 hidden modal-overlay flex items-center justify-center"><div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-2xl max-w-md w-full mx-4 max-h-[80vh] overflow-y-auto"><div class="flex justify-between items-center mb-4"><h3 class="text-lg font-bold text-gray-800 dark:text-white">Score History</h3><button onclick="closeHistoryModal()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"><svg class="dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div id="history-list" class="space-y-2"></div><button onclick="clearHistory()" class="mt-4 px-4 py-2 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg text-sm font-semibold w-full hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">Clear History</button></div></div>
+
+    <footer class="text-center py-6 text-xs text-gray-400 dark:text-gray-500 border-t mt-8 space-y-1">
+        <p>&copy; <span id="current-year"></span> <span class="font-semibold text-brand-600">Archangelstr</span>. All rights reserved. · LASUED CSC 124</p>
+        <p>Course: <span class="font-semibold">Learning Theories &amp; Pedagogical Implications on ICT Teaching</span></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ========== DATABASE SETUP ==========
+            var DB_NAME = 'CBT_CSC124_DB', DB_VERSION = 1, db = null;
+            function openDB() {
+                return new Promise(function(resolve, reject) {
+                    try {
+                        var request = indexedDB.open(DB_NAME, DB_VERSION);
+                        request.onupgradeneeded = function(e) {
+                            var database = e.target.result;
+                            if (!database.objectStoreNames.contains('results')) database.createObjectStore('results', { keyPath: 'id' });
+                        };
+                        request.onsuccess = function(e) { db = e.target.result; resolve(db); };
+                        request.onerror = function(e) { reject(e.target.error); };
+                    } catch(e) { reject(e); }
+                });
+            }
+            function saveResult(score, total, percentage) {
+                try {
+                    if (!db) return openDB().then(function(){ return saveToDB(score,total,percentage); }).catch(function(){ return saveToLocalStorage(score,total,percentage); });
+                    return saveToDB(score,total,percentage).catch(function(){ return saveToLocalStorage(score,total,percentage); });
+                } catch(e) { return saveToLocalStorage(score,total,percentage); }
+            }
+            function saveToDB(score, total, percentage) {
+                return new Promise(function(resolve, reject) {
+                    var tx = db.transaction('results','readwrite'), store = tx.objectStore('results');
+                    var record = { id: Date.now(), score: score, total: total, percentage: percentage, date: new Date().toISOString() };
+                    var req = store.put(record);
+                    req.onsuccess = function(){ resolve(record); };
+                    req.onerror = function(){ reject(req.error); };
+                });
+            }
+            function saveToLocalStorage(score, total, percentage) {
+                try {
+                    var results = JSON.parse(localStorage.getItem('cbt_csc124_results') || '[]');
+                    results.push({ id: Date.now(), score: score, total: total, percentage: percentage, date: new Date().toISOString() });
+                    localStorage.setItem('cbt_csc124_results', JSON.stringify(results.slice(-20)));
+                    return Promise.resolve();
+                } catch(e) { return Promise.resolve(); }
+            }
+            function getResults(limit) {
+                limit = limit || 20;
+                try {
+                    if (!db) return openDB().then(function(){ return getFromDB(limit); }).catch(function(){ return getFromLocalStorage(limit); });
+                    return getFromDB(limit).catch(function(){ return getFromLocalStorage(limit); });
+                } catch(e) { return getFromLocalStorage(limit); }
+            }
+            function getFromDB(limit) {
+                return new Promise(function(resolve, reject) {
+                    var tx = db.transaction('results','readonly'), store = tx.objectStore('results');
+                    var getAll = store.getAll();
+                    getAll.onsuccess = function(){ var r = getAll.result || []; r.sort(function(a,b){ return b.id - a.id; }); resolve(r.slice(0, limit)); };
+                    getAll.onerror = function(){ reject(getAll.error); };
+                });
+            }
+            function getFromLocalStorage(limit) {
+                try {
+                    var results = JSON.parse(localStorage.getItem('cbt_csc124_results') || '[]');
+                    results.sort(function(a,b){ return b.id - a.id; });
+                    return Promise.resolve(results.slice(0, limit));
+                } catch(e) { return Promise.resolve([]); }
+            }
+            function clearResults() {
+                try {
+                    if (!db) return openDB().then(function(){ return clearDB(); }).catch(function(){ return clearLocalStorage(); });
+                    return clearDB().catch(function(){ return clearLocalStorage(); });
+                } catch(e) { return clearLocalStorage(); }
+            }
+            function clearDB() {
+                return new Promise(function(resolve, reject) {
+                    var tx = db.transaction('results','readwrite'), store = tx.objectStore('results');
+                    var req = store.clear();
+                    req.onsuccess = function(){ resolve(); };
+                    req.onerror = function(){ reject(req.error); };
+                });
+            }
+            function clearLocalStorage() { try { localStorage.removeItem('cbt_csc124_results'); } catch(e) {} return Promise.resolve(); }
+            openDB().catch(function(){ console.log('Using localStorage fallback'); });
+
+            // ========== 30 QUESTIONS (SECTION A) ==========
+            var allQuestions = [
+                { q: "A Learning can be defined as ____", opts: ["A) Understand human behaviour and emotional imbalances", "B) Behaviourism that focuses on environmental issues", "C) receiving, process, and retaining of knowledge, cognitive, emotional and environmental influences as well as experiences acquired", "D) emotional, cognitive, attitudes in expressions and loving of the world."], ans: 2, exp: "Learning is defined as receiving, processing, and retaining of knowledge — encompassing cognitive, emotional and environmental influences as well as experiences acquired." },
+                { q: "A learning theory in education is a set of ____", opts: ["A) principles and assumptions that explain how people learn, acquire Knowledge, skills and behaviours.", "B) Enhancing classroom management and education frameworks", "C) Staying up-to-date with educational research", "D) theories that can help teachers create a classroom environment that fosters love of students."], ans: 0, exp: "A learning theory is a set of principles and assumptions that explain how people learn, acquire knowledge, skills and behaviours." },
+                { q: "Learning theories help us to ____", opts: ["A) judge, assess the success of various media literacy education efforts", "B) Behaviourism, social learning that focus on teachers.", "C) stress the need for utilization of ideas in lesson plans.", "D) help us to understand how the educational system help to improve undesired actions."], ans: 0, exp: "Learning theories help us to judge and assess the success of various media literacy education efforts." },
+                { q: "Learning happens when a specific stimulus triggers a particular response, forming ____", opts: ["A) Punishment", "B) Stimulus-Response Connections", "C) Generalization", "D) Conditioning."], ans: 1, exp: "Learning happens when a specific stimulus triggers a particular response, forming Stimulus-Response Connections (S-R)." },
+                { q: "Reinforcement can be views as ____", opts: ["A) positive feedback to motivate students to think critically about media contents.", "B) when a reaction to one signal is also seen in response to the similar signals.", "C) discrimination response limited to the initial signals.", "D) positive behaviour providing rewards or negative behaviour removing unpleasant stimuli."], ans: 3, exp: "Reinforcement: can be positive (providing rewards) or negative (removing unpleasant stimuli)." },
+                { q: "Behaviourism highlights the importance of reinforcement as ____", opts: ["A) decreasing undesired actions", "B) moulding behaviour", "C) teaching media literacy", "D) habituation media consumers."], ans: 1, exp: "Behaviourism highlights the importance of reinforcement in moulding behaviour." },
+                { q: "Technology Acceptance Model (TAM), explaining the usage behaviour and the intention to using this technology in ____", opts: ["A) order to understand the reason of individuals' accepting or rejecting any new technology in the areas of computer science education field, as a part of computer sciences.", "B) in order to determine the relationship between ease of use and acceptance is weak, and its significance does not pass the fail-safe test.", "C) findings on the model are mixed in terms of statistical significance, direction, and magnitude values.", "D) in order to serve as a basis and as a fundamental theory for many other theories that were later developed."], ans: 0, exp: "TAM explains usage behaviour to understand the reason of individuals' accepting or rejecting any new technology in computer science education." },
+                { q: "Davis, Bagozzi, & Warshaw defined the technology adoption as: ____", opts: ["A) the implementation of the software and hardware technology in an institution to increase human productivity, competitive advantage, improve processing speed, and make information readily available.", "B) the existence of experience moderator will show the increase in the level of users' experience in technology over the time", "C) These researchers emerged as a result that, the motivational theory contains two major factors of motivations: extrinsic motivation and intrinsic motivation.", "D) intrinsic motivation to use technology as perceived enjoyment of using the technology."], ans: 0, exp: "Technology adoption is the implementation of software and hardware technology to increase human productivity, competitive advantage, improve processing speed, and make information readily available." },
+                { q: "TPCK means ____", opts: ["A) Technology acceptance theories and models", "B) Technology Theory of Planned Behaviours", "C) Technology Content Acceptance Model", "D) Technological Pedagogical Content Knowledge"], ans: 3, exp: "TPCK means Technological Pedagogical Content Knowledge (also known as TPACK)." },
+                { q: "TPACK enables: ____", opts: ["A) the teachers to successfully incorporate technology in teaching by enabling the teachers to make appropriate, context-specific strategies.", "B) This knowledge is an understanding of how teaching and learning changes when particular technologies are used.", "C) Knowledge of nature of teaching and learning process, understanding of different topics, matters, issues are arranged, presented to learners", "D) learners go through four clear cognitive growth phases, each having distinct qualities and constraints."], ans: 0, exp: "TPACK enables teachers to successfully incorporate technology in teaching by enabling them to make appropriate, context-specific strategies." },
+                { q: "The key aspects of Piaget's Cognitive Development Theory include: ____", opts: ["A) theory that highlights how watching and interacting with others influence our actions", "B) stages of development, schemas, assimilation and accommodation, object permanence, egocentrism, conservation, and formal operation.", "C) A self-efficacy which can shaped by personal encounters, observing others, and receiving input from peers.", "D) the learning theory that proposes behaviour, surroundings, and individual factors all interact in a two-way manner."], ans: 1, exp: "Key aspects of Piaget's theory: stages of development, schemas, assimilation and accommodation, object permanence, egocentrism, conservation, and formal operation." },
+                { q: "Jean Piaget's cognitive development theory is important and widely recognised because is ____", opts: ["A) underscores the importance of actively engaging with media to grasp its messages and to assess its influence thoughtfully.", "B) adolescents attain formal thinking skills during the last phase of cognitive growth.", "C) a framework aiming to clarify how individuals progress in their thinking abilities from infancy to adolescence.", "D) Media literacy can offer students practical encounters that aid their world comprehension and foster critical thinking abilities."], ans: 2, exp: "Piaget's theory is important as a framework aiming to clarify how individuals progress in their thinking abilities from infancy to adolescence." },
+                { q: "Social Learning Theory (SLT) is developed for the purpose of ____", opts: ["A) They proposed that the behaviours is directly affected by the social factors, perceived consequences, effect, and facilitating conditions.", "B) introducing the modelling into the principle of learning, and the social influence and its effect on external and internal social reinforcement.", "C) This model supposed that the users are having the experience required to use PC, such as professionals or managers who usually use the PCs voluntarily in their jobs.", "D) These theories have been focused on the psychological and behavioural viewpoints of the users of technology."], ans: 1, exp: "SLT was developed for introducing modelling into the principle of learning, and social influence and its effect on external and internal social reinforcement." },
+                { q: "Assessment, application of relevant software to teaching and learning, education apps and artificial intelligence in education have emerged steadily as a result of ____", opts: ["A) Motivational Model", "B) Model of PC Utilization", "C) Complexity and job fit are added to the model to explain the perceived consequences aspect.", "D) Technological Pedagogical Content Knowledge (TPCK)"], ans: 3, exp: "These have emerged steadily as a result of Technological Pedagogical Content Knowledge (TPCK/TPACK)." },
+                { q: "The key aspects of social Learning Theory underscore the importance of ____:", opts: ["A) watching, copying, and imitating to acquire knowledge. It also aids students in nurturing their critical thinking abilities regarding media messages.", "B) According to social learning theory, individuals are inclined to participate in actions they think they can accomplish effectively.", "C) Learning works best when it matters and makes sense to the learner.", "D) Meaningful learning occurs when you link new information to what you already know and comprehend."], ans: 0, exp: "Social Learning Theory underscores watching, copying, and imitating to acquire knowledge and nurturing critical thinking regarding media messages." },
+                { q: "The key aspects of Cognitive Learning Theory include ____:", opts: ["A) the idea of metacognition, which relates to a person's understanding and management of their thinking processes. This involves observing, assessing, and adjusting one's cognitive actions.", "B) Cognitive Learning Theory is an educational theory that highlights the significance of mental processes in influencing behaviour negatively.", "C) Cognitive Learning Theory suggests that learning consists of working with information, and cultism", "D) Scaffolding the educators by offering assistance and direction to students while they grasp fresh concepts and notions."], ans: 0, exp: "Key aspect of Cognitive Learning Theory includes metacognition — understanding and management of one's thinking processes." },
+                { q: "Jerome Bruner's Spiral Curriculum is an educational framework that underscores the significance of ____", opts: ["A) how learners actively build knowledge and comprehension.", "B) It proposes that learning isn't solely an individual activity but a social one where knowledge is formed and exchanged through networks.", "C) revisiting key concepts and ideas during the learning process, using existing knowledge as a foundation for effective learning and highlights the value of hands-on learning and investigation.", "D) utilising technology, and continuous learning."], ans: 2, exp: "Bruner's Spiral Curriculum underscores revisiting key concepts using existing knowledge as a foundation for effective learning." },
+                { q: "The primary characteristics of Bruner's Spiral Curriculum include the following except: ____", opts: ["A) Learning should follow a spiral path, active learning, discovery learning, Multiple representations and Scaffolding.", "B) Punishment, rewards, investigate, unearth fresh concepts and stealing.", "C) Notions independently, enduring educational encounter, to illustrate concepts and thoughts.", "D) employing various forms like visuals, sounds, and physical experiences, to accommodate diverse learning preferences and boost comprehension in academic settings."], ans: 1, exp: "Punishment, rewards, investigate, unearth fresh concepts and stealing are NOT characteristics of Bruner's Spiral Curriculum." },
+                { q: "Constructivism is all about how learners should be ____", opts: ["A) mentally models, connected to real-life experiences, and collaborative learning because students are more inclined to create meaningful knowledge and understanding actively build knowledge and comprehension.", "B) is a dynamic activity where individuals build their knowledge and comprehension by actively engaging with their surroundings and experiences.", "C) what one already knows and has encountered in the process of learning at a particular time only.", "D) what one has already known and encountered in the process of learning."], ans: 0, exp: "Constructivism is about mental models, real-life experiences, and collaborative learning to actively build knowledge and comprehension." },
+                { q: "The key importance of the Connectivism theory emphasizes:", opts: ["A) Distributed cognition, problem solving, contextual learning, reflective thinking and punishment.", "B) Technology, Active Learning, Distributed cognition, motivation and Collaborative learning.", "C) Prior knowledge, multiple perspective, Personal learning networks, social interactions, and problem solving skills.", "D) Networked Learning, technology, distributed cognition, lifelong learning, personal learning networks and openness."], ans: 3, exp: "Connectivism emphasizes: Networked Learning, technology, distributed cognition, lifelong learning, personal learning networks and openness." },
+                { q: "Schemas are thinking patterns that assist ____", opts: ["A) individuals to study independently", "B) individuals in comprehending and classifying information", "C) make individual have self-belief necessary to make well-considered choices regarding their media consumption.", "D) individual showing a behaviour or attitude for others to copy."], ans: 1, exp: "Schemas are thinking patterns that assist individuals in comprehending and classifying information." },
+                { q: "Piaget's cognitive development theory connects with media content to help the students in cognitive development in the following areas; except: ____", opts: ["A) Media literacy allows students to watch and assess media content, including media figures' actions and viewpoints. Through this method, students can develop the ability to identify and assess how media messages affect their beliefs and actions.", "B) Media literacy can enable students to identify the impractical body ideals shown in media and inspire them to oppose them daily.", "C) Media literacy can offer students practical encounters that aid their world comprehension and foster critical thinking abilities", "D) Media Literacy corrupts students' behaviour."], ans: 3, exp: "Media literacy corrupting students' behaviour is NOT a connection — it's the opposite of what Piaget's theory supports." },
+                { q: "Object permanence: Piaget proposed that babies don't understand that things still exist when they can't see them until they acquire object permanence, a skill can usually be acquired by a child at approximately what time? ____", opts: ["A) six months old", "B) four months old", "C) eight months old.", "D) ten months old."], ans: 2, exp: "Object permanence is acquired at approximately eight months old." },
+                { q: "What stage of cognitive development, according to Piaget is characterized by egocentrism, where a children tend to be self-centred and struggle to understand other people's perspectives?", opts: ["A) Pre-operational stage", "B) sensory motor phase,", "C) concrete operational phase,", "D) formal operational phase."], ans: 0, exp: "Egocentrism characterizes the Pre-operational stage (2-7 years)." },
+                { q: "Behaviorism is a school of psychology founded by ____ in 1913 who argued that behaviour must be the sole subject of psychology.", opts: ["A) John B. Watson", "B) E.L. Thorndike,", "C) Ivan Petrovich Pavlov,", "D) B.F. Skinner, and Bandura."], ans: 0, exp: "Behaviorism was founded by John B. Watson in 1913." },
+                { q: "The following are some of the characteristics of behaviourism learning theory except:", opts: ["A) Concerned with environmental influences; Concerned about forming habits", "B) Concern over parts of the whole; and concerned with psychomotor reactions;", "C) TAM2 was developed in information technology field", "D) Concerning the causes of the past; Prioritizing the mechanism of learning outcomes;"], ans: 2, exp: "TAM2 being developed in information technology field is NOT a characteristic of behaviourism." },
+                { q: "Adult learning is basically concerned on how ____ is done.", opts: ["A) How older learners gain and retain knowledge because adults learn differently than children due to their life experiences, prior knowledge, and self-direction.", "B) An effective training program should recognize and cater to the needs of adult learners.", "C) Media literacy can offer students practical encounters with different images.", "D) Distributed cognition, problem solving and contextual learning are part of Adult learning."], ans: 0, exp: "Adult learning is concerned with how older learners gain and retain knowledge because adults learn differently due to life experiences, prior knowledge, and self-direction." },
+                { q: "Understanding Learning theories allows teachers to explain the ____ behind their teaching choices and make informed decisions about instructional strategies.", opts: ["A) While,", "B) Does", "C) Why", "D) When"], ans: 2, exp: "Understanding learning theories allows teachers to explain the WHY behind their teaching choices." },
+                { q: "A good training program should be able to provide learners with good resources in form of ____; ____; and ____", opts: ["A) Images, condition, and power-point", "B) Audio, video, and interactive content.", "C) Environment, influences and psychomotor", "D) Concrete operational films, interactive contextual and adult learning theories."], ans: 1, exp: "A good training program should provide learners with good resources in form of Audio, video, and interactive content." },
+                { q: "According to cognitive learning theory, memory is an engaged process that includes ____", opts: ["A) Media literacy, images, and instructional strategies.", "B) Problem solving, contextual learning and life experiences.", "C) Object permanence, recognition of objects, vocational skills.", "D) Encoding, storing, and recalling information."], ans: 3, exp: "Memory is an engaged process that includes encoding, storing, and recalling information." }
+            ];
+
+            // ========== APPLICATION STATE ==========
+            var answeredQuestions = {};
+            var submittedQuestions = false;
+            var practiceMode = 'practice';
+            var examActive = false, examTimer = null, examSeconds = 0;
+            var currentQuestionIndex = 0;
+
+            // ========== SVG ICONS ==========
+            var svgTrophy = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F4C95D" stroke-width="1.5"><path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2"/><path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2"/><path d="M6 3h12v6a6 6 0 01-12 0V3z"/><path d="M12 15v4"/><path d="M8 21h8"/></svg>';
+            var svgStar = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+            var svgBook = '<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#6E5AE6" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>';
+
+            // ========== GLOBAL FUNCTIONS ==========
+            window.switchTab = function(tab, btn) {
+                var panels = document.querySelectorAll('[id^="panel-"]');
+                for (var i = 0; i < panels.length; i++) { panels[i].classList.add('panel-hidden'); panels[i].classList.remove('panel-visible'); }
+                var panel = document.getElementById('panel-' + tab);
+                if (panel) { panel.classList.remove('panel-hidden'); panel.classList.add('panel-visible'); }
+                var tabs = document.querySelectorAll('.nav-tab');
+                for (var j = 0; j < tabs.length; j++) { tabs[j].classList.remove('bg-brand-100','dark:bg-brand-900/40','text-brand-700','dark:text-brand-300','active'); }
+                if (btn) { btn.classList.add('bg-brand-100','dark:bg-brand-900/40','text-brand-700','dark:text-brand-300','active'); }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            window.toggleDarkMode = function() {
+                document.documentElement.classList.toggle('dark');
+                try { localStorage.setItem('darkMode', document.documentElement.classList.contains('dark') ? '1' : '0'); } catch(e) {}
+            };
+            try { if (localStorage.getItem('darkMode') === '1') document.documentElement.classList.add('dark'); } catch(e) {}
+
+            window.setPracticeMode = function(mode) {
+                practiceMode = mode;
+                var pBtn = document.getElementById('mode-practice-btn'), eBtn = document.getElementById('mode-exam-btn');
+                if (mode === 'practice') {
+                    pBtn.classList.add('bg-brand-100','dark:bg-brand-900/40','text-brand-700');
+                    eBtn.classList.remove('bg-brand-100','dark:bg-brand-900/40','text-brand-700');
+                    eBtn.classList.add('bg-gray-100','dark:bg-gray-700','text-gray-600');
+                } else {
+                    eBtn.classList.add('bg-brand-100','dark:bg-brand-900/40','text-brand-700');
+                    pBtn.classList.remove('bg-brand-100','dark:bg-brand-900/40','text-brand-700');
+                    pBtn.classList.add('bg-gray-100','dark:bg-gray-700','text-gray-600');
+                }
+                if (mode === 'exam') {
+                    document.getElementById('start-exam-btn').classList.remove('hidden');
+                    document.getElementById('timer-pill').classList.add('hidden');
+                    stopExamTimer();
+                } else {
+                    document.getElementById('start-exam-btn').classList.add('hidden');
+                    document.getElementById('timer-pill').classList.add('hidden');
+                    stopExamTimer();
+                }
+                resetAllAnswers();
+            };
+
+            window.openTimerModal = function() { document.getElementById('timer-modal').classList.remove('hidden'); };
+            window.closeTimerModal = function() { document.getElementById('timer-modal').classList.add('hidden'); };
+
+            window.startExamFromModal = function() {
+                var d = parseInt(document.getElementById('exam-duration-select').value);
+                examSeconds = d * 60; examActive = true;
+                closeTimerModal();
+                document.getElementById('start-exam-btn').classList.add('hidden');
+                document.getElementById('timer-pill').classList.remove('hidden');
+                document.getElementById('stop-exam-btn').classList.remove('hidden');
+                updateTimerPill();
+                examTimer = setInterval(function() {
+                    examSeconds--;
+                    updateTimerPill();
+                    if (examSeconds <= 0) { stopExamTimer(); submitAllAnswers(); }
+                }, 1000);
+            };
+
+            window.stopExam = function() { if (confirm('End exam and submit?')) { stopExamTimer(); submitAllAnswers(); } };
+
+            function stopExamTimer() {
+                if (examTimer) clearInterval(examTimer);
+                examTimer = null; examActive = false;
+                document.getElementById('timer-pill').classList.add('hidden');
+                document.getElementById('stop-exam-btn').classList.add('hidden');
+                document.getElementById('timer-pill').classList.remove('timer-warning','timer-danger');
+            }
+
+            function updateTimerPill() {
+                var m = Math.floor(Math.max(0, examSeconds) / 60), s = Math.max(0, examSeconds) % 60;
+                document.getElementById('timer-pill-display').textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+                var pill = document.getElementById('timer-pill');
+                pill.classList.remove('timer-warning','timer-danger');
+                if (examSeconds <= 60) pill.classList.add('timer-danger');
+                else if (examSeconds <= 180) pill.classList.add('timer-warning');
+            }
+
+            function buildQuestionView() {
+                var q = allQuestions[currentQuestionIndex];
+                if (!q) { document.getElementById('question-view').innerHTML = '<p class="text-center text-gray-500 py-10">No questions loaded.</p>'; return; }
+                var sel = answeredQuestions[currentQuestionIndex];
+                var html = '<div class="flex items-start gap-3 mb-4"><span class="w-8 h-8 bg-brand-100 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">' + (currentQuestionIndex + 1) + '</span><p class="text-base font-semibold">' + q.q + '</p></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2 ml-11">';
+                for (var j = 0; j < q.opts.length; j++) {
+                    var cls = 'option-card rounded-xl px-4 py-3 text-sm flex items-start gap-3 bg-gray-50 dark:bg-gray-800/60';
+                    if (submittedQuestions) { if (j === q.ans) cls += ' correct'; else if (sel === j && sel !== q.ans) cls += ' wrong'; }
+                    else if (sel === j) cls += ' selected';
+                    var clickHandler = '';
+                    if (!submittedQuestions) { clickHandler = ' onclick="window.selectAnswer(' + currentQuestionIndex + ', ' + j + ')"'; }
+                    html += '<div class="' + cls + '"' + clickHandler + '><span class="w-7 h-7 rounded-full border-2 flex items-center justify-center text-xs font-bold flex-shrink-0">' + String.fromCharCode(65 + j) + '</span><span>' + q.opts[j] + '</span></div>';
+                }
+                html += '</div>';
+                if (submittedQuestions) { html += '<div class="ml-11 mt-3 bg-brand-50 dark:bg-brand-900/20 p-3 rounded-xl text-sm border border-brand-200 dark:border-brand-800">' + String.fromCodePoint(0x1F4A1) + ' ' + q.exp + '</div>'; }
+                document.getElementById('question-view').innerHTML = html;
+                buildNumberNavigator();
+                document.getElementById('prev-btn').disabled = (currentQuestionIndex === 0);
+                document.getElementById('next-btn').disabled = (currentQuestionIndex === allQuestions.length - 1);
+            }
+
+            function buildNumberNavigator() {
+                var html = '';
+                for (var i = 0; i < allQuestions.length; i++) {
+                    var cls = 'number-nav';
+                    if (i === currentQuestionIndex) cls += ' active';
+                    else if (answeredQuestions[i] !== undefined) cls += ' answered';
+                    html += '<span class="' + cls + '" onclick="window.jumpToQuestion(' + i + ')">' + (i + 1) + '</span>';
+                }
+                document.getElementById('number-navigator').innerHTML = html;
+            }
+
+            window.navigateQuestion = function(d) { var n = currentQuestionIndex + d; if (n >= 0 && n < allQuestions.length) { currentQuestionIndex = n; buildQuestionView(); } };
+            window.jumpToQuestion = function(i) { currentQuestionIndex = i; buildQuestionView(); };
+            window.selectAnswer = function(qi, oi) { if (submittedQuestions || (examActive && examSeconds <= 0)) return; if (answeredQuestions[qi] === oi) delete answeredQuestions[qi]; else answeredQuestions[qi] = oi; buildQuestionView(); updateStatsDisplay(); };
+
+            function updateStatsDisplay() {
+                var c = Object.keys(answeredQuestions).length;
+                document.getElementById('answered-q-display').textContent = c;
+                document.getElementById('total-q-display').textContent = allQuestions.length;
+                document.getElementById('progress-bar-fill').style.width = (c / allQuestions.length * 100) + '%';
+                if (!submittedQuestions) { document.getElementById('score-display-mini').textContent = '--'; document.getElementById('percent-display-mini').textContent = '--'; }
+            }
+
+            window.submitAllAnswers = function() {
+                submittedQuestions = true; if (examActive) stopExamTimer();
+                var score = 0;
+                for (var i = 0; i < allQuestions.length; i++) { if (answeredQuestions[i] === allQuestions[i].ans) score++; }
+                var total = allQuestions.length, percentage = total > 0 ? Math.round(score / total * 100) : 0;
+                document.getElementById('score-display-mini').textContent = score + '/' + total;
+                document.getElementById('percent-display-mini').textContent = percentage + '%';
+                buildQuestionView();
+                showCongratsModal(score, percentage);
+                saveResult(score, total, percentage).catch(function(e) { console.error('Save failed:', e); });
+            };
+
+            window.resetAllAnswers = function() {
+                answeredQuestions = {}; submittedQuestions = false; currentQuestionIndex = 0;
+                document.getElementById('score-display-mini').textContent = '--';
+                document.getElementById('percent-display-mini').textContent = '--';
+                buildQuestionView(); updateStatsDisplay();
+            };
+
+            function showCongratsModal(score, percentage) {
+                document.getElementById('congrats-score').textContent = score + ' / ' + allQuestions.length + ' (' + percentage + '%)';
+                var iconDiv = document.getElementById('congrats-icon'), titleEl = document.getElementById('congrats-title'), msgEl = document.getElementById('congrats-message');
+                if (percentage >= 80) { iconDiv.innerHTML = svgTrophy; titleEl.textContent = 'Excellent!'; msgEl.textContent = 'Outstanding performance. Keep it up!'; }
+                else if (percentage >= 60) { iconDiv.innerHTML = svgStar; titleEl.textContent = 'Good Effort!'; msgEl.textContent = 'Solid result. Review the notes and try again.'; }
+                else if (percentage >= 40) { iconDiv.innerHTML = svgBook; titleEl.textContent = 'Keep Studying'; msgEl.textContent = "You're making progress. Focus on the areas you missed."; }
+                else { iconDiv.innerHTML = svgBook; titleEl.textContent = "Don't Give Up"; msgEl.textContent = 'Review the lecture notes thoroughly and attempt again.'; }
+                document.getElementById('congrats-modal').classList.remove('hidden');
+            }
+
+            window.closeCongratsModal = function() { document.getElementById('congrats-modal').classList.add('hidden'); };
+
+            window.showHistoryModal = function() {
+                getResults().then(function(results) {
+                    var list = document.getElementById('history-list');
+                    if (results.length === 0) { list.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm text-center py-4">No scores recorded yet.</p>'; }
+                    else {
+                        var html = '';
+                        for (var i = 0; i < results.length; i++) {
+                            var r = results[i], d = new Date(r.date), pct = r.percentage || Math.round((r.score / r.total) * 100), color = 'text-green-600 dark:text-green-400';
+                            if (pct < 40) color = 'text-red-600 dark:text-red-400';
+                            else if (pct < 60) color = 'text-yellow-600 dark:text-yellow-400';
+                            html += '<div class="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg flex justify-between items-center"><div><span class="font-mono font-bold ' + color + '">' + r.score + '/' + r.total + ' (' + pct + '%)</span><span class="text-xs text-gray-500 dark:text-gray-400 block">' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString() + '</span></div></div>';
+                        }
+                        list.innerHTML = html;
+                    }
+                    document.getElementById('history-modal').classList.remove('hidden');
+                }).catch(function(e) {
+                    document.getElementById('history-list').innerHTML = '<p class="text-red-500 text-sm text-center py-4">Could not load history.</p>';
+                    document.getElementById('history-modal').classList.remove('hidden');
+                });
+            };
+
+            window.closeHistoryModal = function() { document.getElementById('history-modal').classList.add('hidden'); };
+            window.clearHistory = function() { if (confirm('Delete all score history?')) { clearResults().then(function() { showHistoryModal(); }); } };
+            window.stopExamTimer = stopExamTimer;
+
+            // ========== INITIALIZATION ==========
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            buildQuestionView();
+            updateStatsDisplay();
+            console.log('CSC 124 Practice CBT initialized successfully with 30 questions!');
+        });
+    </script>
+</body>
+</html>
