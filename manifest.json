@@ -1,6 +1,6 @@
 {
-"name": "LASUED CBT",
-"short_name": "LASUEDCbt",
+  "name": "LASUED CBT",
+  "short_name": "LASUEDCbt",
   "description": "Welcome Esteemed Scholars — Select a course and access your learning materials.",
   "start_url": "/",
   "display": "standalone",
