@@ -22,6 +22,14 @@
   <meta name="twitter:description" content="Welcome Esteemed Scholars — Select a course and access your learning materials.">
   <meta name="twitter:image" content="https://student-cbt.vercel.app/student.jpg">
 
+  <!-- 📱 PWA Meta Tags -->
+  <meta name="theme-color" content="#5A2D82">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="LASUED Portal">
+  <link rel="apple-touch-icon" href="student.jpg">
+  <link rel="manifest" href="/manifest.json">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -86,6 +94,14 @@
     .animate-fade-in {
       animation: fadeInUp 0.8s ease-out forwards;
     }
+    /* Install button pulse animation */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .install-pulse {
+      animation: pulse 2s infinite;
+    }
   </style>
 </head>
 <body class="min-h-screen">
@@ -125,7 +141,41 @@
     </div>
   </div>
 
+  <!-- 📲 INSTALL APP BUTTON (PWA) -->
+  <button id="installBtn" class="fixed bottom-5 right-5 bg-[#5A2D82] text-white px-5 py-3 rounded-full shadow-xl font-semibold text-sm install-pulse z-50 hidden flex items-center gap-2">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+    </svg>
+    Install App
+  </button>
+
   <script>
+    // 📲 PWA Install — Global deferred prompt
+    let deferredPrompt;
+
+    // Capture the install event
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault(); // Stop automatic mini-infobar
+      deferredPrompt = e;
+      console.log("📲 Install prompt ready — showing install button");
+      
+      // Show the install button
+      const installBtn = document.getElementById("installBtn");
+      if (installBtn) {
+        installBtn.classList.remove("hidden");
+      }
+    });
+
+    // Track if app is already installed
+    window.addEventListener("appinstalled", () => {
+      console.log("✅ App installed successfully!");
+      const installBtn = document.getElementById("installBtn");
+      if (installBtn) {
+        installBtn.classList.add("hidden");
+      }
+      deferredPrompt = null;
+    });
+
     // 📋 Course Data
     const courses = [
       { code: "COS121", title: "Problem Solving" },
@@ -141,26 +191,22 @@
       card.setAttribute('data-href', `${course.code}.html`);
       
       card.innerHTML = `
-        <!-- Left Icon -->
         <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-[#5A2D82] flex-shrink-0">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </div>
         
-        <!-- Course Info -->
         <div class="flex-1 min-w-0">
           <p class="font-semibold text-[#5A2D82] text-sm">${course.code}</p>
           <p class="text-xs text-gray-600 truncate">${course.title}</p>
         </div>
         
-        <!-- Right Arrow -->
         <svg class="w-5 h-5 text-[#9B7BCE] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       `;
       
-      // 👆 Click Handler — Navigate to Course Page
       card.addEventListener('click', () => {
         const href = card.getAttribute('data-href');
         if (href) window.location.href = href;
@@ -169,28 +215,60 @@
       container.appendChild(card);
     });
 
-    // ⏱ Splash Screen Timer (2 seconds)
+    // 📲 Install Button Click Handler
+    document.getElementById("installBtn").addEventListener("click", async () => {
+      if (!deferredPrompt) {
+        alert("Install not available right now. Try opening in Chrome or Edge.");
+        return;
+      }
+
+      // Show the install prompt
+      deferredPrompt.prompt();
+
+      // Wait for user choice
+      const choice = await deferredPrompt.userChoice;
+      console.log(`User choice: ${choice.outcome}`);
+
+      // Clear the prompt
+      deferredPrompt = null;
+
+      // Hide the button
+      document.getElementById("installBtn").classList.add("hidden");
+    });
+
+    // ⏱ Splash + Service Worker
     const splash = document.getElementById('splash');
     const app = document.getElementById('app');
 
     window.addEventListener('load', () => {
-      // Slight scale-up animation
+
+      // Splash animation
       setTimeout(() => {
         splash.querySelector('.glass-card').style.transform = 'scale(1.03)';
         splash.querySelector('.glass-card').style.transition = 'transform 1.0s ease-out';
       }, 100);
 
-      // Fade out splash and show main app after 2 seconds
       setTimeout(() => {
         splash.classList.add('fade-out');
         app.style.display = 'flex';
         app.style.flexDirection = 'column';
         
-        // Remove splash from DOM after transition
         setTimeout(() => {
           splash.style.display = 'none';
         }, 800);
       }, 2000);
+
+      // 🔧 REGISTER SERVICE WORKER (PWA)
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js")
+          .then(reg => {
+            console.log("✅ Service Worker Registered:", reg.scope);
+          })
+          .catch(err => {
+            console.log("❌ Service Worker Error:", err);
+          });
+      }
+
     });
   </script>
 </body>

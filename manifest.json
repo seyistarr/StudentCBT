@@ -1,0 +1,24 @@
+{
+  "name": "LASUED Student Portal",
+  "short_name": "LASUED Portal",
+  "description": "Welcome Esteemed Scholars — Select a course and access your learning materials.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#5A2D82",
+  "theme_color": "#5A2D82",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "student.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "student.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
