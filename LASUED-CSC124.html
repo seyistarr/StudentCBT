@@ -8,13 +8,13 @@
 
     <meta property="og:title" content="Student CBT | LASUED CSC 124">
     <meta property="og:description" content="Comprehensive notes on Learning Theories and Pedagogical Implications for ICT Teachers.">
-    <meta property="og:image" content="https://student-cbt.vercel.app/student.png">
+    <meta property="og:image" content="https://student-cbt.vercel.app/student.jpg">
     <meta property="og:url" content="https://student-cbt.vercel.app/LASUED-CSC124.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Student CBT | LASUED CSC 124">
     <meta name="twitter:description" content="Comprehensive notes on Learning Theories and Pedagogical Implications for ICT Teachers.">
-    <meta name="twitter:image" content="https://student-cbt.vercel.app/student.png">
+    <meta name="twitter:image" content="https://student-cbt.vercel.app/student.jpg">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -95,83 +95,7 @@
     </style>
 </head>
 
-<div id="qrOverlay" class="qr-overlay" onclick="handleOverlayClick(event)">
-  <div class="qr-popup" id="qrPopup">
-    <button onclick="closeQR()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
-    </button>
-    <h3 class="text-lg font-bold text-[#5A2D82]">Share This Course</h3>
-    <p class="text-xs text-gray-400 mt-1 mb-5">Scan or share this link</p>
-    <div class="relative inline-block">
-      <div id="qrCanvas" class="rounded-xl overflow-hidden shadow-md border border-purple-100"></div>
-      <img src="lasued.png" alt="logo"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 border-white shadow bg-white object-contain p-1">
-    </div>
-    <div class="mt-5 flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
-      <span id="qrLinkText" class="text-xs text-gray-600 flex-1 truncate text-left"></span>
-      <button onclick="copyLink()" class="text-[#5A2D82] text-xs font-semibold shrink-0 hover:underline">Copy</button>
-    </div>
-    <div class="mt-4 flex gap-3">
-      <button onclick="copyLink()" class="flex-1 bg-purple-50 text-[#5A2D82] font-semibold text-sm py-2.5 rounded-xl border border-purple-200">
-        Copy Link
-      </button>
-      <button onclick="downloadQR()" class="flex-1 bg-[#5A2D82] text-white font-semibold text-sm py-2.5 rounded-xl">
-        Download QR
-      </button>
-    </div>
-  </div>
-</div>
 
-<script>
-  const CBT_URL = window.location.origin + window.location.pathname;
-  let qrGenerated = false;
-
-  function openQR() {
-    document.getElementById('qrLinkText').textContent = CBT_URL;
-    document.getElementById('qrOverlay').classList.add('open');
-    if (!qrGenerated) {
-      new QRCode(document.getElementById("qrCanvas"), {
-        text: CBT_URL,
-        width: 220,
-        height: 220,
-        colorDark: "#5A2D82",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-      });
-      qrGenerated = true;
-    }
-  }
-
-  function closeQR() {
-    document.getElementById('qrOverlay').classList.remove('open');
-  }
-
-  function handleOverlayClick(e) {
-    if (e.target.id === 'qrOverlay') closeQR();
-  }
-
-  function copyLink() {
-    navigator.clipboard.writeText(CBT_URL).then(() => {
-      const btn = event.target;
-      const orig = btn.textContent;
-      btn.textContent = "Copied!";
-      setTimeout(() => btn.textContent = orig, 1500);
-    });
-  }
-
-  function downloadQR() {
-    const canvas = document.querySelector('#qrCanvas canvas');
-    if (!canvas) return;
-    const link = document.createElement('a');
-    link.download = 'LASUED-CBT-QR.png';
-    link.href = canvas.toDataURL();
-    link.click();
-  }
-
-  window.addEventListener('popstate', closeQR);
-</script>
 
 <body class="bg-[#FAF9F6] dark:bg-[#1a1a2e] text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen">
 
