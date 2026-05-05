@@ -20,6 +20,7 @@
     <meta name="twitter:title" content="Student CBT | LASUED CSC 125">
     <meta name="twitter:description" content="Practice CBT exams on Information Systems in Education.">
     <meta name="twitter:image" content="https://student-cbt.vercel.app/student.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -85,9 +86,125 @@
         .revise-card { transition: all 0.25s; cursor: pointer; }
         .revise-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.1); }
         .dark .revise-card:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.35); }
+
+        .qr-overlay {
+  position: fixed; inset: 0;
+  background: rgba(90, 45, 130, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.qr-overlay.open {
+  opacity: 1; pointer-events: all;
+}
+.qr-popup {
+  background: white;
+  border-radius: 24px;
+  padding: 28px 24px 20px;
+  width: min(88vw, 340px);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  transform: translateY(30px) scale(0.96);
+  transition: transform 0.35s ease;
+  position: relative;
+}
+.qr-overlay.open .qr-popup {
+  transform: translateY(0) scale(1);
+}
+#qrCanvas canvas, #qrCanvas img {
+  border-radius: 8px;
+}
     </style>
 </head>
+<div id="qrOverlay" class="qr-overlay" onclick="handleOverlayClick(event)">
+  <div class="qr-popup" id="qrPopup">
+    <button onclick="closeQR()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <h3 class="text-lg font-bold text-[#5A2D82]">Share This Course</h3>
+    <p class="text-xs text-gray-400 mt-1 mb-5">Scan or share this link</p>
+    <div class="relative inline-block">
+      <div id="qrCanvas" class="rounded-xl overflow-hidden shadow-md border border-purple-100"></div>
+      <img src="lasued.png" alt="logo"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 border-white shadow bg-white object-contain p-1">
+    </div>
+    <div class="mt-5 flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+      <span id="qrLinkText" class="text-xs text-gray-600 flex-1 truncate text-left"></span>
+      <button onclick="copyLink()" class="text-[#5A2D82] text-xs font-semibold shrink-0 hover:underline">Copy</button>
+    </div>
+    <div class="mt-4 flex gap-3">
+      <button onclick="copyLink()" class="flex-1 bg-purple-50 text-[#5A2D82] font-semibold text-sm py-2.5 rounded-xl border border-purple-200">
+        Copy Link
+      </button>
+      <button onclick="downloadQR()" class="flex-1 bg-[#5A2D82] text-white font-semibold text-sm py-2.5 rounded-xl">
+        Download QR
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const CBT_URL = window.location.origin + window.location.pathname;
+  let qrGenerated = false;
+
+  function openQR() {
+    document.getElementById('qrLinkText').textContent = CBT_URL;
+    document.getElementById('qrOverlay').classList.add('open');
+    if (!qrGenerated) {
+      new QRCode(document.getElementById("qrCanvas"), {
+        text: CBT_URL,
+        width: 220,
+        height: 220,
+        colorDark: "#5A2D82",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      qrGenerated = true;
+    }
+  }
+
+  function closeQR() {
+    document.getElementById('qrOverlay').classList.remove('open');
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target.id === 'qrOverlay') closeQR();
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(CBT_URL).then(() => {
+      const btn = event.target;
+      const orig = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  }
+
+  function downloadQR() {
+    const canvas = document.querySelector('#qrCanvas canvas');
+    if (!canvas) return;
+    const link = document.createElement('a');
+    link.download = 'LASUED-CBT-QR.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  }
+
+  window.addEventListener('popstate', closeQR);
+</script>
+
 <body class="bg-[#FAF9F6] dark:bg-[#1a1a2e] text-gray-900 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen">
+
+    <button onclick="openQR()" class="flex items-center gap-2 bg-[#5A2D82] text-white text-sm font-semibold px-5 py-2 rounded-full shadow-md">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+  </svg>
+  Share Course
+</button>
 
     <!-- ═══════════ TOP NAVIGATION ═══════════ -->
     <nav class="glass-nav sticky top-0 z-50 px-4 py-3 flex items-center justify-between flex-wrap gap-2 shadow-sm">
